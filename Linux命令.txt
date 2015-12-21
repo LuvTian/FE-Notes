@@ -1,0 +1,13 @@
+查看当前所开放的端口	netstat -lnpt	
+查看服务器空间使用情况	df -hl
+查看内存使用情况	free -m
+
+wdcp常用命令：
+清除日志	rm -rf /var/log/*
+
+相关的启动命令
+service wdapache start|stop|restart    wdcp后台 启动|停止|重起
+service nginxd start|stop|restart        nginx服务 启动|停止|重起
+service httpd start|stop|restart          httpd服务 启动|停止|重起
+service pureftpd start|stop|restart     ftp服务 启动|停止|重起
+service mysqld start|stop|restart        mysql服务 启动|停止|重起

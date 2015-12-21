@@ -1,0 +1,29 @@
+vertical-align:middle
+display:table-cell;
+display: inline-table
+padding:2px 5px 6px;三个值表示上、左右、下
+padding: 6px 6px;两个值表示上下、左右
+------------------------------------------------------------------------------------------------------------------------------------------
+$(function(){
+// do something
+});
+等价于
+$(document).ready(function(){
+//do something
+})
+})
+也等价于
+$().ready(function(){
+//do something
+})
+也相当于,但他的执行优先级没有前面三个高
+document.ready = function (){
+//do something
+};
+
+
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+QQ聊天链接 http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes 
+
+tencent://message/?uin=565195693&Site=web攻城狮&Menu=yes

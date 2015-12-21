@@ -1,0 +1,39 @@
+安装notepad++或者其他代码编辑器，然后打开?E:\Program Files\cmder\config目录下的aliases文件，在最后面添加以下代码：
+l=ls --show-control-chars 
+la=ls -aF --show-control-chars 
+ll=ls -alF --show-control-chars 
+ls=ls --show-control-chars -F
+
+字体Consolas
+
+log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+
+系统变量：
+path %SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\开发工具\EmEditor;D:\;odeJS\
+··
+如果path变量之前有内容，则需要在末尾添加一个分号，然后加入内容“c:\windows\system32”
+
+git用户变量
+HOME %USERPROFILE% 免push密码 
+git config --global user.name "Your Name" 配置用户name
+git config --global user.email "you@example.com" 配置用户邮箱
+
+mkdir 文件夹名称 创建新文件夹
+git init 初始化仓库 执行此命令后会在仓库多一个.git的文件夹
+git status 
+git add filename	git add.
+git commit -m "提交日志" 提交
+git push -u origin ziyao
+git checkout -b 分支名称	创建分支并切换到该分支
+git checkout ziyao 切换分支
+git log
+git merge --no-ff -m "这里是merge日志" 要合并到当前分支下的分支名称   合并
+vim index.html 创建一个index.html的文件 可以在里面编辑内容 ESC键保存 shift+: 然后输入x就可以退出vim模式
+
+配置简写
+
+
+
+
+

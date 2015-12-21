@@ -1,0 +1,95 @@
+[field:shorttitle/] 短标题
+[field:description/]...描述 在arclist 里用 [field:info/]...
+function="cn_substr(@me,108)"/]... 截取字符长度
+完整标题 [field:fulltitle/]
+--------------------------------------------------------------------------------------------------------------
+下拉二级菜单调用：
+{dede:channelartlist typeid='top' cacheid='channelsonlist'}
+
+{dede:channel type='son' noself='yes'}
+
+[field:typename/]
+
+{/dede:channel}
+
+{/dede:channelartlist}
+--------------------------------------------------------------------------------------------------------------
+在{arclist}下嵌套图片[field:global.cfg_templeturl/]
+--------------------------------------------------------------------------------------------------------------
+添加自定义属性： 
+系统-SQL命令
+insert into `dede_arcatt`(sortid,att,attname) values(9,'z','推荐');
+alter table `dede_archives` modify `flag` set ('c', 'h', 'p', 'f', 's', 'j', 'a', 'b','z') default NULL;
+
+--------------------------------------------------------------------------------------------------------------
+dede内容页调用相关文章：
+{dede:likeart  titlelen='36' row='7'}          
+{/dede:likeart}
+--------------------------------------------------------------------------------------------------------------
+首页和列表页调用tag标签
+[field:id function="GetTags_list(@me)"/] 或者 [field:id function=GetTags(@me)/]
+文章页：{dede:field.id function="GetTags(@me)/}
+这样调出来的tag是不带链接的，需要替换include\helpers\archive.helper.php文件130行为：
+$tags .= "<a href='/tags.php?/".urlencode($row['tag'])."/'>".$row['tag']."</a> ";
+
+文章内容页调用所有tags:
+{dede:tag row='45' getall='1' sort='hot'} [field:tag/] {/dede:tag} //这种tags没有链接
+在include/common.fun.php最后增加彩色tags函数
+// 彩色tags函数
+function getTagStyle()
+{ 
+	$minFontSize=8; //最小字体大小,可根据需要自行更改 
+
+	$maxFontSize=18; //最大字体大小,可根据需要自行更改 
+
+	return 'font-size:'.($minFontSize+lcg_value()*(abs($maxFontSize-$minFontSize))).'px; 
+
+	color:#'.dechex(rand(0,255)).dechex(rand(0,196)).dechex(rand(0,255)); 
+}
+//彩色tags调用
+{dede:tag row='45' getall='1' sort='hot'} 
+ 
+<a href='[field:link/]' title="[field:tag /]([field:total /])" style="[field:total runphp=yes]@me=getTa 
+gStyle();[/field:total]">[field:tag /]</a> 
+ 
+{/dede:tag} 
+-------------------------------------------------------------------------------------------------------------- 
+数字排序标签：
+[field:global.autoindex/]
+{dede:global.itemindex /}
+--------------------------------------------------------------------------------------------------------------
+dede文章内容页调用当前栏目链接个名称
+<a href="{dede:type typeid='0′ row=1}[field:typelink /]{/dede:type}">{dede:field.typename/}</a>
+附dede栏目页调用方法当前栏目方法是
+<a href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
+
+--------------------------------------------------------------------------------------------------------------
+dede调用自定义字段
+{dede:arclist typeid='6' row='3' flag='p' addfields='字段名称' channelid='4' infolen='135'}
+[field:字段名称/]
+{/dede:arclist}
+--------------------------------------------------------------------------------------------------------------
+列表页调用当前栏目名称{dede:field name='typename'/} 
+列表页调用当前栏目链接{dede:field name='typeurl'/}
+--------------------------------------------------------------------------------------------------------------
+dede arclist里面调用缩略图的两种方法：
+[field:picname/]这种是加在img标签href属性里的
+[field:image/]这种不需要img标签，会自动生成img标签，支持imgwidth=''和imgheight=''属性
+[field:litpic/]
+[field:imglink/]
+--------------------------------------------------------------------------------------------------------------
+dede数据库中admin密文：f297a57a5a743894a0e4 去掉开头三位和最后一位就是MD5密文：
+7a57a5a743894a0e   
+
+--------------------------------------------------------------------------------------------------------------
+织梦新建文章模型后 文章栏目转入新模型操作
+例如新模型的频道ID为5，新模型附加表名称为dede_addonarticle5 ，需要转到新模型下的栏目的ID为30，原模型附加表名称为dede_addonarticle ，则sql操作如下：
+第一步：备份sql
+第二步：将需要的栏目下的文章复制转移到新模型的附加表ede_addonarticle5 
+INSERT INTO dede_addonarticle5(aid,typeid,redirecturl,userip,body) SELECT aid,typeid,redirecturl,userip,body FROM dede_addonarticle where dede_addonarticle.typeid =30
+第三步：更新新模型相关列表
+update dede_arctiny set channel=5 where typeid=30;
+update dede_archives set channel=5 where typeid=30;
+update dede_arctype set channeltype=5 where id =30;
+第四步：删除原模型中的文章
+DELETE  FROM `dede_addonarticle`  where typeid =30
