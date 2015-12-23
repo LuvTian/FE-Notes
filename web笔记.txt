@@ -1,60 +1,71 @@
 ------------------------------------------------------------------------------------------------------------------------------------------
-html��css����
+html、css部分
 ------------------------------------------------------------------------------------------------------------------------------------------
-1.������CSS��ʹ��display:block������Ԫ��ת���ɿ�Ԫ�أ�
-                display:inline���鼶Ԫ��ת�����м�Ԫ�أ�
-img��ǩ���ǿ鼶��ǩ�����м���ǩ������ͬһ������ʾ���������ÿ��ߡ�
+1.可以在CSS中使用display:block将行内元素转换成块元素；
+                display:inline将块级元素转换成行级元素；
+img标签既是块级标签又是行级标签，可以同一行内显示，又能设置宽高。
 
-2.��������鼶Ԫ�����þ���Ŀ��ȣ���ô���Ŀ��Ⱦ�Ĭ����100%�����������ȱ���һ�¡��������Ԫ�����þ���ĸ߶ȣ���ôԪ�صĸ߶Ȼ�������ݵĸ߶����Զ��任��
+2.如果不给块级元素设置具体的宽度，那么他的宽度就默认是100%，跟父级宽度保持一致。如果不给元素设置具体的高度，那么元素的高度会根据内容的高度来自动变换。
 
-3.������ø���Ԫ�ظ���Ԫ���������������Ӧ���ߣ���Ҫ����Ԫ�ؼ���display:inline-block;��ʽ
+3.如果想让父级元素根据元素里面的内容自适应宽高，需要给该元素加上display:inline-block;样式
 
-4.Ҫ��ʹ�����鼶Ԫ�ز�����ͬһ�У����Ը��������Ӷ�Ҫ���󸡶���ʽ����float���Ե�Ԫ�ض��������ĵ����ģ��������Ԫ�ػ�������������
+4.要想使两个块级元素并排在同一行，可以给两个盒子都要加左浮动样式。有float属性的元素都是脱离文档流的，他后面的元素会视他而不见。
 
-5.���һ��Ԫ�������Ԫ����float���ԣ���ô���������Ԫ�ؾͲ��ܰѸ�Ԫ���Զ��ſ�����Ϊ�и������Ե�Ԫ���������ĵ����ģ����൱�������˸�����Լ�������ĸ����͹ܲ�ס�������������1�������ĸ���Ԫ�ؼ���overflow: hidden; 2���������clear: both;��bug�ڳ�ie5-7��������ж�����֡�
+5.如果一个元素里的子元素有float属性，那么他里面的子元素就不能把父元素自动撑开，因为有浮动属性的元素是脱离文档流的，就相当于脱离了父级的约束，他的父级就管不住他。解决方案：1、给他的父级元素加上overflow: hidden; 2、清除浮动clear: both;此bug在除ie5-7的浏览器中都会出现。
 
-6.�ڴ�����Ϊ��ʹ�������ۣ����ֲ���Ҫ���кͿո���ʱ�����ÿ�ע�������滻�кͿո�
+6.在代码中为了使代码美观，按又不需要换行和空格，这时可以用空注释来代替换行和空格。
 
-7.Ҫʹһ�����߶�Ϊ100%��div��ʾ���������ø����div����position: fixed !important;����CSS�����򲻻ᱻ100%�ſ���һ�����ں�������ȿ��ߵ����ֲ㡣
+7.要使一个宽高都为100%的div显示出来，还得给这个div加上position: fixed !important;这条CSS，否则不会被100%撑开。一般用于和浏览器等宽高的遮罩层。
 
-8.CSS3ǰ׺+��׼�����˳��:����д˽�е�CSS3���ԣ���д��׼��CSS3����
--webkit-transform:rotate(-3deg); /*ΪChrome/Safari*/
--moz-transform:rotate(-3deg); /*ΪFirefox*/
--ms-transform:rotate(-3deg); /*ΪIE*/
--o-transform:rotate(-3deg); /*ΪOpera*/
-transform:rotate(-3deg); /*Ϊnothing*/
+8.CSS3前缀+标准代码的顺序:是先写私有的CSS3属性，再写标准的CSS3属性
+-webkit-transform:rotate(-3deg); /*为Chrome/Safari*/
+-moz-transform:rotate(-3deg); /*为Firefox*/
+-ms-transform:rotate(-3deg); /*为IE*/
+-o-transform:rotate(-3deg); /*为Opera*/
+transform:rotate(-3deg); /*为nothing*/
 
-9.�鼶��ǩ��Ԫ�أ���(block)
-	��1���������������Ͽ�ʼ��Ҫ��ռһ�У�ֻ����css�м��󸡶���float:left��������������ǩ��һ����
-	��2�����߶ȣ��и��Լ����͵ױ߾඼�ɿ��ƣ�
-	��3��������ȱʡ������������100%�������趨һ�����ȡ�
-	��4���������鼶��ǩ������<p>������<h1><h2>...���б�,<ul><ol><li>������<table>������<form>��ֻ������������Ԫ�أ� ��div��body��..
+9.块级标签（元素）：(block)
+	（1）、总是在新行上开始，要独占一行，只有在css中加左浮动（float:left）才能与其他标签在一行上
+	（2）、高度，行高以及顶和底边距都可控制；
+	（3）、宽度缺省是它的容器的100%，除非设定一个宽度。
+	（4）、常见块级标签：段落<p>、标题<h1><h2>...、列表,<ul><ol><li>、表格<table>、表单<form>（只能容纳其他块元素） 、div、body…..
 
-10.�м���ǩ��Ԫ�أ���Ҳ��������ǩ  �����ڱ�ǩ�� (inline)
-	��1����������Ԫ�ض���һ���ϣ�
-	��2�����ߣ��и߼����͵ױ߾಻�ɸı䣨�������ÿ��ߣ�
-	��3�������Ⱦ����������ֻ�ͼƬ�Ŀ��ȣ����ɸı䡣
-	��4��������Ԫ��ֻ�������ı�������������Ԫ��
-	��5��������Ԫ�ص�marginֵֻ������ֵ��û������ֵ
-	��6���������м���ǩ��b�� strong ��span�� a 
+10.行级标签（元素）：也叫内联标签  和行内标签。 (inline)
+	（1）、和其他元素都在一行上；
+	（2）、高，行高及顶和底边距不可改变（不能设置宽高）
+	（3）、宽度就是它的文字或图片的宽度，不可改变。
+	（4）、内联元素只能容纳文本或者其他内联元素
+	（5）、行内元素的margin值只有左右值，没有上下值
+	（6）、常见行级标签：b、 strong 、span、 a 
 
-11.position: relative  ��Զ�λ
-���������ԭ����λ�ý��ж�λ��
-��ԭ��ռ�еĿռ�λ�û��ڡ�
-topΪ��ֵ�����˶���Ϊ��ֵ�����˶���leftΪ��ֵ�����˶���Ϊ��ֵ�����˶���
+11.position: relative  相对定位
+是相对于它原来的位置进行定位。
+它原来占有的空间位置还在。
+top为正值往下运动，为负值往上运动；left为正值往右运动，为负值往左运动。
 
-12.position: absolute   ���Զ�λ
-���������������ľ��ж�λ���Եĸ���Ԫ�ؽ��ж�λ��
-��ԭ��ռ�еĿռ�λ�û���ʧ(������Ԫ�ش���)��
-һ�㸸��������Զ�λ���Ӽ����þ��Զ�λ
-��������position: absolute���飺�������margin����ʹ�ã�������Ҫ��position: relative,��ʱ���Ĺ��ܸ�ǿ�󣬶��Ҿ��и����Ժ�����Ӧ�ԡ�position: absolute��float���кܶ�����֮����
+12.position: absolute   绝对定位
+是相对于离它最近的具有定位属性的父级元素进行定位。
+它原来占有的空间位置会消失(被其他元素代替)。
+一般父级采用相对定位，子级采用绝对定位
+无依赖的position: absolute经验：可以配合margin独立使用，父级不要有position: relative,此时他的功能更强大，而且具有跟随性和自适应性。position: absolute和float具有很多相似之处。
 
-13.͸���ȣ�
-opacity:0.5  ����ʽֻ�з���w3c��׼�������֧�ֺ�ie9+֧�֣�ȡֵ��Χ0-1
-filter:alpha(opacity=50)  ����ʽ��ie�����5-9֧�ֵģ�ȡֵ��Χ0-100
-background: rgba(7,6,62,0.5);����ʽie9���°汾��֧��
+13.透明度：
+opacity:0.5  此样式只有符合w3c标准的浏览器支持和ie9+支持，取值范围0-1
+filter:alpha(opacity=50)  此样式是ie浏览器5-9支持的，取值范围0-100
+background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 
-14.��δ֪���ȵ�Ԫ��ˮƽ���еķ�����
+14.如果给一个100%宽度的div设置padding值，这个div的宽度会变大，会撑出滚动条，解决办法是把这个div设置成width:auto;
+
+15.如果给若干li（一组元素）设置样式display: inline-block;这些li会并排显示，如果这些<li>标签之间有空格或者回车，在页面上这些li元素之间就会产生空隙，解决办法有几下几种：
+	(1).给父元素加上font-size:0; (推荐使用)
+	(2).把<li>标签之间的空格或者换行符删除或者替换成空注释
+	(3).给<li>标签都加上float:left属性，但display: inline-block;将失去意义
+	(4).其他方法参考http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-去除间距/
+	
+16.如果高度不一样的元素使用了display: inline-block; 需要使用vertical-align来设置对齐方式。否则会出现参差不齐，参考http://www.zhangxinxu.com/wordpress/2010/11/拜拜了浮动布局-基于displayinline-block的列表布局/
+
+
+17.让未知宽度的元素水平居中的方法：
 
 
 
@@ -84,26 +95,26 @@ background: rgba(7,6,62,0.5);����ʽie9���°汾��֧��
 vertical-align:middle
 display:table-cell;
 display: inline-table
-padding:2px 5px 6px;����ֵ��ʾ�ϡ����ҡ���
-padding: 6px 6px;����ֵ��ʾ���¡�����
+padding:2px 5px 6px;三个值表示上、左右、下
+padding: 6px 6px;两个值表示上下、左右
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-js����
+js部分
 ------------------------------------------------------------------------------------------------------------------------------------------
 $(function(){
 // do something
 });
-�ȼ���
+等价于
 $(document).ready(function(){
 //do something
 })
 })
-Ҳ�ȼ���
+也等价于
 $().ready(function(){
 //do something
 })
-Ҳ�൱��,������ִ�����ȼ�û��ǰ��������
+也相当于,但他的执行优先级没有前面三个高
 document.ready = function (){
 //do something
 };
@@ -111,6 +122,6 @@ document.ready = function (){
 
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
-QQ�������� http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes 
+QQ聊天链接 http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes 
 
-tencent://message/?uin=565195693&Site=web����ʨ&Menu=yes
+tencent://message/?uin=565195693&Site=web攻城狮&Menu=yes
