@@ -64,10 +64,13 @@ dede文章内容页调用当前栏目链接个名称
 <a href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
 
 --------------------------------------------------------------------------------------------------------------
-dede调用自定义字段
+dede列表页调用自定义字段
 {dede:arclist typeid='6' row='3' flag='p' addfields='字段名称' channelid='4' infolen='135'}
 [field:字段名称/]
 {/dede:arclist}
+
+dede内容页调用自定义字段：
+直接{dede:field.字段名称/} 不需要其他的
 --------------------------------------------------------------------------------------------------------------
 列表页调用当前栏目名称{dede:field name='typename'/} 
 列表页调用当前栏目链接{dede:field name='typeurl'/}
