@@ -96,3 +96,13 @@ update dede_archives set channel=5 where typeid=30;
 update dede_arctype set channeltype=5 where id =30;
 第四步：删除原模型中的文章
 DELETE  FROM `dede_addonarticle`  where typeid =30
+--------------------------------------------------------------------------------------------------------------
+【作用】调用与当前栏目页关键词标签相关的文章
+【用法】
+跟arclist一样，并不需要指定keyword值
+例：
+{dede:keyword row='15' titlelen='30' typeid='75,76,77'}
+{/dede:keyword}
+【范围】
+只能在列表页或文章页使用，因为要获取当前栏目的keyword
+--------------------------------------------------------------------------------------------------------------
