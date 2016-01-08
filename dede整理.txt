@@ -106,3 +106,9 @@ DELETE  FROM `dede_addonarticle`  where typeid =30
 【范围】
 只能在列表页或文章页使用，因为要获取当前栏目的keyword
 --------------------------------------------------------------------------------------------------------------
+arclist 循环列表判断实现为最后一个元素添加样式
+{dede:arclist typeid="23" row="5" orderby="id" orderway="asc"}                          
+<li [field:global name="autoindex" runphp='yes']@me = (@me==5 ? "class='mr0'" : ""); [/field:global]>
+<a href=""></a>	
+</li>
+{/dede:arclist}
