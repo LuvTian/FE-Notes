@@ -1,13 +1,33 @@
-�鿴��ǰ�����ŵĶ˿�	netstat -lnpt	
-�鿴�������ռ�ʹ�����	df -hl
-�鿴�ڴ�ʹ�����	free -m
+﻿pwd	查看当前所在目录
+ls	查看当前所在目录下的文件
+clear	清屏
+./xx文件	执行xx文件
+查看某个端口	netstat -an|grep 80（端口号）
+查看防火墙状态	service iptables status	或者iptables-save或者iptables -L -n
+重启防火墙	service iptables restar
+查看端口使用情况	netstat -tln
+列出所有端口 netstat -a
+列出所有 tcp 端口 netstat -at
+列出所有 udp 端口 netstat -au
+只显示监听端口 netstat -l
+只列出所有监听 tcp 端口 netstat -lt
+只列出所有监听 udp 端口 netstat -lu
+显示所有端口的统计信息 netstat -s
+显示 TCP 或 UDP 端口的统计信息 netstat -st 或 -su
+找出程序运行的端口 netstat -ap | grep ssh
+找出运行在指定端口的进程 netstat -an | grep ':80'
+vi :!进入编辑	:w保持	:q退出	:wq保存并退出
 
-wdcp�������
-�����־	rm -rf /var/log/*
+查看当前所开放的端口	netstat -lnpt	
+查看服务器空间使用情况	df -hl
+查看内存使用情况	free -m
 
-��ص���������
-service wdapache start|stop|restart    wdcp��̨ ����|ֹͣ|����
-service nginxd start|stop|restart        nginx���� ����|ֹͣ|����
-service httpd start|stop|restart          httpd���� ����|ֹͣ|����
-service pureftpd start|stop|restart     ftp���� ����|ֹͣ|����
-service mysqld start|stop|restart        mysql���� ����|ֹͣ|����
+wdcp常用命令：
+清除日志	rm -rf /var/log/*
+
+相关的启动命令
+service wdapache start|stop|restart    wdcp后台 启动|停止|重起
+service nginxd start|stop|restart        nginx服务 启动|停止|重起
+service httpd start|stop|restart          httpd服务 启动|停止|重起
+service pureftpd start|stop|restart     ftp服务 启动|停止|重起
+service mysqld start|stop|restart        mysql服务 启动|停止|重起
