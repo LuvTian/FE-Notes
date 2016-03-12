@@ -36,7 +36,7 @@ transform:rotate(-3deg); /*为nothing*/
 	（3）、宽度就是它的文字或图片的宽度，不可改变。
 	（4）、内联元素只能容纳文本或者其他内联元素
 	（5）、行内元素的margin值只有左右值，没有上下值
-	（6）、常见行级标签：b、 strong 、span、 a 
+	（6）、常见行级标签：b、 strong 、span、 a
 
 11.position: relative  相对定位
 是相对于它原来的位置进行定位。
@@ -61,11 +61,14 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 	(2).把<li>标签之间的空格或者换行符删除或者替换成空注释
 	(3).给<li>标签都加上float:left属性，但display: inline-block;将失去意义
 	(4).其他方法参考http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-去除间距/
-	
+
 16.如果高度不一样的元素使用了display: inline-block; 需要使用vertical-align来设置对齐方式。否则会出现参差不齐，参考http://www.zhangxinxu.com/wordpress/2010/11/拜拜了浮动布局-基于displayinline-block的列表布局/
 
+17.一个父级元素内的一个子元素如果有上下外边距，则父级也会产生外边距，关于更多外边距合并的问题参考：http://www.w3school.com.cn/css/css_margin_collapsing.asp
 
-17.让未知宽度的元素水平居中的方法：
+18.做手机站响应式的时候，图片不能用原来的px单位，要转换成%单位。
+
+19.让未知宽度的元素水平居中的方法：
 
 
 
@@ -104,7 +107,7 @@ js部分
 ------------------------------------------------------------------------------------------------------------------------------------------
 1. 所有用点的地方都可以用方括号代替，反之用方括号的地方不一定能用点代替，因为方括号里面可以放字符串显示，而点后面不能跟字符串.
 2. 凡是jquery的事件管理函数，下的this 都是指向dom 元素
-3. 
+3.
 $(function(){
 // do something
 });
@@ -125,6 +128,6 @@ document.ready = function (){
 
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
-QQ聊天链接 http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes 
+QQ聊天链接 http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes
 
 tencent://message/?uin=565195693&Site=web攻城狮&Menu=yes
