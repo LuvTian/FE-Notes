@@ -70,7 +70,9 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 
 19.z-index表示层级关系， 仅能在position定位元素上生效效。
 
-20.让未知宽度的元素水平居中的方法：
+20.解决table中的tb 边框线重叠问题：给table设置样式 border-collapse:collapse
+
+21.让未知宽度的元素水平居中的方法：
 
 
 
