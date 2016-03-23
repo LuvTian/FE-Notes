@@ -72,7 +72,11 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 
 20.解决table中的tb 边框线重叠问题：给table设置样式 border-collapse:collapse
 
-21.让未知宽度的元素水平居中的方法：
+21.响应式页面通用viewport设置：
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+width=device-width 此约束条件的意思是让视口的宽度等于设备的宽
+
+22.让未知宽度的元素水平居中的方法：
 
 
 
@@ -110,7 +114,9 @@ padding: 6px 6px;两个值表示上下、左右
 js部分
 ------------------------------------------------------------------------------------------------------------------------------------------
 1. 所有用点的地方都可以用方括号代替，反之用方括号的地方不一定能用点代替，因为方括号里面可以放字符串显示，而点后面不能跟字符串.
+
 2. 凡是jquery的事件管理函数，下的this 都是指向dom 元素
+
 3.
 $(function(){
 // do something
@@ -128,6 +134,18 @@ $().ready(function(){
 document.ready = function (){
 //do something
 };
+
+4. document.documentElement.clientWidth 浏览器可见区域宽度，如果浏览器缩放这个值也会随之改变
+在浏览器全屏且浏览器右侧没有滚动条的情况下，这个值就等于电脑桌面分辨率的宽度。
+demo:
+getWidth();//初始化
+window.onresize=getWidth;//绑定到onresize事件上
+function getWidth (){document.body.innerHTML=document.documentElement.clientWidth}
+可以用来判断不同屏幕大小然后做响应式（大多数是用css3的媒体查询来做的）,注意在移动端下需要设置viewport才能生效，否则视口宽度为980
+
+
+
+
 
 
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
