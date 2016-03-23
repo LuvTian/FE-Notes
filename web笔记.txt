@@ -135,8 +135,8 @@ document.ready = function (){
 //do something
 };
 
-4. document.documentElement.clientWidth 浏览器可见区域宽度，如果浏览器缩放这个值也会随之改变
-在浏览器全屏且浏览器右侧没有滚动条的情况下，这个值就等于电脑桌面分辨率的宽度。
+4. document.documentElement.clientWidth 浏览器可见区域宽度，如果浏览器缩放这个值也会随之改变。
+在浏览器全屏且浏览器右侧没有滚动条的情况下，这个值就等于电脑桌面分辨率的宽度（注意这个规律仅在PC下适用，iPone的分辨率为1136*640，iPhone的视口为980px(为了让小尺寸屏幕也能显示大尺寸网页,也就是说一个980px宽度的div盒子在这样的手机中可以撑满整个屏幕而不会出现横向滚动条，超出一个像素就会撑出，但是980px的视口不适合做响应式，所以需要设置约束viewport)，所以分辨率和视口没有关系）。
 demo:
 getWidth();//初始化
 window.onresize=getWidth;//绑定到onresize事件上
