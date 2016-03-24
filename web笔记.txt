@@ -76,7 +76,12 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 width=device-width 此约束条件的意思是让视口的宽度等于设备的宽
 
-22.让未知宽度的元素水平居中的方法：
+22.min-width和max-width通常和width值为百分百配合使用，demo:
+div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}表示这个div的宽度会在400px到600px的范围内进行相应。
+
+23.box-sizing:border-box;属性在流式布局中常用到，该属性打破了传统的盒模型，设置了该属性的元素的宽度不会受到border和padding的影响。
+
+24.让未知宽度的元素水平居中的方法：
 
 
 
