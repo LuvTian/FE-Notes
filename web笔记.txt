@@ -81,6 +81,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 23.box-sizing:border-box;属性在流式布局中常用到，该属性打破了传统的盒模型，设置了该属性的元素的宽度不会受到border和padding的影响。
 
+24.width、padding、margin如果用百分数来进行设置，实际上是以自己的父级的宽度为参考的。
+
 24.让未知宽度的元素水平居中的方法：
 
 
