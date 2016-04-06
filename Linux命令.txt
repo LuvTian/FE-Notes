@@ -34,3 +34,9 @@ service nginxd start|stop|restart        nginx服务 启动|停止|重起
 service httpd start|stop|restart          httpd服务 启动|停止|重起
 service pureftpd start|stop|restart     ftp服务 启动|停止|重起
 service mysqld start|stop|restart        mysql服务 启动|停止|重起
+
+
+
+----------------------------------------------------------------------------------------
+cmd命令：
+查看域名解析  nslookup 域名
