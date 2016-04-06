@@ -2,7 +2,7 @@
 ls	查看当前所在目录下的文件
 clear	清屏
 ./xx文件	执行xx文件
-查看某个端口	netstat -an|grep 80（端口号）
+查看某个端口监听情况	netstat -an|grep 80（端口号）  或者  netstat -anp | grep 80
 查看防火墙状态	service iptables status	或者iptables-save或者iptables -L -n
 重启防火墙	service iptables restar
 查看端口使用情况	netstat -tln
