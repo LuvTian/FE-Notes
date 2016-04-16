@@ -5,7 +5,7 @@ clear	清屏
 查看某个端口监听情况	netstat -an|grep 80（端口号）  或者  netstat -anp | grep 80
 查看防火墙状态	service iptables status	或者iptables-save或者iptables -L -n
 重启防火墙	service iptables restar
-查看端口使用情况	netstat -tln
+查看所有被打开的端口  netstat -tanp
 列出所有端口 netstat -a
 列出所有 tcp 端口 netstat -at
 列出所有 udp 端口 netstat -au
@@ -16,7 +16,7 @@ clear	清屏
 显示 TCP 或 UDP 端口的统计信息 netstat -st 或 -su
 找出程序运行的端口 netstat -ap | grep ssh
 找出运行在指定端口的进程 netstat -an | grep ':80'
-vi :!进入编辑	:w保持	:q退出	:wq保存并退出
+vi:进入编辑   	:w保存	:q退出	:wq保存并退出 
 
 查看当前所开放的端口	netstat -lnpt	
 查看服务器空间使用情况	df -hl
