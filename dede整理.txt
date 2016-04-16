@@ -16,14 +16,14 @@ function="cn_substr(@me,108)"/]... 截取字符长度
 --------------------------------------------------------------------------------------------------------------
 在{arclist}下嵌套图片[field:global.cfg_templeturl/]
 --------------------------------------------------------------------------------------------------------------
-添加自定义属性： 
+添加自定义属性：
 系统-SQL命令
 insert into `dede_arcatt`(sortid,att,attname) values(9,'z','推荐');
 alter table `dede_archives` modify `flag` set ('c', 'h', 'p', 'f', 's', 'j', 'a', 'b','z') default NULL;
 
 --------------------------------------------------------------------------------------------------------------
 dede内容页调用相关文章：
-{dede:likeart  titlelen='36' row='7'}          
+{dede:likeart  titlelen='36' row='7'}
 {/dede:likeart}
 --------------------------------------------------------------------------------------------------------------
 首页和列表页调用tag标签
@@ -37,23 +37,23 @@ $tags .= "<a href='/tags.php?/".urlencode($row['tag'])."/'>".$row['tag']."</a> "
 在include/common.fun.php最后增加彩色tags函数
 // 彩色tags函数
 function getTagStyle()
-{ 
-	$minFontSize=8; //最小字体大小,可根据需要自行更改 
+{
+	$minFontSize=8; //最小字体大小,可根据需要自行更改
 
-	$maxFontSize=18; //最大字体大小,可根据需要自行更改 
+	$maxFontSize=18; //最大字体大小,可根据需要自行更改
 
-	return 'font-size:'.($minFontSize+lcg_value()*(abs($maxFontSize-$minFontSize))).'px; 
+	return 'font-size:'.($minFontSize+lcg_value()*(abs($maxFontSize-$minFontSize))).'px;
 
-	color:#'.dechex(rand(0,255)).dechex(rand(0,196)).dechex(rand(0,255)); 
+	color:#'.dechex(rand(0,255)).dechex(rand(0,196)).dechex(rand(0,255));
 }
 //彩色tags调用
-{dede:tag row='45' getall='1' sort='hot'} 
- 
-<a href='[field:link/]' title="[field:tag /]([field:total /])" style="[field:total runphp=yes]@me=getTa 
-gStyle();[/field:total]">[field:tag /]</a> 
- 
-{/dede:tag} 
--------------------------------------------------------------------------------------------------------------- 
+{dede:tag row='45' getall='1' sort='hot'}
+
+<a href='[field:link/]' title="[field:tag /]([field:total /])" style="[field:total runphp=yes]@me=getTa
+gStyle();[/field:total]">[field:tag /]</a>
+
+{/dede:tag}
+--------------------------------------------------------------------------------------------------------------
 数字排序标签：
 [field:global.autoindex/]
 {dede:global.itemindex /}
@@ -72,7 +72,7 @@ dede列表页调用自定义字段
 dede内容页调用自定义字段：
 直接{dede:field.字段名称/} 不需要其他的
 --------------------------------------------------------------------------------------------------------------
-列表页调用当前栏目名称{dede:field name='typename'/} 
+列表页调用当前栏目名称{dede:field name='typename'/}
 列表页调用当前栏目链接{dede:field name='typeurl'/}
 --------------------------------------------------------------------------------------------------------------
 dede arclist里面调用缩略图的两种方法：
@@ -82,13 +82,13 @@ dede arclist里面调用缩略图的两种方法：
 [field:imglink/]
 --------------------------------------------------------------------------------------------------------------
 dede数据库中admin密文：f297a57a5a743894a0e4 去掉开头三位和最后一位就是MD5密文：
-7a57a5a743894a0e   
+7a57a5a743894a0e   -->md5(admin)
 
 --------------------------------------------------------------------------------------------------------------
 织梦新建文章模型后 文章栏目转入新模型操作
 例如新模型的频道ID为5，新模型附加表名称为dede_addonarticle5 ，需要转到新模型下的栏目的ID为30，原模型附加表名称为dede_addonarticle ，则sql操作如下：
 第一步：备份sql
-第二步：将需要的栏目下的文章复制转移到新模型的附加表ede_addonarticle5 
+第二步：将需要的栏目下的文章复制转移到新模型的附加表ede_addonarticle5
 INSERT INTO dede_addonarticle5(aid,typeid,redirecturl,userip,body) SELECT aid,typeid,redirecturl,userip,body FROM dede_addonarticle where dede_addonarticle.typeid =30
 第三步：更新新模型相关列表
 update dede_arctiny set channel=5 where typeid=30;
@@ -107,8 +107,8 @@ DELETE  FROM `dede_addonarticle`  where typeid =30
 只能在列表页或文章页使用，因为要获取当前栏目的keyword
 --------------------------------------------------------------------------------------------------------------
 arclist 循环列表判断实现为最后一个元素添加样式
-{dede:arclist typeid="23" row="5" orderby="id" orderway="asc"}                          
+{dede:arclist typeid="23" row="5" orderby="id" orderway="asc"}
 <li [field:global name="autoindex" runphp='yes']@me = (@me==5 ? "class='mr0'" : ""); [/field:global]>
-<a href=""></a>	
+<a href=""></a>
 </li>
 {/dede:arclist}
