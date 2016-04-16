@@ -1,5 +1,6 @@
 ﻿pwd	查看当前所在目录
 ls	查看当前所在目录下的文件
+ls -l 查看当前目录下文件的状态（权限、用户组、时间）
 clear	清屏
 ./xx文件	执行xx文件
 查看某个端口监听情况	netstat -an|grep 80（端口号）  或者  netstat -anp | grep 80
