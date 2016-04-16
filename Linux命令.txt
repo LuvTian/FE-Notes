@@ -16,15 +16,20 @@ clear	清屏
 显示 TCP 或 UDP 端口的统计信息 netstat -st 或 -su
 找出程序运行的端口 netstat -ap | grep ssh
 找出运行在指定端口的进程 netstat -an | grep ':80'
-用vim编辑文件: 1.vi 文件名 进入编辑模式  2.insert键插入修改内容  	3.:w保存	:q退出	:wq保存并退出 
+用vim编辑文件: 1.vi 文件名 进入编辑模式  2.insert键插入修改内容  	3.:w保存	:q退出	:wq保存并退出
 
-查看当前所开放的端口	netstat -lnpt	
+查看当前所开放的端口	netstat -lnpt
 查看服务器空间使用情况	df -hl
 查看内存使用情况	free -m
 
 查看内存占用较多的前10个进程信息 ps aux | sort -k4,4nr | head -n 10
 查看到之后，通过kill -9 +进程的pid数字，将高内存进程停掉，第四列数字是内存占用情况
 
+
+chmod 644 filename 修改文件权限
+mv filename newfilename 修改文件名
+遇到Read-only file system错误的时候   可以执行mount -o remount rw /
+--------------------------------------------------------------------------------------
 wdcp常用命令：
 清除日志	rm -rf /var/log/*
 
