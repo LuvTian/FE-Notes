@@ -1,0 +1,2 @@
+1.让ie8兼容部分css3属性的插件http://css3pie.com/
+  注意在css文件里引用PIE.htc文件的路径是相对于html文件的，而不是相对于css文件的

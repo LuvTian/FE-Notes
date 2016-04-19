@@ -1,37 +1,37 @@
-°²×°notepad++»òÕßÆäËû´úÂë±à¼­Æ÷£¬È»ºó´ò¿ª?E:\Program Files\cmder\configÄ¿Â¼ÏÂµÄaliasesÎÄ¼ş£¬ÔÚ×îºóÃæÌí¼ÓÒÔÏÂ´úÂë£º
-l=ls --show-control-chars 
-la=ls -aF --show-control-chars 
-ll=ls -alF --show-control-chars 
+å®‰è£…notepad++æˆ–è€…å…¶ä»–ä»£ç ç¼–è¾‘å™¨ï¼Œç„¶åæ‰“å¼€?E:\Program Files\cmder\configç›®å½•ä¸‹çš„aliasesæ–‡ä»¶ï¼Œåœ¨æœ€åé¢æ·»åŠ ä»¥ä¸‹ä»£ç ï¼š
+l=ls --show-control-chars
+la=ls -aF --show-control-chars
+ll=ls -alF --show-control-chars
 ls=ls --show-control-chars -F
 
-×ÖÌåConsolas
+å­—ä½“Consolas
 
 log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 
-ÏµÍ³±äÁ¿£º
-path %SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\¿ª·¢¹¤¾ß\EmEditor;D:\;odeJS\
-¡¤¡¤
-Èç¹ûpath±äÁ¿Ö®Ç°ÓĞÄÚÈİ£¬ÔòĞèÒªÔÚÄ©Î²Ìí¼ÓÒ»¸ö·ÖºÅ£¬È»ºó¼ÓÈëÄÚÈİ¡°c:\windows\system32¡±
+ç³»ç»Ÿå˜é‡ï¼š
+path %SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\å¼€å‘å·¥å…·\EmEditor;D:\;odeJS\
+ãƒ»ãƒ»
+å¦‚æœpathå˜é‡ä¹‹å‰æœ‰å†…å®¹ï¼Œåˆ™éœ€è¦åœ¨æœ«å°¾æ·»åŠ ä¸€ä¸ªåˆ†å·ï¼Œç„¶ååŠ å…¥å†…å®¹â€œc:\windows\system32â€
 
-gitÓÃ»§±äÁ¿
-HOME %USERPROFILE% ÃâpushÃÜÂë 
-git config --global user.name "Your Name" ÅäÖÃÓÃ»§name
-git config --global user.email "you@example.com" ÅäÖÃÓÃ»§ÓÊÏä
+gitç”¨æˆ·å˜é‡
+HOME %USERPROFILE% å…pushå¯†ç 
+git config --global user.name "Your Name" é…ç½®ç”¨æˆ·name
+git config --global user.email "you@example.com" é…ç½®ç”¨æˆ·é‚®ç®±
 
-mkdir ÎÄ¼ş¼ĞÃû³Æ ´´½¨ĞÂÎÄ¼ş¼Ğ
-git init ³õÊ¼»¯²Ö¿â Ö´ĞĞ´ËÃüÁîºó»áÔÚ²Ö¿â¶àÒ»¸ö.gitµÄÎÄ¼ş¼Ğ
-git status 
+mkdir æ–‡ä»¶å¤¹åç§° åˆ›å»ºæ–°æ–‡ä»¶å¤¹
+git init åˆå§‹åŒ–ä»“åº“ æ‰§è¡Œæ­¤å‘½ä»¤åä¼šåœ¨ä»“åº“å¤šä¸€ä¸ª.gitçš„æ–‡ä»¶å¤¹
+git status
 git add filename	git add.
-git commit -m "Ìá½»ÈÕÖ¾" Ìá½»
+git commit -m "æäº¤æ—¥å¿—" æäº¤
 git push -u origin ziyao
-git checkout -b ·ÖÖ§Ãû³Æ	´´½¨·ÖÖ§²¢ÇĞ»»µ½¸Ã·ÖÖ§
-git checkout ziyao ÇĞ»»·ÖÖ§
+git checkout -b åˆ†æ”¯åç§°	åˆ›å»ºåˆ†æ”¯å¹¶åˆ‡æ¢åˆ°è¯¥åˆ†æ”¯
+git checkout ziyao åˆ‡æ¢åˆ†æ”¯
 git log
-git merge --no-ff -m "ÕâÀïÊÇmergeÈÕÖ¾" ÒªºÏ²¢µ½µ±Ç°·ÖÖ§ÏÂµÄ·ÖÖ§Ãû³Æ   ºÏ²¢
-vim index.html ´´½¨Ò»¸öindex.htmlµÄÎÄ¼ş ¿ÉÒÔÔÚÀïÃæ±à¼­ÄÚÈİ ESC¼ü±£´æ shift+: È»ºóÊäÈëx¾Í¿ÉÒÔÍË³övimÄ£Ê½
+git merge --no-ff -m "è¿™é‡Œæ˜¯mergeæ—¥å¿—" è¦åˆå¹¶åˆ°å½“å‰åˆ†æ”¯ä¸‹çš„åˆ†æ”¯åç§°   åˆå¹¶
+vim index.html åˆ›å»ºä¸€ä¸ªindex.htmlçš„æ–‡ä»¶ å¯ä»¥åœ¨é‡Œé¢ç¼–è¾‘å†…å®¹ ESCé”®ä¿å­˜ shift+: ç„¶åè¾“å…¥xå°±å¯ä»¥é€€å‡ºvimæ¨¡å¼
 
-ÅäÖÃ¼òĞ´
+é…ç½®ç®€å†™
 
 
 

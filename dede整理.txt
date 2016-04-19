@@ -1,9 +1,9 @@
-[field:shorttitle/] ¶Ì±êÌâ
-[field:description/]...ÃèÊö ÔÚarclist ÀïÓÃ [field:info/]...
-function="cn_substr(@me,108)"/]... ½ØÈ¡×Ö·û³¤¶È
-ÍêÕû±êÌâ [field:fulltitle/]
+[field:shorttitle/] çŸ­æ ‡é¢˜
+[field:description/]...æè¿° åœ¨arclist é‡Œç”¨ [field:info/]...
+function="cn_substr(@me,108)"/]... æˆªå–å­—ç¬¦é•¿åº¦
+å®Œæ•´æ ‡é¢˜ [field:fulltitle/]
 --------------------------------------------------------------------------------------------------------------
-ÏÂÀ­¶ş¼¶²Ëµ¥µ÷ÓÃ£º
+ä¸‹æ‹‰äºŒçº§èœå•è°ƒç”¨ï¼š
 {dede:channelartlist typeid='top' cacheid='channelsonlist'}
 
 {dede:channel type='son' noself='yes'}
@@ -14,39 +14,39 @@ function="cn_substr(@me,108)"/]... ½ØÈ¡×Ö·û³¤¶È
 
 {/dede:channelartlist}
 --------------------------------------------------------------------------------------------------------------
-ÔÚ{arclist}ÏÂÇ¶Ì×Í¼Æ¬[field:global.cfg_templeturl/]
+åœ¨{arclist}ä¸‹åµŒå¥—å›¾ç‰‡[field:global.cfg_templeturl/]
 --------------------------------------------------------------------------------------------------------------
-Ìí¼Ó×Ô¶¨ÒåÊôĞÔ£º
-ÏµÍ³-SQLÃüÁî
-insert into `dede_arcatt`(sortid,att,attname) values(9,'z','ÍÆ¼ö');
+æ·»åŠ è‡ªå®šä¹‰å±æ€§ï¼š
+ç³»ç»Ÿ-SQLå‘½ä»¤
+insert into `dede_arcatt`(sortid,att,attname) values(9,'z','æ¨è');
 alter table `dede_archives` modify `flag` set ('c', 'h', 'p', 'f', 's', 'j', 'a', 'b','z') default NULL;
 
 --------------------------------------------------------------------------------------------------------------
-dedeÄÚÈİÒ³µ÷ÓÃÏà¹ØÎÄÕÂ£º
+dedeå†…å®¹é¡µè°ƒç”¨ç›¸å…³æ–‡ç« ï¼š
 {dede:likeart  titlelen='36' row='7'}
 {/dede:likeart}
 --------------------------------------------------------------------------------------------------------------
-Ê×Ò³ºÍÁĞ±íÒ³µ÷ÓÃtag±êÇ©
-[field:id function="GetTags_list(@me)"/] »òÕß [field:id function=GetTags(@me)/]
-ÎÄÕÂÒ³£º{dede:field.id function="GetTags(@me)/}
-ÕâÑùµ÷³öÀ´µÄtagÊÇ²»´øÁ´½ÓµÄ£¬ĞèÒªÌæ»»include\helpers\archive.helper.phpÎÄ¼ş130ĞĞÎª£º
+é¦–é¡µå’Œåˆ—è¡¨é¡µè°ƒç”¨tagæ ‡ç­¾
+[field:id function="GetTags_list(@me)"/] æˆ–è€… [field:id function=GetTags(@me)/]
+æ–‡ç« é¡µï¼š{dede:field.id function="GetTags(@me)/}
+è¿™æ ·è°ƒå‡ºæ¥çš„tagæ˜¯ä¸å¸¦é“¾æ¥çš„ï¼Œéœ€è¦æ›¿æ¢include\helpers\archive.helper.phpæ–‡ä»¶130è¡Œä¸ºï¼š
 $tags .= "<a href='/tags.php?/".urlencode($row['tag'])."/'>".$row['tag']."</a> ";
 
-ÎÄÕÂÄÚÈİÒ³µ÷ÓÃËùÓĞtags:
-{dede:tag row='45' getall='1' sort='hot'} [field:tag/] {/dede:tag} //ÕâÖÖtagsÃ»ÓĞÁ´½Ó
-ÔÚinclude/common.fun.php×îºóÔö¼Ó²ÊÉ«tagsº¯Êı
-// ²ÊÉ«tagsº¯Êı
+æ–‡ç« å†…å®¹é¡µè°ƒç”¨æ‰€æœ‰tags:
+{dede:tag row='45' getall='1' sort='hot'} [field:tag/] {/dede:tag} //è¿™ç§tagsæ²¡æœ‰é“¾æ¥
+åœ¨include/common.fun.phpæœ€åå¢åŠ å½©è‰²tagså‡½æ•°
+// å½©è‰²tagså‡½æ•°
 function getTagStyle()
 {
-	$minFontSize=8; //×îĞ¡×ÖÌå´óĞ¡,¿É¸ù¾İĞèÒª×ÔĞĞ¸ü¸Ä
+	$minFontSize=8; //æœ€å°å­—ä½“å¤§å°,å¯æ ¹æ®éœ€è¦è‡ªè¡Œæ›´æ”¹
 
-	$maxFontSize=18; //×î´ó×ÖÌå´óĞ¡,¿É¸ù¾İĞèÒª×ÔĞĞ¸ü¸Ä
+	$maxFontSize=18; //æœ€å¤§å­—ä½“å¤§å°,å¯æ ¹æ®éœ€è¦è‡ªè¡Œæ›´æ”¹
 
 	return 'font-size:'.($minFontSize+lcg_value()*(abs($maxFontSize-$minFontSize))).'px;
 
 	color:#'.dechex(rand(0,255)).dechex(rand(0,196)).dechex(rand(0,255));
 }
-//²ÊÉ«tagsµ÷ÓÃ
+//å½©è‰²tagsè°ƒç”¨
 {dede:tag row='45' getall='1' sort='hot'}
 
 <a href='[field:link/]' title="[field:tag /]([field:total /])" style="[field:total runphp=yes]@me=getTa
@@ -54,59 +54,59 @@ gStyle();[/field:total]">[field:tag /]</a>
 
 {/dede:tag}
 --------------------------------------------------------------------------------------------------------------
-Êı×ÖÅÅĞò±êÇ©£º
+æ•°å­—æ’åºæ ‡ç­¾ï¼š
 [field:global.autoindex/]
 {dede:global.itemindex /}
 --------------------------------------------------------------------------------------------------------------
-dedeÎÄÕÂÄÚÈİÒ³µ÷ÓÃµ±Ç°À¸Ä¿Á´½Ó¸öÃû³Æ
-<a href="{dede:type typeid='0¡ä row=1}[field:typelink /]{/dede:type}">{dede:field.typename/}</a>
-¸½dedeÀ¸Ä¿Ò³µ÷ÓÃ·½·¨µ±Ç°À¸Ä¿·½·¨ÊÇ
+dedeæ–‡ç« å†…å®¹é¡µè°ƒç”¨å½“å‰æ ç›®é“¾æ¥ä¸ªåç§°
+<a href="{dede:type typeid='0â€² row=1}[field:typelink /]{/dede:type}">{dede:field.typename/}</a>
+é™„dedeæ ç›®é¡µè°ƒç”¨æ–¹æ³•å½“å‰æ ç›®æ–¹æ³•æ˜¯
 <a href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
 
 --------------------------------------------------------------------------------------------------------------
-dedeÁĞ±íÒ³µ÷ÓÃ×Ô¶¨Òå×Ö¶Î
-{dede:arclist typeid='6' row='3' flag='p' addfields='×Ö¶ÎÃû³Æ' channelid='4' infolen='135'}
-[field:×Ö¶ÎÃû³Æ/]
+dedeåˆ—è¡¨é¡µè°ƒç”¨è‡ªå®šä¹‰å­—æ®µ
+{dede:arclist typeid='6' row='3' flag='p' addfields='å­—æ®µåç§°' channelid='4' infolen='135'}
+[field:å­—æ®µåç§°/]
 {/dede:arclist}
 
-dedeÄÚÈİÒ³µ÷ÓÃ×Ô¶¨Òå×Ö¶Î£º
-Ö±½Ó{dede:field.×Ö¶ÎÃû³Æ/} ²»ĞèÒªÆäËûµÄ
+dedeå†…å®¹é¡µè°ƒç”¨è‡ªå®šä¹‰å­—æ®µï¼š
+ç›´æ¥{dede:field.å­—æ®µåç§°/} ä¸éœ€è¦å…¶ä»–çš„
 --------------------------------------------------------------------------------------------------------------
-ÁĞ±íÒ³µ÷ÓÃµ±Ç°À¸Ä¿Ãû³Æ{dede:field name='typename'/}
-ÁĞ±íÒ³µ÷ÓÃµ±Ç°À¸Ä¿Á´½Ó{dede:field name='typeurl'/}
+åˆ—è¡¨é¡µè°ƒç”¨å½“å‰æ ç›®åç§°{dede:field name='typename'/}
+åˆ—è¡¨é¡µè°ƒç”¨å½“å‰æ ç›®é“¾æ¥{dede:field name='typeurl'/}
 --------------------------------------------------------------------------------------------------------------
-dede arclistÀïÃæµ÷ÓÃËõÂÔÍ¼µÄÁ½ÖÖ·½·¨£º
-[field:picname/]ÕâÖÖÊÇ¼ÓÔÚimg±êÇ©hrefÊôĞÔÀïµÄ
-[field:image/]ÕâÖÖ²»ĞèÒªimg±êÇ©£¬»á×Ô¶¯Éú³Éimg±êÇ©£¬Ö§³Öimgwidth=''ºÍimgheight=''ÊôĞÔ
+dede arclisté‡Œé¢è°ƒç”¨ç¼©ç•¥å›¾çš„ä¸¤ç§æ–¹æ³•ï¼š
+[field:picname/]è¿™ç§æ˜¯åŠ åœ¨imgæ ‡ç­¾hrefå±æ€§é‡Œçš„
+[field:image/]è¿™ç§ä¸éœ€è¦imgæ ‡ç­¾ï¼Œä¼šè‡ªåŠ¨ç”Ÿæˆimgæ ‡ç­¾ï¼Œæ”¯æŒimgwidth=''å’Œimgheight=''å±æ€§
 [field:litpic/]
 [field:imglink/]
 --------------------------------------------------------------------------------------------------------------
-dedeÊı¾İ¿âÖĞadminÃÜÎÄ£ºf297a57a5a743894a0e4 È¥µô¿ªÍ·ÈıÎ»ºÍ×îºóÒ»Î»¾ÍÊÇMD5ÃÜÎÄ£º
+dedeæ•°æ®åº“ä¸­adminå¯†æ–‡ï¼šf297a57a5a743894a0e4 å»æ‰å¼€å¤´ä¸‰ä½å’Œæœ€åä¸€ä½å°±æ˜¯MD5å¯†æ–‡ï¼š
 7a57a5a743894a0e   -->md5(admin)
 
 --------------------------------------------------------------------------------------------------------------
-Ö¯ÃÎĞÂ½¨ÎÄÕÂÄ£ĞÍºó ÎÄÕÂÀ¸Ä¿×ªÈëĞÂÄ£ĞÍ²Ù×÷
-ÀıÈçĞÂÄ£ĞÍµÄÆµµÀIDÎª5£¬ĞÂÄ£ĞÍ¸½¼Ó±íÃû³ÆÎªdede_addonarticle5 £¬ĞèÒª×ªµ½ĞÂÄ£ĞÍÏÂµÄÀ¸Ä¿µÄIDÎª30£¬Ô­Ä£ĞÍ¸½¼Ó±íÃû³ÆÎªdede_addonarticle £¬Ôòsql²Ù×÷ÈçÏÂ£º
-µÚÒ»²½£º±¸·İsql
-µÚ¶ş²½£º½«ĞèÒªµÄÀ¸Ä¿ÏÂµÄÎÄÕÂ¸´ÖÆ×ªÒÆµ½ĞÂÄ£ĞÍµÄ¸½¼Ó±íede_addonarticle5
+ç»‡æ¢¦æ–°å»ºæ–‡ç« æ¨¡å‹å æ–‡ç« æ ç›®è½¬å…¥æ–°æ¨¡å‹æ“ä½œ
+ä¾‹å¦‚æ–°æ¨¡å‹çš„é¢‘é“IDä¸º5ï¼Œæ–°æ¨¡å‹é™„åŠ è¡¨åç§°ä¸ºdede_addonarticle5 ï¼Œéœ€è¦è½¬åˆ°æ–°æ¨¡å‹ä¸‹çš„æ ç›®çš„IDä¸º30ï¼ŒåŸæ¨¡å‹é™„åŠ è¡¨åç§°ä¸ºdede_addonarticle ï¼Œåˆ™sqlæ“ä½œå¦‚ä¸‹ï¼š
+ç¬¬ä¸€æ­¥ï¼šå¤‡ä»½sql
+ç¬¬äºŒæ­¥ï¼šå°†éœ€è¦çš„æ ç›®ä¸‹çš„æ–‡ç« å¤åˆ¶è½¬ç§»åˆ°æ–°æ¨¡å‹çš„é™„åŠ è¡¨ede_addonarticle5
 INSERT INTO dede_addonarticle5(aid,typeid,redirecturl,userip,body) SELECT aid,typeid,redirecturl,userip,body FROM dede_addonarticle where dede_addonarticle.typeid =30
-µÚÈı²½£º¸üĞÂĞÂÄ£ĞÍÏà¹ØÁĞ±í
+ç¬¬ä¸‰æ­¥ï¼šæ›´æ–°æ–°æ¨¡å‹ç›¸å…³åˆ—è¡¨
 update dede_arctiny set channel=5 where typeid=30;
 update dede_archives set channel=5 where typeid=30;
 update dede_arctype set channeltype=5 where id =30;
-µÚËÄ²½£ºÉ¾³ıÔ­Ä£ĞÍÖĞµÄÎÄÕÂ
+ç¬¬å››æ­¥ï¼šåˆ é™¤åŸæ¨¡å‹ä¸­çš„æ–‡ç« 
 DELETE  FROM `dede_addonarticle`  where typeid =30
 --------------------------------------------------------------------------------------------------------------
-¡¾×÷ÓÃ¡¿µ÷ÓÃÓëµ±Ç°À¸Ä¿Ò³¹Ø¼ü´Ê±êÇ©Ïà¹ØµÄÎÄÕÂ
-¡¾ÓÃ·¨¡¿
-¸úarclistÒ»Ñù£¬²¢²»ĞèÒªÖ¸¶¨keywordÖµ
-Àı£º
+ã€ä½œç”¨ã€‘è°ƒç”¨ä¸å½“å‰æ ç›®é¡µå…³é”®è¯æ ‡ç­¾ç›¸å…³çš„æ–‡ç« 
+ã€ç”¨æ³•ã€‘
+è·Ÿarclistä¸€æ ·ï¼Œå¹¶ä¸éœ€è¦æŒ‡å®škeywordå€¼
+ä¾‹ï¼š
 {dede:keyword row='15' titlelen='30' typeid='75,76,77'}
 {/dede:keyword}
-¡¾·¶Î§¡¿
-Ö»ÄÜÔÚÁĞ±íÒ³»òÎÄÕÂÒ³Ê¹ÓÃ£¬ÒòÎªÒª»ñÈ¡µ±Ç°À¸Ä¿µÄkeyword
+ã€èŒƒå›´ã€‘
+åªèƒ½åœ¨åˆ—è¡¨é¡µæˆ–æ–‡ç« é¡µä½¿ç”¨ï¼Œå› ä¸ºè¦è·å–å½“å‰æ ç›®çš„keyword
 --------------------------------------------------------------------------------------------------------------
-arclist Ñ­»·ÁĞ±íÅĞ¶ÏÊµÏÖÎª×îºóÒ»¸öÔªËØÌí¼ÓÑùÊ½
+arclist å¾ªç¯åˆ—è¡¨åˆ¤æ–­å®ç°ä¸ºæœ€åä¸€ä¸ªå…ƒç´ æ·»åŠ æ ·å¼
 {dede:arclist typeid="23" row="5" orderby="id" orderway="asc"}
 <li [field:global name="autoindex" runphp='yes']@me = (@me==5 ? "class='mr0'" : ""); [/field:global]>
 <a href=""></a>
