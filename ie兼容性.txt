@@ -1,2 +1,11 @@
 1.让ie8兼容部分css3属性的插件http://css3pie.com/
-  注意在css文件里引用PIE.htc文件的路径是相对于html文件的，而不是相对于css文件的
+  注意在css文件里引用PIE.htc文件的路径是相对于html文件的，而不是相对于css文件的，并且有时候需要给元素加上position:relative;z-index:0;属性才能生效
+  也可以使用他的js插件PIE_IE678.js，需要调用一下 $(function(){if (window.PIE){$('img').each(function() {PIE.attach(this);});}})
+
+2. selectivizr.js可以让ie8支持部分css3选择器,但这个插件在ie下容易造成浏览器崩溃。
+
+3.透明度写法：filter: alpha(opacity=80)
+
+4.<!--[if ite IE 8]><![endif]--> 表示ie8及以下可以识别
+
+5.ie8下padding和%
