@@ -8,4 +8,7 @@
 
 4.<!--[if ite IE 8]><![endif]--> 表示ie8及以下可以识别
 
-5.ie8下padding和%
+5.让ie8支持media query的插件respond.js（https://github.com/scottjehl/Respond）推荐使用、css3-mediaqueries-js（https://github.com/livingston/css3-mediaqueries-js）支持几乎所有的media query的语法
+
+6.ie8下padding和%
+
