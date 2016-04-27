@@ -65,6 +65,7 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 16.如果高度不一样的元素使用了display: inline-block; 需要使用vertical-align来设置对齐方式。否则会出现参差不齐，参考http://www.zhangxinxu.com/wordpress/2010/11/拜拜了浮动布局-基于displayinline-block的列表布局/
 
 17.一个父级元素内的一个子元素如果有上下外边距，则父级也会产生外边距，如果不想让子级的外边距传递给父级，可以给父级元素加上overflow:hidden;属性。关于更多外边距合并的问题参考：http://www.w3school.com.cn/css/css_margin_collapsing.asp
+   如果父级和子级都有外边距
 
 18.做手机站响应式的时候，图片不能用原来的px单位，要转换成%单位。
 
