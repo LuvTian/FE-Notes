@@ -17,7 +17,7 @@ img标签既是块级标签又是行级标签，可以同一行内显示，又�
 
 7.要使一个宽高都为100%的div显示出来，还得给这个div加上position: fixed !important;这条CSS，否则不会被100%撑开。一般用于和浏览器等宽高的遮罩层。
 
-8.CSS3前缀+标准代码的顺序:是先写私有的CSS3属性，再写标准的CSS3属性
+8.CSS3前缀+标准代码的顺序:是先写私有的CSS3属性，再写标准的CSS3属性,标准的语法必须放在最后.
 -webkit-transform:rotate(-3deg); /*为Chrome/Safari*/
 -moz-transform:rotate(-3deg); /*为Firefox*/
 -ms-transform:rotate(-3deg); /*为IE*/
