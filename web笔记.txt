@@ -84,7 +84,15 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 24.width、padding、margin如果用百分数来进行设置，实际上是以自己的父级的宽度为参考的。
 
-24.让未知宽度的元素水平居中的方法：
+25.em和rem的区别：em和rem都是相对单位，px的固定的，比如1em或1rem在不同的情况下换算出的结果可能不一样，em是相对于当前元素的大小来计算的，如果当前元素大小没有设置，则继续一层一层往父级找，找到设置的大小为止，rem（root em）也是相对的，但rem不是相对于当前元素或父级，而是对于了根元素html来的。
+
+26.html{-webkit-text-size-adjust: none;}禁用Webkit内核浏览器的文字大小调整功能。可以让chrome显示小于12px的字体。
+
+27.移动端的设计稿的宽度一般是640px。
+
+28.去除移动端点击事件时出现的背后高亮效果，给被点击的元素加上样式：-webkit-tap-highlight-color:rgba(0,0,0,0);同时也可以通过这个来设置点击时背景高亮。一般都是不需要的。
+
+29.让未知宽度的元素水平居中的方法：
 
 
 
