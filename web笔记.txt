@@ -94,9 +94,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 29.多行文字垂直居中：
 	<style>
-	    .box1{display: table;width: 400px;height: 300px;border:1px solid blue;text-align: center;}
-	    .box2{display: table-cell;vertical-align:middle;}
-	    p{vertical-align:middle;}
+	    .box1{display: table;width: 400px;height: 300px;border:1px solid blue;text-align: center;}//display: table;是必须的类似<table>
+	    .box2{display: table-cell;vertical-align:middle;}//display: table-cell是必须的，此元素会作为一个表格单元格显示（类似 <td> 和 <th>）。vertical-align:middle;也是必须的，垂直居中
 	</style>
 	<div class="box1">
 	    <div class="box2">
