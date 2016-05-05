@@ -92,7 +92,7 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 28.去除移动端点击事件时出现的背后高亮效果，给被点击的元素加上样式：-webkit-tap-highlight-color:rgba(0,0,0,0);同时也可以通过这个来设置点击时背景高亮。一般都是不需要的。
 
-29.多行文字垂直居中：
+29.多行文字垂直居中（也适用于单行文本）：
 	<style>
 	    .box1{display: table;width: 400px;height: 300px;border:1px solid blue;text-align: center;}//display: table;是必须的类似<table>
 	    .box2{display: table-cell;vertical-align:middle;}//display: table-cell是必须的，此元素会作为一个表格单元格显示（类似 <td> 和 <th>）。vertical-align:middle;也是必须的，垂直居中
