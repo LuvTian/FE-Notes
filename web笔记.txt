@@ -105,7 +105,18 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 	    </div>
 	</div>
 
-29.让未知宽度的元素水平居中的方法：
+30. 关于伪类选择器:first-child无效的问题：无效的原因是因为使用此伪类的元素前面不能有兄弟节点，比如这样的就会无效
+	div p:first-child{color:red;}
+	<div>
+	    <h2>标题</h2>
+	    <p>一段文字</p>
+	    <p>一段文字。。。。</p>
+	</div>
+	解决方法1:去掉p元素前面的h2元素，方法二：使用:first-of-type代替:first-child
+
+
+
+31.让未知宽度的元素水平居中的方法：
 
 
 
