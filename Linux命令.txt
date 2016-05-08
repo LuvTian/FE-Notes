@@ -29,7 +29,7 @@ clear	清屏
 
 chmod 644 filename 修改文件权限
 mv filename newfilename 修改文件名
-遇到Read-only file system错误的时候   可以执行mount -o remount rw /
+
 --------------------------------------------------------------------------------------
 wdcp常用命令：
 清除日志	rm -rf /var/log/*
@@ -42,7 +42,19 @@ service pureftpd start|stop|restart     ftp服务 启动|停止|重起
 service mysqld start|stop|restart        mysql服务 启动|停止|重起
 
 
+----------------------------------------------------------------------------------------
+常用linux命令：
+
+cat filename 预览文件内容
+shutdown -h now 立即关机
+cat /etc/fstab 查看开机自动挂载配置文件
+mount 查询系统中已经挂载的设备
+mount -a 依据配置文件/etc/fstab的内容自动挂载
+遇到Read-only file system错误的时候   可以执行mount -o remount rw /
+
+挂载命令格式：mount [-t 文件系统] [-o 特殊选项] 设备文件名 挂载点
 
 ----------------------------------------------------------------------------------------
+
 cmd命令：
 查看域名解析  nslookup 域名
