@@ -46,6 +46,9 @@ service mysqld start|stop|restart        mysql服务 启动|停止|重起
 常用linux命令：
 
 logout正确退出远程终端
+mkdir 文件名 新建文件夹
+vi filename 新建文件并进入此文件编辑模式
+touch filename 新建一个空文件不会进入编辑模式
 cat filename 预览文件内容
 shutdown -h now 立即关机
 cat /etc/fstab 查看开机自动挂载配置文件
@@ -77,6 +80,15 @@ iso9660是光盘文件系统  /dev/sr0是光盘的设备文件名   可以简写
 查看系统中用户登录的信息 w 或者who
 查看所有用户的最后一次登录信息和系统重启信息 last （last命令默认是读取的/var/log/wtmp文件的内容，但是用cat和vi是查看不到里面的信息的，因为是二进制登录日志）
 查看所有用户的最后一次登录时间 lastlog
+
+
+编写第一个linux脚本：
+vi hello.sh
+#!/bin/bash
+echo "hello world!"
+退出vi编辑模式
+修改文件可执行权限 chmod 755 hello.sh
+执行此脚本文件 ./hello.sh
 ----------------------------------------------------------------------------------------
 
 cmd命令：
