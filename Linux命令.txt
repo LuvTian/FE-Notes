@@ -49,10 +49,23 @@ cat filename 预览文件内容
 shutdown -h now 立即关机
 cat /etc/fstab 查看开机自动挂载配置文件
 mount 查询系统中已经挂载的设备
-mount -a 依据配置文件/etc/fstab的内容自动挂载
-遇到Read-only file system错误的时候   可以执行mount -o remount rw /
+mou nt -a 依据配置文件/etc/fstab的内容自动挂载
+遇到Read-only file system错误的时候   可以执行mount -o remount rw / 意思是以读写权限从新挂载根目录
 
 挂载命令格式：mount [-t 文件系统] [-o 特殊选项] 设备文件名 挂载点
+
+如何挂载光盘：
+1.在物理主机的光驱里插入光盘，如果是vmware虚拟主机，要在CD/DVD驱动器里选择iso镜像文件并连接。
+2.建立挂载点：挂载点必须是空目录，linux系统下默认有三个挂载点mnt、misc、media，这三个都是空目录，
+3.建立挂载点     # mkdir /mnt/cdrom
+4.挂载光盘       # mount -t iso9660 /dev/sr0 /mnt/cdrom/
+iso9660是光盘文件系统  /dev/sr0是光盘的设备文件名   可以简写 # mount /dev/sr0 /mnt/cdrom/
+5.出现mount: block device /dev/sr0 is write-protected, mounting read-only这样的信息说明光盘挂载成功了，可以去/mnt/cdrom/
+
+
+如何卸载光盘：在物理机中必须先卸载才能取出光盘
+# umount 设备文件名或挂载点  注意：设备文件名和挂载点只需写其中一个即可
+# umount /mnt/cdrom/   执行这个命令的时候必须退出/mnt/cdrom/这个目录
 
 ----------------------------------------------------------------------------------------
 
