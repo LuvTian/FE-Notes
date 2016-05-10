@@ -112,3 +112,18 @@ arclist 循环列表判断实现为最后一个元素添加样式
 <a href=""></a>
 </li>
 {/dede:arclist}
+
+--------------------------------------------------------------------------------------------------------------
+dedecms频道标签channel支持limit属性
+先调用
+{dede:channel row='3' typeid='8' type ='son' limit="0,3"}
+<a href="[field:typelink/]">[field:typename/]</a>
+{/dede:channel}
+打开include\taglib\channel.lib.php
+1.  把$attlist = "typeid|0,reid|0,row|100,col|1,type|son,currentstyle|,cacheid|";改成
+    $attlist = "typeid|0,reid|0,row|100,col|1,type|son,currentstyle|,cacheid|,limit|";
+2.  在$line = empty($row) ? 100 : $row;之后添加：
+    //limit条件
+    $limit=trim(preg_replace('#limit#is','',$limit));if($limit!=''){$limitsql=" LIMIT $limit ";}else{$limitsql=" LIMIT 0,$line ";}
+3.  批量替换limit 0, $line为$limitsql，第二步里的LIMIT 0,$line不要被替换
+4.  后台生成一下
