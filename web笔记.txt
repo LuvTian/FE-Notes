@@ -118,6 +118,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 31.不定高度的li进行float:left的时候，可能会出现类似瀑布流样的错位，可以加li:nth-child(odd){clear:left;}来解决
 
+32.有相对定位的元素怎么让他居中：.box{display: block;position: absolute;right: 0;left: 0;margin: auto;}
+
 .让未知宽度的元素水平居中的方法：
 
 
