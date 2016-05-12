@@ -114,6 +114,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 	</div>
 	解决方法1:去掉p元素前面的h2元素，方法二：使用:first-of-type代替:first-child
 
+	同样nth-child(1)这样的选择器也会有这个问题，解决方法同上
+
 31.不定高度的li进行float:left的时候，可能会出现类似瀑布流样的错位，可以加li:nth-child(odd){clear:left;}来解决
 
 .让未知宽度的元素水平居中的方法：
