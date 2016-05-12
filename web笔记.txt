@@ -122,7 +122,7 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 .让未知宽度的元素水平居中的方法：
 
-
+.子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
 
 
 
