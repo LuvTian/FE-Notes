@@ -120,7 +120,7 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 32.相对定位的元素怎么让他居中：.box{display: block;position: absolute;right: 0;left: 0;margin: auto;}
 
-33.图片上用了border-radius和border后，不能加padding了，否则在手机上不够圆！可以在图片外面加一层div
+33.Android 及 Safari 低版本 img 圆角问题：图片上用了border-radius和border后，会导致圆角变形，也不能给img加padding了，需要在img 外面嵌套一个元素并设置border 和border-radius。
 
 34.img与img或div之间默认情况下有空隙：a. img设置为block 	b. img 设置vertical-align:top
 
