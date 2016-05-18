@@ -128,3 +128,5 @@ dedecms频道标签channel支持limit属性
     $limit=trim(preg_replace('#limit#is','',$limit));if($limit!=''){$limitsql=" LIMIT $limit ";}else{$limitsql=" LIMIT 0,$line ";}
 3.  批量替换limit 0, $line为$limitsql，第二步里的LIMIT 0,$line不要被替换
 4.  后台生成一下
+--------------------------------------------------------------------------------------------------------------
+不能使用{dede:include filename="list.htm"/}这种方式调用包含{dede:list}标签的模板
