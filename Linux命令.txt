@@ -98,6 +98,22 @@ echo "hello world!"
 如果不修改文件权限可以直接 bash hello.sh 来执行脚本
 
 su 用户名 切换用户
+sudo 以管理员身份执行某命令
+useradd username    新增用户
+passwd username 修改或创建用户密码
+userdel username 删除某用户
+
+cat /etc/passwd 查看所有用户列表
+
+root:x:0:0:root:/root:/bin/bash 以冒号分隔 用户名、密码、uid、gid、描述、家目录、登录使用shell;
+uid和gid为0和0 表示具有root权限，如果修改vim /etc/passwd 下的其他用户的uid和gid为0和0，那么该用户就有root权限;
+x代替用户的真实密码，用户的真实密码是存在/etc/passwd文件里的。
+
+cat /etc/group  查看所有用户组列表
+
+
+
+
 ----------------------------------------------------------------------------------------
 
 cmd命令：
