@@ -20,6 +20,7 @@ vi /etc/selinux/config
 SELINUX=disabled #增加
 
 :wq! #保存退出
+setenforce 0 #使配置立即生效
 
 3、更换第三方yum源（http://mirrors.aliyun.com/)
 第一步：备份你的原镜像文件，以免出错后可以恢复。
@@ -103,6 +104,8 @@ MySql密码设置完成，重新启动 MySQL：
 /etc/init.d/mysqld stop #停止
 
 /etc/init.d/mysqld start #启动
+
+update user set host ='%' where host='127.0.0.1';   修改数据库连接权限，让navicat可以进行连接
 6、安装PHP
 
 yum install php #根据提示输入Y直到安装完成
