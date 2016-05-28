@@ -7,7 +7,9 @@
 </head>
 <body>
     一、apply，call和bind的区别
-    三者都是改变this的指向的
+    1.三者都是改变this的指向的
+    2.call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以
+    3.call与apply区别:call后面的参数与say方法中是一一对应的，而apply的第二个参数是一个数组，数组中的元素是和say方法中一一对应的
 
     var name = 'global';
     var person = {
