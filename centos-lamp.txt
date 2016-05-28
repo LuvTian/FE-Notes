@@ -105,7 +105,7 @@ MySql密码设置完成，重新启动 MySQL：
 
 /etc/init.d/mysqld start #启动
 
-update user set host ='%' where host='127.0.0.1';   修改数据库连接权限，让navicat可以进行连接
+update user set host ='%' where host='127.0.0.1';   （mysql remote access）修改数据库连接权限，让navicat可以进行远程连接
 6、安装PHP
 
 yum install php #根据提示输入Y直到安装完成
