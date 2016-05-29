@@ -7,7 +7,7 @@ vi /etc/sysconfig/iptables 添加下面两行：
 
 :wq! #保存退出
 
-/etc/init.d/iptables restart #重启防火墙使配置生效
+/etc/init.d/iptables restart    或者service iptables restart   #重启防火墙使配置生效
 
 2、关闭SELINUX
 
@@ -41,25 +41,7 @@ yum repolist    #列出yum源中可用的软件包
 yum install httpd #根据提示，输入Y安装即可成功安装
 
 /etc/init.d/httpd start #启动Apache
-
-备注：Apache启动之后会提示错误：
-
-httpd:httpd: Could not reliably determine the server's fully qualif domain name, using ::1 for ServerName
-
-解决办法：
-
-vi /etc/httpd/conf/httpd.conf #编辑
-
-ServerName www.example.com:80 #去掉前面的注释
-
-:wq! #保存退出
-
-chkconfig httpd on #设为开机启动
-
-/etc/init.d/httpd restart #重启Apacheyum install httpd #根据提示，输入Y安装即可成功安装
-
-/etc/init.d/httpd start #启动Apache
-
+service httpd restart #重启Apache
 备注：Apache启动之后会提示错误：
 
 httpd:httpd: Could not reliably determine the server's fully qualif domain name, using ::1 for ServerName
@@ -76,10 +58,14 @@ chkconfig httpd on #设为开机启动
 
 /etc/init.d/httpd restart #重启Apache
 
+
+
 5、安装MySQL
 yum install mysql mysql-server #询问是否要安装，输入Y即可自动安装,直到安装完成
 
 /etc/init.d/mysqld start #启动MySQL
+
+# service mysqld restart 重启mysql
 
 chkconfig mysqld on #设为开机启动
 
@@ -94,7 +80,10 @@ mysql_secure_installation
 输入2次密码，回车
 
 根据提示一路输入Y
-
+Remove anonymous users? 是否删除匿名用户,生产环境建议删除，所以输入y并回车
+Disallow root login remotely? 是否禁止root远程登录，我选择不禁止
+Remove test database and access to it? 是否删除test数据库，可以删除
+Reload privilege tables now?  是否重新加载权限表 y
 最后出现：Thanks for using MySQL!
 
 MySql密码设置完成，重新启动 MySQL：
@@ -104,6 +93,9 @@ MySql密码设置完成，重新启动 MySQL：
 /etc/init.d/mysqld stop #停止
 
 /etc/init.d/mysqld start #启动
+
+mysql -u root -p 进入mysql操作
+
 
 update user set host ='%' where host='127.0.0.1';   （mysql remote access）修改数据库连接权限，让navicat可以进行远程连接
 6、安装PHP
@@ -184,7 +176,7 @@ open_basedir = .:/tmp/  #在380行 设置表示允许访问当前目录(即PHP�
 
 在/var/www/html下新建index.php文件,内容为：
 <?php
-echo mysql_connect("localhost","root","123456")?"链接成功":"不成功";
+echo mysql_connect("localhost","root","123456")?"数据库连接成功":"数据库连接失败";
 phpinfo();
 ?>
 
