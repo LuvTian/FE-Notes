@@ -181,3 +181,48 @@ phpinfo();
 ?>
 
 在浏览器通过ip地址访问
+
+10.CentOS Apache搭建虚拟主机(配置多站点)，有基于域名、基于端口、基于ip的三种方式，这里介绍基于域名的方式：
+
+需要两个域名解析到你的服务器，对应关系是
+/var/www/site1              site1.com
+/var/www/site2              site2.com
+mkdir -p /var/www/{site1,site2} 可以通过集合方式创建目录
+分别给这两个网站目录添加index.html文件:
+echo "<h1>site1</h1>" >/var/www/site1/index.html
+echo "<h1>site2</h1>" >/var/www/site2/index.html
+
+接下来我们编辑一个配置文件（同一个IP的务必写在一个一个文件内）
+#vi /etc/httpd/conf.d/virtual.conf
+内容如下
+NameVirtualHost 192.168.2.101:80
+<VirtualHost 192.168.2.101:80>
+    ServerName vm1.com
+    DocumentRoot /var/www/site1
+    ErrorLog logs/site1.com-error_log
+    CustomLog logs/site1.com-access_log common
+</VirtualHost>
+<VirtualHost 192.168.2.101:80>
+    ServerName vm2.com
+    DocumentRoot /var/www/site2
+    ErrorLog logs/site2.com-error_log
+    CustomLog logs/site2.com-access_log common
+</VirtualHost>
+重启Apache # service httpd start
+
+如果你没有DNS你可以再你的机器上hosts文件里加记录
+linux在/etc/hosts这个文件
+windows在C:\windows\system32\drivers\etc\hosts文件加上这两行
+192.168.2.101    site1.com
+192.168.2.101    site2.com
+
+ps:
+如果是基于ip虚拟主机，则ServerName直接设置成ip
+如果是基于端口的虚拟主机,则VirtualHost ip后面需要加上:端口号，并且不需要ServerName这一项
+<VirtualHost 192.168.2.101:81>
+    DocumentRoot /var/www/site3
+    ErrorLog logs/site2.com-error_log
+    CustomLog logs/site2.com-access_log common
+</VirtualHost>
+新的端口号需要配置下防火墙 /etc/sysconfig/iptables
+
