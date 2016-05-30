@@ -165,6 +165,47 @@ padding: 6px 6px;两个值表示上下、左右
 
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
-QQ聊天链接 http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes
+QQ聊天链接
+PC:
+http://wpa.qq.com/msgrd?v=3&uin=565195693&site=qq&menu=yes
 
 tencent://message/?uin=565195693&Site=web攻城狮&Menu=yes
+
+iphone:
+mqq://im/chat?chat_type=wpa&uin='+565195693+'&version=1&src_type=web
+Android:
+mqqwpa://im/chat?chat_type=wpa&uin='+565195693
+
+<script type="text/javascript">
+if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+    if(window.location.href.indexOf("?mobile")<0){
+        try{
+            if(/iPhone/i.test(navigator.userAgent)){
+              document.writeln('<a target="blank" href="mqq://im/chat?chat_type=wpa&uin='+565195693+'&version=1&src_type=web">');
+             }else if(/Android/i.test(navigator.userAgent)){
+              document.writeln('<a target="blank" href="mqqwpa://im/chat?chat_type=wpa&uin='+565195693+'">');
+            }else{
+              document.writeln('<a target="blank" href="http://wpa.qq.com/msgrd?v=3&site=qq&menu=yes&uin='+565195693+'">');             }
+        }catch(e){}
+    }
+}else{
+var system ={
+win : false,
+mac : false,
+xll : false
+};
+//检测平台
+var p = navigator.platform;
+system.win = p.indexOf("Win") == 0;
+system.mac = p.indexOf("Mac") == 0;
+system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+//跳转语句
+if(system.mac){
+
+document.writeln('<a target="blank" href="http://wpa.qq.com/msgrd?v=3&uin='+565195693+'&site=qq&menu=yes">');
+}else{
+document.writeln('<a target="blank" href="http://wpa.qq.com/msgrd?v=3&site=qq&menu=yes&uin='+565195693+'">');
+}
+
+}
+</script>
