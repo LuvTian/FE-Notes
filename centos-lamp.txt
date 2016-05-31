@@ -221,8 +221,8 @@ ps:
 如果是基于端口的虚拟主机,则VirtualHost ip后面需要加上:端口号，并且不需要ServerName这一项
 <VirtualHost 192.168.2.101:81>
     DocumentRoot /var/www/site3
-    ErrorLog logs/site2.com-error_log
-    CustomLog logs/site2.com-access_log common
+    ErrorLog logs/site3.com-error_log
+    CustomLog logs/site3.com-access_log common
 </VirtualHost>
 新的端口号需要配置下防火墙 /etc/sysconfig/iptables
 
