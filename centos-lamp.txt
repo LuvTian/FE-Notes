@@ -98,6 +98,11 @@ mysql -u root -p 进入mysql操作
 
 
 update user set host ='%' where host='127.0.0.1';   （mysql remote access）修改数据库连接权限，让navicat可以进行远程连接
+或者
+update user set host='%' where user='root' and host='localhost';
+flush privileges; #刷新权限表，使配置生效
+
+
 6、安装PHP
 
 yum install php #根据提示输入Y直到安装完成
