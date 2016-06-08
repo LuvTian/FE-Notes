@@ -120,6 +120,24 @@ ifconfig eth0 down  禁用网卡
 ifconfig eth0 192.168.1.101   给网卡设置ip
 service network restart 重启网络服务
 ----------------------------------------------------------------------------------------
+防火墙操作：
+iptables -nvL 查看当前防火墙配置
+iptables -I INPUT 4 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT   添加防火墙规则（添加3306端口）
+service iptables save #保存iptables规则
+service iptables restart 重启防火墙服务
+
+
+----------------------------------------------------------------------------------------
+GRANT ALL PRIVILEGES ON database_name.* TO username@'%' IDENTIFIED BY 'password'; 指定某个数据库 添加或授权一个用户名为username，密码为password，授权为% （%表示所有ip能连接，可以设置指定ip）
+
+
+GRANT ALL PRIVILEGES ON *.* TO rehack@'%' IDENTIFIED BY '198874' WITH GRANT OPTION; 让rehack用户从任何ip（主机）远程连接到mysql服务器，建议不要给root用户这样的权限，*.* 这里前面的*号表示所有的数据库，后面的*号表示所有的权限
+
+FLUSH PRIVILEGES; 刷新数据库权限
+
+select host,user from user; 查看mysql数据库用户
+
+----------------------------------------------------------------------------------------
 
 cmd命令：
 查看域名解析  nslookup 域名
