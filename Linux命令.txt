@@ -30,7 +30,7 @@ clear	清屏
 
 
 chmod 644 filename 修改文件权限
-chown root filename 修改文件所有者
+chown root filename 修改文件所有者  chown -R www /wwwroot/网站目录  (wordpress会用到)
 chown -R root 文件夹名 修改文件所有者
 chgrp root filename 修改文件用户组
 chgrp -R root 文件夹名 修改文件夹用户组
