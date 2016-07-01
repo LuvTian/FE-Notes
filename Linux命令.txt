@@ -160,6 +160,10 @@ scp <remote user>@<remote machine>:<remote path> <local file>
 如果需要带端口号(默认是22的端口)，请使用大P参数，在root@前面加上即可，参考上一条。
 
 ----------------------------------------------------------------------------------------
+查找命令
+查找某个文件  find / -name "*.log"
+查找文件中某个字符串  find / -name "*" | xargs grep "string"
+
 
 
 cmd命令：
