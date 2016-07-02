@@ -3,7 +3,7 @@ linux中一切皆文件 包括硬件设备，设备有设备文件名
 pwd	查看当前所在目录
 ls	查看当前所在目录下的文件
 ls -l 查看当前目录下文件的状态（权限、用户组、时间）
-clear	清屏
+
 ./xx文件	执行xx文件
 查看某个端口监听情况	netstat -an|grep 80（端口号）  或者  netstat -anp | grep 80  或者 netstat -anl | grep "80"  或者 lsof -i:80 或者netstat -pan | grep :80
 查看防火墙状态	service iptables status	或者iptables-save或者iptables -L -n
@@ -163,8 +163,9 @@ scp <remote user>@<remote machine>:<remote path> <local file>
 查找命令
 查找某个文件  find / -name "*.log"
 查找文件中某个字符串  find / -name "*" | xargs grep "string"
-
-
+----------------------------------------------------------------------------------------
+查看流量
+查看各网卡流量动态   watch cat /proc/net/dev
 
 cmd命令：
 查看域名解析  nslookup 域名
