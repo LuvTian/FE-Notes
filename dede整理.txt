@@ -139,10 +139,10 @@ channelartlist和type嵌套使用
 {/dede:channelartlist}
 --------------------------------------------------------------------------------------------------------------
 调用指定栏目
-{dede:type typeid="1"} 
-    [field:typeurl/]            //URL链接网址  
-    [field:typename/]      //栏目名称 
-    [field:keywords/]      //关键词 
-    [field:description/]   //栏目描述  
-    [field:content/]          //栏目内容 
+{dede:type typeid="1"}
+    [field:typelink/] //URL链接网址
+    [field:typename/] //栏目名称
+    [field:keywords/] //关键词
+    [field:description/] //栏目描述
+    [field:content/] //栏目内容
 {/dede:type}
