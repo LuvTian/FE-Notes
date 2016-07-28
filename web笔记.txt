@@ -128,6 +128,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 36.在写列表模块时经常需要用 浮动和margin配合使用，如果统一给li一个margin值，偶数的li就会掉下来，解决方案一：用css3偶数选择器:nth-child(even)来单独控制偶数li的margin样式，但css3兼容性是个问题。解决方案二：单独给偶数li元素添加一个类.mr0{margin-right:0;},但不利于后台做循环和模板。解决方案三：给ul宽度给多一点，然后给ul的父元素加上overflow:hidden;属性，推荐次方法。
 
+37.火狐浏览器不兼容background-position-x 和 background-position-y ，可以多写几次background-position 或者用js。
+
 .让未知宽度的元素水平居中的方法：
 
 .子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
