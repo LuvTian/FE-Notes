@@ -59,5 +59,9 @@
     window.onresize=getWidth;//绑定到onresize事件上
     function getWidth (){document.body.innerHTML=document.documentElement.clientWidth}
     可以用来判断不同屏幕大小然后做响应式（大多数是用css3的媒体查询来做的）,注意在移动端下需要设置viewport才能生效，否则视口宽度为980
+
+    五、关于document.write()
+    如果在js文件中嵌套引用其他的js文件，可以使用document.write("<script src=''></script>")来引用，页面加载完成后，浏览器输出流自动关闭。在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流，它将清除当前页面内容(包括源文档的任何变量或值)。因此，假如希望用脚本生成的HTML替换当前页面，就必须把HTML内容连接起来赋给一个变量，使用一个document.write()方法完成写操作。不必清除文档并打开一个新数据流，一个document.write()调用就可完成所有的操作。如果在document.write()里申明了与document.write()之外相同的变量或函数，那么document.write()里面的代码优先级更高，会覆盖原有的相同代码。
+    参考http://www.cnblogs.com/dh616854836/articles/2140349.html
 </body>
 </html>
