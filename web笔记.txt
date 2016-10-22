@@ -130,6 +130,8 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 37.火狐浏览器不兼容background-position-x 和 background-position-y ，可以多写几次background-position 或者用js。
 
+38.fieldset legend这两个标签同时使用可以达到让文字在边框线上的效果
+
 .让未知宽度的元素水平居中的方法：
 
 .子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
