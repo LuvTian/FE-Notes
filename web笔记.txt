@@ -215,3 +215,6 @@ document.writeln('<a target="blank" href="http://wpa.qq.com/msgrd?v=3&site=qq&me
 
 }
 </script>
+
+手机发短信链接 <a href="sms:+86 135****5225" title="短信"></a>
+手机打电话链接 <a href="tel:135****5225" title="电话"></a>
