@@ -31,6 +31,15 @@ git log
 git merge --no-ff -m "这里是merge日志" 要合并到当前分支下的分支名称   合并
 vim index.html 创建一个index.html的文件 可以在里面编辑内容 ESC键保存 shift+: 然后输入x就可以退出vim模式
 
+
+
+在执行git add之前执行git status可以查看哪些文件被修改了
+git diff + 文件名 可以看该文件的修改，git diff 不加文件名 可以看所有文件的修改。
+
+
+git diff commit-id-1 commit-id-2 可以对比两个commit的差别  commit-id可以通过git log命令查看到
+git diff commit-id-1 commit-id-2 >> diff.txt 可以将对比结果输出到文件里
+
 配置简写
 
 
