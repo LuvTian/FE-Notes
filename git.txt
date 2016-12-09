@@ -22,10 +22,10 @@ git config --global user.email "you@example.com" 配置用户邮箱
 mkdir 文件夹名称 创建新文件夹
 git init 初始化仓库 执行此命令后会在仓库多一个.git的文件夹
 git status
-git add filename	git add.
+git add filename    git add.
 git commit -m "提交日志" 提交
 git push -u origin ziyao
-git checkout -b 分支名称	创建分支并切换到该分支
+git checkout -b 分支名称    创建分支并切换到该分支
 git checkout ziyao 切换分支
 git log
 git merge --no-ff -m "这里是merge日志" 要合并到当前分支下的分支名称   合并
