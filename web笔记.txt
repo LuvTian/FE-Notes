@@ -131,12 +131,14 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 37.火狐浏览器不兼容background-position-x 和 background-position-y ，可以多写几次background-position 或者用js。
 
 38.fieldset legend这两个标签同时使用可以达到让文字在边框线上的效果
+
 39.iphone上的Safari解析input[typw="submit"]和input[type="submit"]按钮会以苹果浏览器默认的UI进行渲染，解决发放如下
 input,
 input[type="button"],
 input[type="submit"]，input[type="reset"] {
   -webkit-appearance: none;
 }
+
 
 .让未知宽度的元素水平居中的方法：
 
