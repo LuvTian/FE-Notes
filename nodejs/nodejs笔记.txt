@@ -1,0 +1,8 @@
+安装：
+1.下载便携版
+https://nodejs.org/dist/v6.11.0/node-v6.11.0-win-x64.zip
+2.解压到D:\nodejs
+3.添加系统环境变量 Path: ;D:\nodejs
+4.在命令终端(命令行工具)验证是否安装成功
+node -v
+npm -v
