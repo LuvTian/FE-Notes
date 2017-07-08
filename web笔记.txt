@@ -74,7 +74,7 @@ background: rgba(7,6,62,0.5);此样式ie9以下版本不支持
 20.解决table中的tb 边框线重叠问题：给table设置样式 border-collapse:collapse
 
 21.响应式页面通用viewport设置：
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 width=device-width 此约束条件的意思是让视口的宽度等于设备的宽
 
 22.min-width和max-width通常和width值为百分百配合使用，demo:
