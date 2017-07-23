@@ -139,6 +139,10 @@ input[type="submit"]，input[type="reset"] {
   -webkit-appearance: none;
 }
 
+40.清除浮动的两种方法：
+一是用通用的使用clearfix样式 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+二是.clearfix{overflow:auto;_height:1%} 或者overflow:hidden,但overflow:hidden会把定位到父元素之外的子元素给裁剪掉
+这两种方法都要把clearfix这个类加到父元素上面
 
 .让未知宽度的元素水平居中的方法：
 
