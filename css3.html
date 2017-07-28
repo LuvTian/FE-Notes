@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>css3</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    *{padding: 0;margin: 0;}
+    div{margin: 30px auto;}
+    .div1{
+        width: 100px;
+        height: 100px;
+        border: 15px solid red;
+        border-top-color: green;
+        border-bottom-color: yellow;
+        border-left-color: blue;
+        border-right-color: red;
+        border-radius: 50%;
+        animation: load 3s linear infinite;
+
+    }
+
+    @keyframes load {
+        /*360度旋转*/
+        from{transform:rotate(0deg)}
+        to{transform:rotate(360deg)}
+
+    }
+
+    .div2{
+        width: 0px;
+        height: 0px;
+        border: 55px solid red;
+        border-top-color: green;
+        border-bottom-color: yellow;
+        border-left-color: blue;
+        border-right-color: red;
+        /*border-left: 0;*/
+        /*border-top: 0;*/
+
+    }
+    .div3{
+        /*实心圆-也可用圆角div填充背景*/
+        width: 0px;
+        height: 0px;
+        border: 55px solid red;
+        border-radius: 50%;
+    }
+    .div4{
+        width: 0px;
+        height: 0px;
+        border-left: 55px solid red;
+        border-right: 55px solid blue;
+        border-top: 55px solid green;
+        border-bottom: 55px solid yellow;
+        border-radius: 50%;
+    }
+
+    .div5{
+        width: 0px;
+        height: 0px;
+        border: 55px solid red;
+        border-top: 55px solid red;
+        border-bottom: 55px solid red;
+        border-left: 55px solid transparent;
+        border-right: 55px solid transparent;
+        border-radius: 50%;
+        animation: load 3s linear infinite;
+    }
+
+    .div6{
+        width: 0px;
+        height: 0px;
+        border: 55px solid red;
+        border-top: 55px solid green;
+        border-bottom: 55px solid transparent;
+        border-left: 55px solid green;
+        border-right: 55px solid transparent;
+        border-radius: 50%;
+        transform:rotate(45deg);
+    }
+
+    .div7{
+        width: 0;
+        height: 0;
+        border-top: 100px solid #000;
+        border-right: 100px solid #ff0000;
+        /*border-left: 30px solid #00ff00;*/
+        /*border-bottom: 30px solid #0000ff;*/
+    }
+
+    .div8{
+        /*等腰直角三角形*/
+        width: 0px;
+        height: 0px;
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+        border-bottom: 60px solid red;
+    }
+
+    .div9{
+        /*等腰锐角三角形*/
+        width: 0px;
+        height: 0px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+
+    .div10{
+        /*等腰钝角三角形*/
+        width: 0px;
+        height: 0px;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 30px solid red;
+    }
+
+    .div11{
+        /*正方形-除开使用有宽高的div填充个背景之外的一种方法*/
+        width:0;
+        height:0;
+        border: 50px solid  #E5C3B2;/*边框大小等于正方形宽度（或高度）的一半*/
+    }
+    .div12{
+        /*梯形*/
+        width: 100px;
+        height: 0px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+
+    .div13{
+        /*梯形*/
+        width: 0;
+        height: 50px;
+        border-right: 120px solid black;
+        border-top: 80px solid transparent;
+        border-bottom: 80px solid transparent;
+    }
+
+    .div14{
+        /*平行四边形*/
+        width: 100px;
+        height: 70px;
+        -webkit-transform: skew(-20deg);
+        -moz-transform: skew(-20deg);
+        -o-transform: skew(-20deg);
+        -ms-transform: skew(-20deg);
+        transform: skew(-20deg);
+        background: #E5C3B2;
+    }
+
+    .div15{
+        /*平行四边形旋转*/
+        width: 100px;
+        height: 70px;
+        transform: skew(-20deg) rotate(-20deg);
+        background: orange;
+    }
+</style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5"></div>
+    <div class="div6"></div>
+    <div class="div7"></div>
+    <div class="div8"></div>
+    <div class="div9"></div>
+    <div class="div10"></div>
+    <div class="div11"></div>
+    <div class="div12"></div>
+    <div class="div13"></div>
+    <div class="div14"></div>
+    <div class="div15"></div>
+</body>
+</html>
