@@ -144,6 +144,9 @@ input[type="submit"]，input[type="reset"] {
 二是.clearfix{overflow:auto;_height:1%} 或者overflow:hidden,但overflow:hidden会把定位到父元素之外的子元素给裁剪掉
 这两种方法都要把clearfix这个类加到父元素上面
 
+41.页面的hover动画效果会使position:fixed元素产生抖动
+解决方法是给position:fixed元素加上transform: translate3d(0,0,0)或者transform: translateZ(0);
+
 .让未知宽度的元素水平居中的方法：
 
 .子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
