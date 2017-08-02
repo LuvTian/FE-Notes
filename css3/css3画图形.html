@@ -6,7 +6,7 @@
 <title>css3</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="" rel="stylesheet">
+<link href="animate.css" rel="stylesheet">
 <style>
     *{padding: 0;margin: 0;}
     div{margin: 30px auto;}
@@ -19,16 +19,11 @@
         border-left-color: blue;
         border-right-color: red;
         border-radius: 50%;
-        animation: load 3s linear infinite;
+        animation: deg-360 3s linear infinite;
 
     }
 
-    @keyframes load {
-        /*360度旋转*/
-        from{transform:rotate(0deg)}
-        to{transform:rotate(360deg)}
 
-    }
 
     .div2{
         width: 0px;
@@ -68,7 +63,7 @@
         border-left: 55px solid transparent;
         border-right: 55px solid transparent;
         border-radius: 50%;
-        animation: load 3s linear infinite;
+        animation: deg-360 3s linear infinite;
     }
 
     .div6{

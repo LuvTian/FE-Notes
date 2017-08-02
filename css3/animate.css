@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors Rehack (rehack6@gmail.com)
+ * @link    http://www.rehack.cn
+ * @date    2017-08-02 14:49:07
+ * @version $Id$
+ */
+/*
+常用css3动画库
+ */
+
+ /*360度旋转*/
+@keyframes deg-360{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+/*上下跳动*/
+@keyframes bob{
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    10% {
+        transform: translateY(8px);
+    }
+    20% {
+        transform: translateY(-8px);
+    }
+    30% {
+        transform: translateY(4px);
+    }
+    40% {
+        transform: translateY(-4px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+}
