@@ -16,10 +16,10 @@
     to{transform:rotate(360deg)}
 }
 
-/*上下跳动*/
+/*上下跳动--可以作为地图标注、提示框等*/
 @keyframes bob{
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
     10% {
         transform: translateY(8px);
@@ -34,6 +34,39 @@
         transform: translateY(-4px);
     }
     50% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
+}
+
+/*闪烁点动画 呼吸灯*/
+@keyframes pulse_animation {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.08);
+    }
+    50% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes blink{
+    form{transform:scale(0.0);}
+    to{transform:scale(1.0);opacity:0;}
 }
