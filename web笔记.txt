@@ -126,7 +126,7 @@ div{width:80%;margin:80px auto;background:red;min-width:400px;max-width:600px;}�
 
 35.superslide图片滚动居中的问题：.tempWrap{margin: 0 auto;} 可视区的li的宽度设置成%，li的margin设置成em
 
-36.在写列表模块时经常需要用 浮动和margin配合使用，如果统一给li一个margin值，偶数的li就会掉下来，解决方案一：用css3偶数选择器:nth-child(even)来单独控制偶数li的margin样式，但css3兼容性是个问题。解决方案二：单独给偶数li元素添加一个类.mr0{margin-right:0;},但不利于后台做循环和模板。解决方案三：给ul宽度给多一点，然后给ul的父元素加上overflow:hidden;属性，推荐次方法。
+36.在写列表模块时经常需要用 浮动和margin配合使用，如果统一给li一个margin值，偶数的li就会掉下来，解决方案一：用css3偶数选择器:nth-child(even)来单独控制偶数li的margin样式，但css3兼容性是个问题。解决方案二：单独给偶数li元素添加一个类.mr0{margin-right:0;},但不利于后台做循环和模板。解决方案三：给ul宽度给多一点，然后给ul的父元素加上overflow:hidden;属性，推荐此方法。
 
 37.火狐浏览器不兼容background-position-x 和 background-position-y ，可以多写几次background-position 或者用js。
 
