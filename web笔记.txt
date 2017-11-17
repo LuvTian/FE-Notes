@@ -147,6 +147,8 @@ input[type="submit"]，input[type="reset"] {
 41.页面的hover动画效果会使position:fixed元素产生抖动
 解决方法是给position:fixed元素加上transform: translate3d(0,0,0)或者transform: translateZ(0);
 
+42. 让一段文字右边能够对整齐：加样式body{text-align: justify;}
+
 .让未知宽度的元素水平居中的方法：
 
 .子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
