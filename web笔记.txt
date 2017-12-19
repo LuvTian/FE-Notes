@@ -149,6 +149,17 @@ input[type="submit"]，input[type="reset"] {
 
 42. 让一段文字右边能够对整齐：加样式body{text-align: justify;}
 
+43.常用网页字体:
+font-family: Tahoma, Arial, 'Microsoft YaHei', sans-serif;
+font-family: Tahoma, Arial, Simsun, sans-serif;
+
+Verdana用于订单金额的字体
+Simsun是宋体
+Helvetica是MAC用户的字体
+
+
+
+
 .让未知宽度的元素水平居中的方法：
 
 .子元素有相对定位，此时父元素怎么撑开(父元素高度不定)
