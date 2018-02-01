@@ -1,0 +1,1 @@
+问题：在bindtap自定义事件函数里面不会触发wx.onSocketOpen,后面的都不会触发，但是如果把这整段代码放到onLoad或者onShow里面就是正常的，求解~~，我又测试另一种方案 把wx.connectSocket和wx.onSocketOpe放到onShow生命周期函数里，然后把wx.sendSocketMessage放到bindtap里面 wx.sendSocketMessage也不会执行

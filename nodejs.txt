@@ -1,0 +1,10 @@
+﻿yum install nodejs
+npm install nodemon -g
+yum update openssl
+npm install nodemon -g
+nodemon -w "*" -e "php" -x "php /data/www/me.rehack.cn/server.php start"
+
+
+
+
+
