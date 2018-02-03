@@ -1,1 +1,6 @@
-ÎÊÌâ£ºÔÚbindtap×Ô¶¨ÒåÊÂ¼şº¯ÊıÀïÃæ²»»á´¥·¢wx.onSocketOpen,ºóÃæµÄ¶¼²»»á´¥·¢£¬µ«ÊÇÈç¹û°ÑÕâÕû¶Î´úÂë·Åµ½onLoad»òÕßonShowÀïÃæ¾ÍÊÇÕı³£µÄ£¬Çó½â~~£¬ÎÒÓÖ²âÊÔÁíÒ»ÖÖ·½°¸ °Ñwx.connectSocketºÍwx.onSocketOpe·Åµ½onShowÉúÃüÖÜÆÚº¯ÊıÀï£¬È»ºó°Ñwx.sendSocketMessage·Åµ½bindtapÀïÃæ wx.sendSocketMessageÒ²²»»áÖ´ĞĞ
+é—®é¢˜ï¼šåœ¨bindtapè‡ªå®šä¹‰äº‹ä»¶å‡½æ•°é‡Œé¢ä¸ä¼šè§¦å‘wx.onSocketOpen,åé¢çš„éƒ½ä¸ä¼šè§¦å‘ï¼Œä½†æ˜¯å¦‚æœæŠŠè¿™æ•´æ®µä»£ç æ”¾åˆ°onLoadæˆ–è€…onShowé‡Œé¢å°±æ˜¯æ­£å¸¸çš„ï¼Œæ±‚è§£~~ï¼Œæˆ‘åˆæµ‹è¯•å¦ä¸€ç§æ–¹æ¡ˆ æŠŠwx.connectSocketå’Œwx.onSocketOpeæ”¾åˆ°onShowç”Ÿå‘½å‘¨æœŸå‡½æ•°é‡Œï¼Œç„¶åæŠŠwx.sendSocketMessageæ”¾åˆ°bindtapé‡Œé¢ wx.sendSocketMessageä¹Ÿä¸ä¼šæ‰§è¡Œ
+
+
+onLoadåªä¼šè§¦å‘ä¸€æ¬¡
+onReadyåªä¼šè§¦å‘ä¸€æ¬¡
+onShowä¼šè§¦å‘å¤šæ¬¡
