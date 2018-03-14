@@ -5,3 +5,25 @@
 进入项目目录cd demo
 运行项目 npm run dev
 
+
+#js里面的图片地址需要import或者require进来的才能使用
+
+#在v-html里面放图片路径的方式：
+使用网络图片
+或者var src = require('../../adfasf')    `<img :src="src" />`
+或者import img = '../../adfasf';
+this.description=`<img src="${img}">`
+
+#vue 项目打包时样式及背景图片路径找不到
+更改 build/utils.js 文件中 ExtractTextPlugin 插件的options 配置：
+
+if (options.extract) {
+  return ExtractTextPlugin.extract({
+    use: loaders,
+    publicPath: '../../',         // 注意配置这一部分，根据目录结构自由调整
+    fallback: 'vue-style-loader'
+  })
+} else {
+  return ['vue-style-loader'].concat(loaders)
+}
+
