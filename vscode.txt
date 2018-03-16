@@ -1,0 +1,20 @@
+﻿vscode快捷键
+
+Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
+
+
+
+
+
+==============================================
+配置
+
+//禁用在粘贴的时候自动格式化
+"html.format.enable": false
+
+// 配置git Git 可执行文件路径 
+"git.path": "D:/dev/PortableGit/cmd/git.exe",//注意还要把D:\dev\PortableGit\cmd\添加到系统环境变量
+
+
+//修改vscode的默认终端  终端在 Windows 使用的 shell 路径。使用随 Windows 一起提供的 shell (cmd、PowerShell 或 Bash on Ubuntu) 时。
+"terminal.integrated.shell.windows": "D:\\dev\\PortableGit\\bin\\bash.exe"
