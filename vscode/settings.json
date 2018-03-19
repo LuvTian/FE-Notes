@@ -1,0 +1,41 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "editor.fontFamily": "Monaco",
+    "window.zoomLevel": 0,
+    // 启用后，按下 TAB 键，将展开 Emmet 缩写。
+    "emmet.triggerExpansionOnTab": true,
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    // Number of spaces it should use per tab
+    "prettier.tabWidth": 4,
+    // 启用/禁用默认 HTML 格式化程序
+    "html.format.enable": false,
+    
+    // 粘贴的时候格式化
+    // "editor.formatOnPaste": true,
+    // 禁用根据文件类型自动设置tabsize
+    "editor.detectIndentation": false,
+    "editor.detectIndentation": false,
+    "workbench.panel.location": "bottom",
+    // "python.pythonPath": "D:/dev/python36/python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabledWithoutWorkspace": false,
+    
+    "workbench.startupEditor": "newUntitledFile",
+    // Validate vue-html in <template> using eslint-plugin-vue
+    "vetur.validation.template": false,
+    // Git 可执行文件路径
+    "git.path": "D:/dev/PortableGit/cmd/git.exe",
+    // 终端在 Windows 使用的 shell 路径。使用随 Windows 一起提供的 shell (cmd、PowerShell 或 Bash on Ubuntu) 时。
+    // "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe"
+    // "terminal.integrated.shell.windows": "D:\\dev\\PortableGit\\bin\\bash.exe"
+    "terminal.integrated.env.windows": {
+        "CMDER_ROOT": "D:\\dev\\cmder"
+    },
+    "terminal.integrated.shellArgs.windows": [
+        "/k D:\\dev\\cmder\\vendor\\init.bat"
+    ],
+}
