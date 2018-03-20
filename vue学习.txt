@@ -27,3 +27,4 @@ if (options.extract) {
   return ['vue-style-loader'].concat(loaders)
 }
 
+#vue在打包后如果出现页面空白，需要注意一下路由配置文件里是否开启了mode:'history',
