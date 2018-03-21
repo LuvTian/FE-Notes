@@ -28,3 +28,19 @@ if (options.extract) {
 }
 
 #vue在打包后如果出现页面空白，需要注意一下路由配置文件里是否开启了mode:'history',
+
+vue生命周期
+beforeCreate（创建前）,
+created（创建后）,
+beforeMount(载入前),
+mounted（载入后）,
+beforeUpdate（更新前）,
+updated（更新后）,
+beforeDestroy（销毁前）,
+destroyed（销毁后）
+
+使用举例：
+beforecreate : 举个栗子：可以在这加个loading事件 
+created ：在这结束loading，还做一些初始化，实现函数自执行 
+mounted ： 在这发起后端请求，拿回数据，配合路由钩子做一些事情，在这里才能通过document.getElementById来获取到页面元素，比如获取canvas对象
+beforeDestory： 你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容
