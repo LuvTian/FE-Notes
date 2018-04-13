@@ -10,6 +10,8 @@ npm 是nodejs的包管理工具
 cache = D:\nodejs\npm_cache
 prefix = D:\nodejs\global_modules
 
+将D:\nodejs和D:\nodejs\global_modules都要添加到环境变量
+
 etc目录下的npmrc文件是 全局便携式NPM配置文件，通过npm config get globalconfig可以查看
 cache是node下载包缓存文件夹
 prefix：nodejs会自动寻找该路径下的node_modules文件夹为实际存放全局模块的路径,如果不设置，会默认安装到C:\Users\用户名\AppData\Roaming\npm
