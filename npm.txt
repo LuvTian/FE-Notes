@@ -39,3 +39,4 @@ npm uninstall <packname> -g 卸载安装的包
 
 ##为npm设置代理：
 $ npm config set proxy http://127.0.0.1:1080 -g
+$ npm config set https-proxy https://127.0.0.1:1080
