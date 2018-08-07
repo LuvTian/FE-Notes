@@ -28,6 +28,13 @@ npm install -g <package> 是全局安装，安装包放在prefix设置的目录�
 npm install <package>@version 安装指定版本号的模块
 npm install @@somescope/somepackagename 安装私有模块 eg: npm install -g @vue/cli  需要输入github账号密码
 
+--save会把依赖包名称添加到 package.json 文件 dependencies下
+--save-dev 则添加到 package.json 文件 devDependencies下
+devDependencies里面的插件只用于开发环境，不用于生产环境，而dependencies是需要发布到生产环境的。
+项目中import进来的模块都是要放在dependencies
+
+
+
 npm list -g --depth=0 查看所有全局安装的模块,不显示依赖,或者npm list -g会详细列出所有模块和他的所有依赖
 npm list 查看当前目录下已安装的node包
 npm uninstall <packname> -g 卸载安装的包
