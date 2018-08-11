@@ -8,7 +8,7 @@ npm 是nodejs的包管理工具
 将D:\nodejs\node_modules\npm\bin目录下的npm.cmd和npx.cmd文件复制到D:\nodejs目录下，然后命令行运行node -v; npm -v
 在D:\nodejs下新建etc目录，在D:\nodejs\etc下新建npmrc文件并写入下面内容：
 cache = D:\nodejs\npm_cache
-prefix = D:\nodejs\global_modules
+prefix = D:\nodejs\global_modules   全局模块安装路径
 
 将D:\nodejs和D:\nodejs\global_modules都要添加到环境变量
 
@@ -37,7 +37,7 @@ devDependencies里面的插件只用于开发环境，不用于生产环境，�
 
 npm list -g --depth=0 查看所有全局安装的模块,不显示依赖,或者npm list -g会详细列出所有模块和他的所有依赖
 npm list 查看当前目录下已安装的node包
-npm uninstall <packname> -g 卸载安装的包
+npm uninstall <packname> -g 卸载安装的包 eg:npm uninstall @vue/cli -g 卸载全局安装的包也要加-g
 
 用where命令可以查看指定命令的安装位置
 
