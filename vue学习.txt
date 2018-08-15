@@ -57,3 +57,7 @@ mounted
 
 继承关系组件的生命周期：交替执行
 被继承组件beforeMount-继承组件beforeMount->被继承组件created->继承组件created->被继承组件beforeMount->继承组件beforeMount->被继承组件mounted->继承组件mounted
+
+
+vuex和localStorage/sessionStorage的区别
+http://www.cnblogs.com/DZzzz/p/9201583.html
