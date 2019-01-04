@@ -1,46 +1,24 @@
 {
     "workbench.colorTheme": "Monokai",
-    "workbench.panel.defaultLocation": "bottom",
-    "workbench.startupEditor": "newUntitledFile",
-    
-    "window.zoomLevel": 0,
-    // 启用后，按下 TAB 键，将展开 Emmet 缩写。
-    "emmet.triggerExpansionOnTab": true,
-    "sublimeTextKeymap.promptV3Features": true,
-    "editor.fontFamily": "Monaco",
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.snippetSuggestions": "top",
-    // 禁用根据文件类型自动设置tabsize
-    "editor.detectIndentation": false,
-    // Number of spaces it should use per tab
-    "prettier.tabWidth": 4,
-    // 启用/禁用默认 HTML 格式化程序
-    "html.format.enable": false,
-
-    // 粘贴的时候格式化
-    // "editor.formatOnPaste": true,
-    
-    
-    // "python.pythonPath": "D:/dev/python36/python.exe",
-    "python.linting.pylintEnabled": false,
-    // "python.linting.enabledWithoutWorkspace": false,
-
-    
-    // Validate vue-html in <template> using eslint-plugin-vue
-    "vetur.validation.template": false,
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    // Git 可执行文件路径
-    "git.path": "D:/dev/PortableGit/cmd/git.exe",
-    // 终端在 Windows 使用的 shell 路径。使用随 Windows 一起提供的 shell (cmd、PowerShell 或 Bash on Ubuntu) 时。
-    // "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe"
-    // "terminal.integrated.shell.windows": "D:\\dev\\PortableGit\\bin\\bash.exe"
-    "terminal.integrated.env.windows": {
-        "CMDER_ROOT": "D:\\dev\\cmder"
-    },
+    "editor.fontFamily": "Monaco,Consolas, 'Courier New', monospace",
+    // 使用cmder为默认终端
+    "terminal.integrated.shell.windows": "cmd.exe",//win7可省略，win10不能
+    // "terminal.integrated.env.windows": {"CMDER_ROOT": "D:\\Dev\\cmder"},//win10 win7可省略
     "terminal.integrated.shellArgs.windows": [
-        "/k D:\\dev\\cmder\\vendor\\init.bat"
+        "/k D:\\Dev\\cmder\\vendor\\init.bat"
     ],
-    //设置决定文件或文件夹的显示和隐藏。
+    // 使用TAB键补全emmet
+    "emmet.triggerExpansionOnTab": true,
+    // ctrl多选
+    "editor.multiCursorModifier": "ctrlCmd",
+    // 关闭根据文件自动配置tabSize和insertSpaces
+    "editor.detectIndentation": false,
+    // 关闭vetur插件的语法报错
+    "vetur.validation.template": false,
+    // 修改vetur插件的默认html格式化方式
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+
+    // 设置隐藏文件或文件夹
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -49,10 +27,12 @@
         "**/.DS_Store": true,
         "**/__pycache__": true
     },
-    // 分配给新文件的默认语言模式。
+    // ctrl+n 新建的文件的默认语言
     "files.defaultLanguage": "html",
+    // 配置语言的文件关联
     "files.associations": {
         "*.wxml": "html",
         "*.wxss": "css"
-    }
+    },
+    "workbench.startupEditor": "newUntitledFile"
 }
