@@ -1,3 +1,1 @@
-﻿vetur
-python
-coderunner
+﻿vetur,python,coderunner,beautify,autofilename
