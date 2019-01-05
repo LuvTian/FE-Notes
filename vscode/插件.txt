@@ -1,1 +1,1 @@
-﻿vetur,python,coderunner,beautify,autofilename
+﻿vetur,python,coderunner,beautify,autofilename,sftp,docblocker,view-in-browser
