@@ -1,9 +1,9 @@
-全局安装（升级）vue命令行工具 npm install -g vue-cli
+全局安装（升级）vue3命令行工具 npm install -g @vue/cli
 查看vue-cli版本 vue -V
-初始化项目（webpack是模板,可选的模板还有webpack、webpack-simple、browserify、browserify-simple、pwa、simple demo是要创建的项目文件夹） vue init webpack demo 接下来会提示一些项目配置需要进行设置 然后会初始化项目并安装所需依赖
-
+#初始化项目（webpack是模板,可选的模板还有webpack、webpack-simple、browserify、browserify-simple、pwa、simple demo是要创建的项目文件夹） vue init webpack demo 接下来会提示一些项目配置需要进行设置 然后会初始化项目并安装所需依赖
+vue create demo 创建一个项目(也可以通过vue ui 命令以图形化界面创建和管理项目)
 进入项目目录cd demo
-运行项目 npm run dev
+运行项目 npm run serve 或者npx vue-cli-service serve
 
 
 #js里面的图片地址需要import或者require进来的才能使用
