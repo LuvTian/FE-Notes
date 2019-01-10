@@ -2,7 +2,9 @@
 
 Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
 
-
+==============================================
+macos下修改终端为zsh
+在User Settings把terminal.integrated.shell.osx项的值改为zsh的路径(/bin/zsh)
 
 
 
