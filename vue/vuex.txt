@@ -4,6 +4,6 @@ state属性里面添加自定义的状态变量
 mutations属性里面添加对自定义状态变量的操作逻辑处理方法
 
 在组件里面引入store
-在组件里面调用mutations里面定义的方法 store.commmit('fn')
+在组件里面调用mutations里面定义的方法 store.commit('fn')
 
 然后在其他的组件里面引入store就可以使用这个全局的状态变量了 store.state.xxx
