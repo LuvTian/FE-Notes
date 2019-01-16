@@ -1,11 +1,11 @@
 npm 是nodejs的包管理工具
-##安装nodejs和npm，我采用portable方式安装参考https://incusdata.site/pan/misc/Misc-%20Relocatable%20NodeJS%20on%20Windows.html
+##安装nodejs和npm，我采用portable方式安装参考https://incusdata.site/pan/misc/Misc-%20Relocatable%20NodeJS%20on%20Windows.html 升级nodejs记得拷贝etc文件夹
 下载LTS nodejs https://nodejs.org/dist/
 下载npm https://github.com/npm/npm/releases
 
-把下载的node.exe文件放到D:\nodejs目录下，然后把D:\nodejs添加到系统环境变量，然后在命令行用node命令运行测试一个js文件
-在D:\nodejs下新建目录node_modules，然后把下载的npm包解压到node_modules目录下，并重命名文件夹为npm
-将D:\nodejs\node_modules\npm\bin目录下的npm.cmd和npx.cmd文件复制到D:\nodejs目录下，然后命令行运行node -v; npm -v
+解压nodejs portable，然后把D:\nodejs添加到系统环境变量，然后在命令行用node命令运行测试一个js文件
+新版nodejs 已经默认带了npm和npx 
+然后命令行运行node -v; npm -v 
 在D:\nodejs下新建etc目录，在D:\nodejs\etc下新建npmrc文件并写入下面内容：
 cache = D:\nodejs\npm_cache
 prefix = D:\nodejs\global_modules   全局模块安装路径
