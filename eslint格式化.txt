@@ -1,0 +1,43 @@
+
+vetur 已经默认捆绑了prettier、prettier-eslint、prettyhtml、stylus-supremacy、vscode-typescript这些格式化程序，所以不装这些插件也是可以进行相关配置的，只是在vscode配置文件会提示位置配置选项，比如对stylusSupremacy的配置
+也可以自定义对每种语言的格式化程序
+"vetur.format.defaultFormatter.html": "prettyhtml",
+"vetur.format.defaultFormatter.css": "prettier",
+"vetur.format.defaultFormatter.postcss": "prettier",
+"vetur.format.defaultFormatter.scss": "prettier",
+"vetur.format.defaultFormatter.less": "prettier",
+"vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+"vetur.format.defaultFormatter.js": "prettier",
+"vetur.format.defaultFormatter.ts": "prettier"
+
+另外vetur只能格式化整个文档 不能格式化选中的一块代码
+
+
+vscode 使用eslint插件来自动格式化代码：
+首先需要安装eslint和vetur,然后配置vscode:
+// 每次保存的时候自动格式化,这一项如不加 就只能使用使用alt+shift+f或右键格式化，不能ctrl+s的时候格式化
+"editor.formatOnSave": true,
+// 保存的时候自动按照eslint风格修复
+"eslint.autoFixOnSave": true,
+"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue",
+    {
+        "language": "html",
+        "autoFix": true
+    },
+    {
+        "language": "vue",
+        "autoFix": true
+    }
+],
+//根据文件类型自动设置tabsize 这个如果不加 .vue文件就不能格式化为4个空格
+"editor.detectIndentation": false,
+//一个tab等于4个空格
+"vetur.format.options.tabSize": 4,
+
+然后在vue创建项目的时候就不需要选择安装eslint了
+
+配配置完后重启vscode
