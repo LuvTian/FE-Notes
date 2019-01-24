@@ -1,1 +1,2 @@
-﻿vetur,python,coderunner,beautify,autofilename,sftp,docblocker,view-in-browser
+﻿插件在用户目录下的.vscode
+vetur,python,coderunner,beautify,autofilename,sftp,docblocker,view-in-browser
