@@ -1,5 +1,5 @@
 git ssh免密
-$ ssh-keygen -t rsa 或者直接ssh-kengen(生成的秘钥文件位置是在当前目录，生成之前要切换到.ssh目录下或者Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):的时候填写完整的.ssh路径)
+$ ssh-keygen -t rsa 或者直接ssh-kengen(生成的秘钥文件位置是在当前目录，生成之前要切换到.ssh目录下操作或者Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):的时候填写完整的.ssh路径 或者生成后拷贝到.ssh目录下)
 Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):xxx 这里需要给生成的秘钥文件取个名字，默认就是id_rsa,如果这里自定义了，在后面ssh -T git@github.com的时候就会报错Permission denied (publickey)
 解决这个报错有两种方式：1.使用默认的id_rsa; 2.ssh-add ~/.ssh/自定义的秘钥文件名
 =================================================================================
