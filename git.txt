@@ -1,4 +1,9 @@
-安装notepad++或者其他代码编辑器，然后打开?E:\Program Files\cmder\config目录下的aliases文件，在最后面添加以下代码：
+git ssh免密
+$ ssh-keygen -t rsa 或者直接ssh-kengen(生成的秘钥文件位置是在当前目录，生成之前要切换到.ssh目录下或者Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):的时候填写完整的.ssh路径)
+Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):xxx 这里需要给生成的秘钥文件取个名字，默认就是id_rsa,如果这里自定义了，在后面ssh -T git@github.com的时候就会报错Permission denied (publickey)
+解决这个报错有两种方式：1.使用默认的id_rsa; 2.ssh-add ~/.ssh/自定义的秘钥文件名
+=================================================================================
+安装notepad++或者其他代码编辑器，然后打开E:\Program Files\cmder\config目录下的aliases文件，在最后面添加以下代码：
 l=ls --show-control-chars
 la=ls -aF --show-control-chars
 ll=ls -alF --show-control-chars
