@@ -4,6 +4,13 @@ Enter file in which to save the key (/Users/rehack/.ssh/id_rsa):xxx 这里需要
 解决这个报错有两种方式：1.使用默认的id_rsa; 2.ssh-add ~/.ssh/自定义的秘钥文件名
 ssh-add -l 查看加入的密钥列表
 ssh -v git@github.com 查看调试信息 或者ssh -vvv git@github.com
+
+如果ssh -T git@github.com测试通过，但是git clone的时候有如下报错，还是因为没有给git服务器里加入你的密钥到信任列表，执行ssh-add ~/.ssh/id_rsa即可
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+
 =================================================================================
 安装notepad++或者其他代码编辑器，然后打开E:\Program Files\cmder\config目录下的aliases文件，在最后面添加以下代码：
 l=ls --show-control-chars
@@ -60,5 +67,37 @@ git reset 把HEAD指向刚刚下载的最新的版本
 git reset --hard HEAD~1
 git push origin HEAD --force
 
+=================================================================================
+git代理
+
+#HTTP协议
+配置代理：
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+撤销代理：
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+查看代理：
+git config --global --get http.proxy
+git config --global --get https.proxy
+
+#SSH协议
+为个别域名设置代理
+在~/.ssh/config中根据域名添加配置，比如为github、gitlab配置SSH代理
+Host github.com
+Hostname github.com
+ProxyCommand nc -x 127.0.0.1:1086 %h %p
+
+Host gitlab.com
+Hostname gitlab.com
+ProxyCommand nc -x 127.0.0.1:1086 %h %p
 
 
+所有SSH协议都走代理
+新建文件”/path/to/soks5proxyssh”，内容如下：
+#!/bin/sh
+ssh -o ProxyCommand="nc -x 127.0.0.1:1086 %h %p" "$@"
+
+配置git使用该脚本：
+export GIT_SSH="/path/to/soks5proxyssh"
+别忘了给此脚本可执行权限哦，1080是ss客户端本地代理端口，Mac和win是不一样的

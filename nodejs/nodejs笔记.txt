@@ -6,3 +6,14 @@ https://nodejs.org/dist/v6.11.0/node-v6.11.0-win-x64.zip
 4.在命令终端(命令行工具)验证是否安装成功
 node -v
 npm -v
+
+=============================================================================
+yum install nodejs
+npm install nodemon -g
+yum update openssl
+npm install nodemon -g
+nodemon -w "*" -e "php" -x "php /data/www/me.rehack.cn/server.php start"
+
+
+
+
