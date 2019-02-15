@@ -6,8 +6,10 @@ Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
 macos下修改终端为zsh
 在User Settings把terminal.integrated.shell.osx项的值改为zsh的路径(/bin/zsh)
 
-
-
 ==============================================
 vscode的插件目录位置：C:\Users\xxx\.vscode\extensions
 vscode的用户配置文件位置：C:\Users\xxx\AppData\Roaming\Code\User\settings.json
+==============================================
+如果在保存代码的时候提示要sudo权限 Failed to save 'xxx': Insufficient permissions. Select 'Retry as Sudo' to retry as superuser.
+在代码的文件夹下执行：
+sudo chown -R $USER .
