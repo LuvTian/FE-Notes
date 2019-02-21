@@ -108,3 +108,6 @@ ssh -o ProxyCommand="nc -x 127.0.0.1:1086 %h %p" "$@"
 配置git使用该脚本：
 export GIT_SSH="/path/to/soks5proxyssh"
 别忘了给此脚本可执行权限哦，1080是ss客户端本地代理端口，Mac和win是不一样的
+
+如果出现报错：ssh_exchange_identification: Connection closed by remote host. fatal: Could not read from remote repository.
+检查代理是否开启且连接正常
