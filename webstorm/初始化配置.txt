@@ -1,0 +1,3 @@
+1.修改主题配色: Editor > Color Scheme > Monokai
+2.修改js不写分号出现_提示: Editor > Inspections > JavaScript > Code style issues > Unterminated statement 把这一项关闭，参考https://stackoverflow.com/questions/36329641/javascript-code-style-in-webstorm-shows-unterminated-statement-warning
+3.webstorm格式化后js代码出现顶格，就是script标签下会缩进，同时eslint报错Expected indentation of 0 spaces but found 4 (indent)，解决办法一关闭eslint的indent缩进校验，把'indent':[2,4]改成'indent':0,解决办法二修改webstorm配置：Editor > Code Style > HTMLOther > Do not indent children of在这一项里面添加script标签 参考https://github.com/vuejs/eslint-plugin-vue/issues/352 https://segmentfault.com/q/1010000013079361
