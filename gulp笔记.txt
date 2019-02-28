@@ -1,4 +1,0 @@
-1.安装淘宝npm镜像代替原npm 即可以用cnpm 代替npm命令
-2.cnpm -v
-3. cnpm init 之后 一路按回车键  会在根目录生成一个package.json的文件 这个是项目配置文件
-4.cnpm install gulp --save-dev 安装gulp  会生成一个node_modules目录 用来存放插件
