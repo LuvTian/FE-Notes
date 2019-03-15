@@ -1,2 +1,6 @@
-选择全部的相同文本 ctrl+shift+l 可以多处同时编辑
-复制上一行 alt+shift+下/上方向键
+1.选择全部的相同文本 ctrl+shift+l 可以多处同时编辑
+2.复制上一行 alt+shift+下/上方向键 
+3.复制当前光标所在的行，直接Ctrl+C 不需要选中
+4.行注释 ctrl+/ 块注释 Shift+Alt+A
+5.在上方插入一行ctrl+shift+enter 在下方插入一行Ctrl+enter
+6.格式化文档 shift+alt+f
