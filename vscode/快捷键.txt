@@ -4,3 +4,4 @@
 4.行注释 ctrl+/ 块注释 Shift+Alt+A
 5.在上方插入一行ctrl+shift+enter 在下方插入一行Ctrl+enter
 6.格式化文档 shift+alt+f
+7.Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行

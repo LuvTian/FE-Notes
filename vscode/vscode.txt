@@ -1,9 +1,4 @@
-﻿vscode快捷键
-
-Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
-
-==============================================
-macos下修改终端为zsh
+﻿macos下修改终端为zsh
 在User Settings把terminal.integrated.shell.osx项的值改为zsh的路径(/bin/zsh)
 
 ==============================================
@@ -13,3 +8,17 @@ vscode的用户配置文件位置：C:\Users\xxx\AppData\Roaming\Code\User\setti
 如果在保存代码的时候提示要sudo权限 Failed to save 'xxx': Insufficient permissions. Select 'Retry as Sudo' to retry as superuser.
 在代码的文件夹下执行：
 sudo chown -R $USER .
+
+==============================================
+批量修改变量或函数名
+光标放在变量/函数名上，按F2就可以修改了，注意整个项目中所有相关的实例都会被修改
+如果只想修改当前文件，使用 Command+F2(Mac) 或者 Ctrl+F2(Windows) 命令。
+不只是针对变量或函数名，选中任何一段字符都可以按F2进行多行编辑
+
+==============================================
+跳转到定义
+Command(Mac)/Ctrl(Windows) 并鼠标单击对应的变量/方法名
+
+==============================================
+多行编辑
+Option(Mac)/Alt(Windows) 按键，然后每点击一次，光标就在当前位置停住。每一次点击创建一个新的光标，然后就可以同时编辑这些位置
