@@ -30,14 +30,13 @@ if (options.extract) {
 #vue在打包后如果出现页面空白，需要注意一下路由配置文件里是否开启了mode:'history',
 
 vue生命周期
-beforeCreate（创建前）,
-created（创建后）,
-beforeMount(载入前),
-mounted（载入后）,
-beforeUpdate（更新前）,
-updated（更新后）,
-beforeDestroy（销毁前）,
-destroyed（销毁后）
+beforeCreated() 在实例创建之间执行，数据未加载状态
+created() 在实例创建、数据加载后，能初始化数据，dom渲染之前执行
+beforeMount() 虚拟dom已创建完成，在数据渲染前最后一次更改数据
+mounted() 页面、数据渲染完成，真实dom挂载完成
+beforeUpadate() 重新渲染之前触发
+updated() 数据已经更改完成，dom 也重新 render 完成,更改数据会陷入死循环
+beforeDestory() 和 destoryed() 前者是销毁前执行（实例仍然完全可用），后者则是销毁后执行
 
 使用举例：
 beforecreate : 举个栗子：可以在这加个loading事件 
