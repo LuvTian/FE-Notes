@@ -1,4 +1,6 @@
-全局安装（升级）vue3命令行工具 npm install -g @vue/cli
+全局安装vue3命令行工具 npm install -g @vue/cli
+升级vue cli 先卸载 sudo npm uninstall -g @vue/cli 再安装sudo npm install -g @vue/cli
+手动删除vue cli: sudo rm -rf /usr/local/devenv/nodejs/lib/node_modules/@vue
 查看vue-cli版本 vue -V
 #初始化项目（webpack是模板,可选的模板还有webpack、webpack-simple、browserify、browserify-simple、pwa、simple demo是要创建的项目文件夹） vue init webpack demo 接下来会提示一些项目配置需要进行设置 然后会初始化项目并安装所需依赖
 vue create demo 创建一个项目(也可以通过vue ui 命令以图形化界面创建和管理项目)
