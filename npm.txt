@@ -1,7 +1,7 @@
 npm 是nodejs的包管理工具
 ##安装nodejs和npm，我采用portable方式安装参考https://incusdata.site/pan/misc/Misc-%20Relocatable%20NodeJS%20on%20Windows.html 升级nodejs记得拷贝etc文件夹
 下载LTS nodejs https://nodejs.org/dist/
-下载npm https://github.com/npm/npm/releases
+下载npm https://github.com/npm/cli/releases
 
 解压nodejs portable，然后把D:\nodejs添加到系统环境变量，然后在命令行用node命令运行测试一个js文件
 新版nodejs 已经默认带了npm和npx 
@@ -23,15 +23,15 @@ npm config list 用此命令来查看npm基本配置
 npm config ls -l 查看所有配置
 
 ##使用npm来安装node包
-npm install <package>  是本地安装，安装包放在当前运行npm命令时所在的目录下的node_modules目录下
+npm install <package>  是本地安装，安装包放在当前运行npm命令时所在的目录下的node_modules目录下（./node_modules）
 npm install -g <package> 是全局安装，安装包放在prefix设置的目录下
 npm install <package>@version 安装指定版本号的模块
 npm install @@somescope/somepackagename 安装私有模块 eg: npm install -g @vue/cli  需要输入github账号密码
 
---save会把依赖包名称添加到 package.json 文件 dependencies下
---save-dev 则添加到 package.json 文件 devDependencies下
+--save会把依赖包名称添加到 package.json 文件 dependencies下，参数简写-S
+--save-dev 则添加到 package.json 文件 devDependencies下,参数简写-D
 devDependencies里面的插件只用于开发环境，不用于生产环境，而dependencies是需要发布到生产环境的。
-项目中import进来的模块都是要放在dependencies
+项目中import进来的模块都是要放在dependencies,项目开发完了，还需要在生产环境用的插件就要放到dependencies，比如element-ui这些
 
 
 
