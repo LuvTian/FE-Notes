@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Monokai",
-    "editor.fontFamily": "Monaco,Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Monaco,Consolas",
     // ctrl多选
     "editor.multiCursorModifier": "ctrlCmd",
     // 打开vscode的时候不要显示欢迎界面
