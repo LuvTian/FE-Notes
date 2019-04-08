@@ -1,7 +1,7 @@
 {
     "workbench.colorTheme": "Monokai",
     "editor.fontFamily": "Monaco,Consolas",
-    // ctrl多选
+    // 使用ctrl多光标同时编辑，默认是alt，同时“转到定义”和“打开链接”将由ctrl变成alt
     "editor.multiCursorModifier": "ctrlCmd",
     // 打开vscode的时候不要显示欢迎界面
     "workbench.startupEditor": "none",
@@ -15,6 +15,7 @@
     "files.associations": {
         "*.wxml": "html",
         "*.wxss": "css"
+        // "*.vue": "html" //安装了vetur插件就不需要设置这个
     },
     // 使用cmder为默认终端
     // "terminal.integrated.shell.windows": "cmd.exe",//win7可省略，win10不能
@@ -24,31 +25,16 @@
     ],
     // macOS修改默认shell为zsh
     // "terminal.integrated.shell.osx": "/bin/zsh",
-
     // 使用TAB键补全emmet
     "emmet.triggerExpansionOnTab": true,
-    // 根据文件类型自动设置tabsize
+    // ###以下是格式化和Vue、eslint相关的设置（vscode需要安装插件eslint和vetur、项目的.eslintrc.js需要配置rules：{'indent': [2, 4]}）
+    // 关闭根据文件类型自动检测Editor: Tab Size和Editor: Insert Spaces
     "editor.detectIndentation": false,
-    // 关闭js检查
-    "javascript.validate.enable": false,
-    // 每次保存的时候自动格式化
-    // "editor.formatOnSave": true,
-    // 关闭vetur插件的语法报错
-    // "vetur.validation.template": false,
-    // 修改vetur插件的默认html格式化方式
-    // "vetur.format.defaultFormatter.html": "js-beautify-html",
-    "vetur.format.defaultFormatterOptions": {
-        "js-beautify-html": {
-            "wrap_attributes": "force" // 可以换成上面任意一种value
-        }
-    },
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "vetur.format.options.tabSize": 4,
-
-    "files.autoSave": "off",
+    // 保存文件时自动格式化
+    "editor.formatOnSave": true,
+    // 保存时eslint自动修复错误
     "eslint.autoFixOnSave": true,
-    "eslint.trace.server": "messages",
-    // 检查的文件类型
+    // eslint检查的文件类型
     "eslint.validate": [
         "javascript",
         "javascriptreact",
@@ -63,9 +49,11 @@
             "autoFix": true
         }
     ],
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatter.js": "vscode-typescript", //默认的prettier在格式化的时候回给js代码加上分号，会把单引号变成双引号
     // 以下为stylus格式化配置
     "stylusSupremacy.insertColons": false, // 是否插入冒号
-    "stylusSupremacy.insertSemicolons": false, // 是否插入分好
+    "stylusSupremacy.insertSemicolons": false, // 是否插入分号
     "stylusSupremacy.insertBraces": false, // 是否插入大括号
     "stylusSupremacy.insertNewLineAroundBlocks": false // 两个选择器中是否换行
 }
