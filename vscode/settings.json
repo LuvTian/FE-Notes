@@ -7,12 +7,7 @@
     "workbench.startupEditor": "none",
     // 设置隐藏文件或文件夹
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/__pycache__": true
+        "**/__pycache__": true //默认已经有.git .svn .hg .CVS .DS_Store
     },
     // ctrl+n 新建的文件的默认语言
     "files.defaultLanguage": "html",
