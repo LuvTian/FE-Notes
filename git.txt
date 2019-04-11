@@ -111,3 +111,9 @@ export GIT_SSH="/path/to/soks5proxyssh"
 
 如果出现报错：ssh_exchange_identification: Connection closed by remote host. fatal: Could not read from remote repository.
 检查代理是否开启且连接正常
+
+==============
+清理git缓存解决.gitignore不生效问题
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
