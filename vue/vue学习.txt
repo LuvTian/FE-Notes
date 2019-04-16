@@ -71,3 +71,6 @@ computed可以监听多个变量，这个变量是在vue实例里面，用于数
 ###vue cli eslint 修改为4个空格
 .editorconfig文件  修改indent_size = 4
 .eslintrc.js文件 rules添加'indent': ['error', 4]
+
+
+在vue里不能直接使用console.log要加上window.console.log()
