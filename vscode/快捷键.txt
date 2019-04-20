@@ -1,7 +1,15 @@
-1.选择全部的相同文本 ctrl+shift+l 可以多处同时编辑
-2.复制上一行 alt+shift+下/上方向键 
-3.复制当前光标所在的行，直接Ctrl+C 不需要选中
-4.行注释 ctrl+/ 块注释 Shift+Alt+A
-5.在上方插入一行ctrl+shift+enter 在下方插入一行Ctrl+enter
-6.格式化文档 shift+alt+f
-7.Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
+1.选择当前选择的所有事件(需要选中一段文本，会匹配到所有相同的文本)，可以多处同时编辑 ctrl+shift+l 
+2.选择当前单词的所有出现(不需要选中单词，只需要光标点击在单词上)，可以多处同时编辑 ctrl + f2 
+3.复制上一行 alt+shift+下/上方向键 
+4.复制当前光标所在的行，直接Ctrl+C 不需要选中
+5.行注释 ctrl+/ 块注释 Shift+Alt+A
+6.在上方插入一行ctrl+shift+enter 在下方插入一行Ctrl+enter
+7.格式化文档 shift+alt+f
+8.Ctrl+Alt+上下方向键 可以像sublime的鼠标中键选中多行
+9.选中多行，在每行末尾插入光标 shift + alt + i
+
+10.在任意多个位置插入光标
+Option(Mac)/Alt(Windows) 按键，然后每点击一次，光标就在当前位置停住。每一次点击创建一个新的光标，然后就可以同时编辑这些位置
+可以设置成Ctrl键"editor.multiCursorModifier": "ctrlCmd",
+
+11.选中当前行 ctrl + L

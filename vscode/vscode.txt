@@ -20,6 +20,3 @@ sudo chown -R $USER .
 Command(Mac)/Ctrl(Windows) 并鼠标单击对应的变量/方法名
 
 ==============================================
-多行编辑
-Option(Mac)/Alt(Windows) 按键，然后每点击一次，光标就在当前位置停住。每一次点击创建一个新的光标，然后就可以同时编辑这些位置
-可以设置成Ctrl键"editor.multiCursorModifier": "ctrlCmd",
