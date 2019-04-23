@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘制图片并裁切</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600">您的浏览器不支持canvas</canvas>
+    <script>
+        /**
+         * context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+         * 参数说明：
+         * img  规定要使用的图像、画布或视频。
+         * sx   可选。开始剪切的 x 坐标位置。
+         * sy   可选。开始剪切的 y 坐标位置。
+         * swidth   可选。被剪切图像的宽度。
+         * sheight  可选。被剪切图像的高度。
+         * x    在画布上放置图像的 x 坐标位置。
+         * y    在画布上放置图像的 y 坐标位置。
+         * width    可选。要使用的图像的宽度。（伸展或缩小图像）
+         * height   可选。要使用的图像的高度。（伸展或缩小图像）
+         *
+         */
+        var canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d"); //获取canvas绘制的上下文环境
+
+            //创建新的图片对象
+            var img = new Image();
+            //指定图片的URL
+            img.src = "http://7xlaft.com1.z0.glb.clouddn.com/meitu/suzhou1.jpg";
+            //浏览器加载图片完毕后再绘制图片
+            img.onload = function() {
+                //以Canvas画布上的坐标(10,10)为起始点，绘制图像
+                // ctx.drawImage(img, 10, 10);
+
+                //剪切图片，并在画布上对被剪切的部分进行定位：
+                ctx.drawImage(img, 200, 200, 300, 300, 10, 10, 300, 300);
+            }
+        }
+    </script>
+</body>
+</html>

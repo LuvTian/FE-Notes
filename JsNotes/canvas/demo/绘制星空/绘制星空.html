@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>绘制星空</title>
+    <style>
+    #canvas {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        // 五角星的坐标公式见图drawStar.jpg
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+
+            ctx.fillStyle = "#000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height); //填充整个canvas画布背景色为黑色
+
+            for (var i = 0; i < 200; i++) {
+                var R = Math.random() * 5 + 10; //大圆半径在10~15范围内随机，让星星大小随机
+                var x = Math.random() * canvas.width; //随机位置
+                var y = Math.random() * canvas.height; //随机位置
+                var a = Math.random() * 360; //随机旋转角度
+                drawStar(ctx, R, R / 2.0, x, y, a);
+            }
+        }
+
+        /**
+         * [drawStar 绘制五角星函数]
+         * @param  {[type]} context [绘图环境]
+         * @param  {[type]} r       [五角星内部小圆半径]
+         * @param  {[type]} R       [五角星外部大圆半径]
+         * @param  {[type]} x       [x方向偏移量，即五角星中心点x坐标]
+         * @param  {[type]} y       [y方向偏移量，即五角星中心点y坐标]
+         * @param  {[type]} rot     [旋转角度]
+         * @return {[type]}         [无]
+         */
+        function drawStar(context, outerR, innerR, x, y, rot) {
+            context.beginPath();
+            for (var i = 0; i < 5; i++) {
+                // 外角坐标点
+                context.lineTo(Math.cos((18 + i * 72 - rot) / 180 * Math.PI) * outerR + x, -Math.sin((18 + i * 72 - rot) / 180 * Math.PI) * outerR + y);
+                // 内角坐标点
+                context.lineTo(Math.cos((54 + i * 72 - rot) / 180 * Math.PI) * innerR + x, -Math.sin((54 + i * 72 - rot) / 180 * Math.PI) * innerR + y);
+            }
+            context.closePath();
+            context.lineJoin="round";
+            context.lineWidth = 3;
+            context.strokeStyle = "#fd5";
+            context.fillStyle="#fb3";
+            context.fill();
+            context.stroke();
+        }
+    </script>
+</body>
+
+</html>

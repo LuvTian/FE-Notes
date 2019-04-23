@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 填色</title>
+	<style>
+	#canvas{
+		display: block;
+		margin: 0 auto;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="600"></canvas>
+
+	<script>
+		window.onload = function() {
+			var canvas = document.getElementById("canvas");
+			if (canvas.getContext("2d")) {
+				var ctx = canvas.getContext("2d");
+				ctx.moveTo(100, 100); //设置绘制的起点坐标
+				ctx.lineTo(500, 500); //设置绘制的终点坐标
+				ctx.lineTo(100, 500); //从上一结束点继续绘制
+				ctx.lineTo(100, 100); //从上一结束点继续绘制，回到起始点
+
+				ctx.fillStyle = "rgb(2,100,30)"; // fillStyle 属性来设置填充一种颜色/渐变。
+				ctx.fill(); //fill() 方法填充当前的图像（路径）。默认颜色是黑色。如果路径未关闭，那么 fill() 方法会从路径结束点到开始点之间添加一条线，以关闭该路径，然后填充该路径。
+
+				//为填充区域添加边框
+				ctx.lineWidth=5;
+				ctx.strokeStyle="blue";
+				ctx.stroke();
+
+			} else {
+				alert("您的浏览器不支持canvas！")
+			}
+		}
+	</script>
+</body>
+</html>

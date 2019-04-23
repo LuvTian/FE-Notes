@@ -1,0 +1,37 @@
+首先你要明白JSON是什么，JavaScript Object Notation，意思是JavaScript对象表示法，它是一种基于文本，独立于语言的轻量级数据交换格式。说白了它就是一段字符串，由于并没有附加额外的标记，JS也可以直接作为对象处理，所以常用于数据交换。
+PHP之所以认得JSON字符串，是因为PHP库中有JSON_parser来解析
+这就像是两个部落之间虽然语言不通，但是约定一种东西做为统一货币来交换物品，这个‘物品’就是我们的数据
+
+既然JS能直接处理JSON对象，那为什么有时AJAX请求拿到的JSON字符串还需要转为JSON对象，这就要分清JSON字符串和JSON对象了
+JSON字符串：指的是符合JSON格式要求的JS字符串。如下：
+
+var jsonStr = "{id:'1',name:'Fini',age:30}";
+JSON对象：指符合JSON格式要求的JS对象。如下：
+
+var jsonObj = { id: "1", name: "Fini", age: 30 };
+在PHP中，相关的操作方法有json_encode、json_decode
+json_encode理论上可以将除resourse外的任何数据类型转为JSON格式字符串(不过有些时候会失败~囧~)
+
+$arr = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+var_dump(json_encode($arr));
+/**** result by php5.6 ****/
+string '{"a":1,"b":2,"c":3,"d":4,"e":5}' (length=31)
+json_decode就是将一个JSON格式字符串转为PHP的array或object,这取决于第二个参数(true/false)
+
+$json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
+var_dump(json_decode($json));
+var_dump(json_decode($json, true));
+/**** result by php5.6 ****/
+object(stdClass)[1]
+  public 'a' => int 1
+  public 'b' => int 2
+  public 'c' => int 3
+  public 'd' => int 4
+  public 'e' => int 5
+
+array (size=5)
+  'a' => int 1
+  'b' => int 2
+  'c' => int 3
+  'd' => int 4
+  'e' => int 5

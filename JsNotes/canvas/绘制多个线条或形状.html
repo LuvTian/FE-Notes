@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制多个线条或形状</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx=canvas.getContext("2d");
+            ctx.moveTo(100, 100);
+            ctx.lineTo(500,500);
+            ctx.lineTo(100,500);
+            ctx.lineTo(100,100);//让结束点回到起点，即可封闭该路径，但封闭的节点处会存在缝隙，解决此问的最好方式就是使用closePath()来封闭路径。使用了closePath()最后一个回到起点的坐标lineTo也就不需要了。
+
+            ctx.lineWidth=5;
+            ctx.strokeStyle="red";
+            ctx.stroke();
+
+
+            ctx.moveTo(200,100);
+            ctx.lineTo(500,400);
+            ctx.strokeStyle="blue";
+            ctx.stroke();
+
+
+            //结果出来一个三角路径和一条直线，都是蓝色的，因为后面的ctx.strokeStyle="blue"覆盖了前面的
+            //Canvas是基于状态进行绘制图形
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘制弧和圆2(多个弧)</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">您的浏览器不支持canvas！</canvas>
+    <script>
+        /**
+         * beginPath()表示要重新开始新的路径，closePath()表示要结束当前路径
+         * beginPath()和closePath()不一样要成对出现
+         * 如果当前的路径没有封闭，closePath()会使当前的路径封闭
+         */
+        window.onload=function(){
+            var canvas=document.getElementById("canvas");
+            canvas.width=1000;
+            canvas.height=800;
+            var ctx=canvas.getContext("2d");
+
+
+            ctx.lineWidth=3;
+            ctx.strokeStyle="green";
+
+            // 使用closePath()方法在arc绘制弧线的时候回自动闭合弧线
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10);
+                ctx.closePath();
+
+                ctx.stroke();
+            };
+
+            // 没有使用closePath()方法结束路劲，图形不会自动闭合
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,180,40,0,2*Math.PI*(i+1)/10);
+
+                ctx.stroke();
+            };
+
+            // 逆时针绘制闭合的弧
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,300,40,0,2*Math.PI*(i+1)/10,true);
+                ctx.closePath();
+
+                ctx.stroke();
+            };
+
+
+            // 逆时针绘制不封闭的弧
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,420,40,0,2*Math.PI*(i+1)/10,true);
+
+                ctx.stroke();
+            };
+
+            // 绘制实心的弧
+            ctx.fillStyle='blue';
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,540,40,0,2*Math.PI*(i+1)/10);
+                ctx.closePath();
+
+                ctx.fill();
+            }
+
+            // colsePath()对fill()填充方法没有起作用，不管有没有closePath()，填充区域都会自动闭合
+            for(var i=0;i<10;i++){
+                ctx.beginPath();
+                ctx.arc(50+i*100,660,40,0,2*Math.PI*(i+1)/10);
+
+                ctx.fill();
+            }
+        }
+
+    </script>
+
+</body>
+</html>

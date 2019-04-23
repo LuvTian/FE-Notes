@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>5.concat、reverse、join方法</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+<body>
+    <input type="text">
+    <button>查找</button>
+    <p>睿客网提供网站开发的各种技术，每天更新最新最精最前沿的网站技术文章，包括前端开发，后端开发，移动互联网开发，数据，服务器等各类开发技术。www.rehack.cn</p>
+    <script>
+        // concat() 连接两个或更多的数组，并返回结果。方法会创建新的数组，而不会改变原来的数组
+        var arr1 = [1, 2, 3];
+        var arr2 = [4, 5, 6];
+        var arr3 = ["a", "b", "c"];
+        var arr4 = arr1.concat(arr2, arr3);
+        console.log(arr4); //-->[1, 2, 3, 4, 5, 6, "a", "b", "c"]
+
+        // reverse() 方法用于颠倒数组中元素的顺序。该方法会改变原来的数组，而不会创建新的数组
+        var arr5 = [1, 2, 3, 4];
+        arr5.reverse();
+        console.log(arr5); //-->[4, 3, 2, 1]
+
+        // 将字符串顺序进行颠倒
+        var str1 = "abcdef";
+        console.log(str1.split("").reverse().join("")); //-->fedcba 先将字符串分割成数组，再将数组顺序颠倒，再将颠倒后的数组变成字符串
+        //join() 方法用于把数组中的所有元素放入一个字符串。元素是通过指定的分隔符进行分隔的。
+
+
+        // join()方法将数组转成字符串
+        var arr6 = ['a', 'b', 'c'];
+        console.log(arr6.join()); //a,b,c 如果不加参数默认会以,号将数组各项连接成字符串，相当于console.log(arr6.join(','));
+        console.log(arr6.join('')); //abc 以空字符串连接数组各项
+        console.log(arr6.join('-')); //a-b-c 以-号连接数组各项
+
+
+        // demo 查找文本中的匹配字符并高亮显示
+        var oInput = document.getElementsByTagName('input')[0];
+        var oBtn = document.getElementsByTagName('button')[0];
+        var oP = document.getElementsByTagName('p')[0];
+        oBtn.onclick = function() {
+            var str = oP.innerHTML;
+            var fg = oInput.value;
+            if (fg) {
+                var arr = str.split(fg);
+                // alert(oInput2.innerHTML)
+                var newStr = arr.join('<span style="background:#f5ad46;color:#fff">' + fg + '</span>'); //这里的变量fg可以扩展一下，可以替换成其他字符串
+                // console.log(newStr);
+                oP.innerHTML = newStr;
+            } else {
+                alert('请输入字符');
+            }
+        }
+    </script>
+</body>
+
+</html>

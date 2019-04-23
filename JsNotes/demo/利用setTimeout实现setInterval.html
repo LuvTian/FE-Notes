@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="stop()">stop</button>
+    <p id="view"></p>
+<script>
+
+/*    function mySetIntval(func,time){
+
+        this.start = function(){
+            interVal();
+        }
+
+        // 重写exec方法，实现clean功能
+        this.clean = function(){
+            func = function(){}
+        }
+
+        // 递归实现setInteVal
+        function interVal(){
+            setTimeout(function(){
+                func();
+                interVal();
+            },time);
+        }
+
+        return this;
+    }*/
+
+
+  /*上面的实现方法是最好的，因为就算stop以后，还会一只在执行一个空函数。
+  下面利用bind方法改变this在setTimeout的指针。*/
+
+
+    function mySetIntval(func,time){
+
+        this.start = function(){
+            if(!this.stop){
+                setTimeout(function(){
+                    func();
+                    this.start(this.stop);
+                }.bind(this),time);
+            }
+        }
+
+        // 重写exec方法，实现clean功能
+        this.clean = function(){
+            this.stop = true;
+        }
+
+        this.stop = false;
+
+
+        return this;
+    }
+    var i = 0;
+    var clearIntVal = new mySetIntval(function(){
+        document.getElementById('view').innerHTML =  ++i;
+    },1000);
+
+    clearIntVal.start();
+
+    function stop(){
+        clearIntVal.clean();
+    }
+
+</script>
+</body>
+</html>

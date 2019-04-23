@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线段属性lineCap</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        /**
+         * 线段属性lineCap设置线段两端的形状，有三个值：
+         * 1. butt为默认值
+         * 2. round线段两端为圆角，两端会凸出
+         * 3. square线段两端为方形，两端会凸出
+         */
+        window.onload=function(){
+            var canvas = document.getElementById("canvas");
+            var ctx=canvas.getContext("2d");
+
+            ctx.lineWidth=50;
+            ctx.strokeStyle="#058";
+
+            ctx.beginPath();
+            ctx.moveTo(100,200);
+            ctx.lineTo(700,200);
+            ctx.lineCap="butt";//默认为butt
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100,400);
+            ctx.lineTo(700,400);
+            ctx.lineCap="round";//线段两端为圆角
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100,600);
+            ctx.lineTo(700,600);
+            ctx.lineCap="square";//线段两端为方形
+            ctx.stroke();
+
+            // baseline 参考基线
+            ctx.lineWidth=1;
+            ctx.strokeStyle="red";
+            ctx.moveTo(100,100);
+            ctx.lineTo(100,700);
+            ctx.moveTo(700,100);
+            ctx.lineTo(700,700);
+            ctx.stroke();
+
+
+        }
+    </script>
+</body>
+</html>

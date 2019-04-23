@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>字符串</title>
+</head>
+<body>
+	<p></p>
+    <script>
+    // charAt(index)方法，返回在指定位置的字符，index是该字符串的下标，取值范围[0~str.length-1],超出取值范围则返回一个空字符串 index的默认值是0
+    var str1='abc';
+    console.log(str1.charAt(1));//b 返回第一位置的字符 取值范围[0~str.length-1],超出取值范围则返回一个NaN
+
+    // charCodeAt(index)方法可返回指定位置的字符的 Unicode 编码 index的默认值是0
+    var str2='中国';
+    console.log(str2.charCodeAt(0));//20013 返回在指定位置的字符的 Unicode 编码
+    var str3='012';
+    console.log(str3.charCodeAt(0));//48 数字0~9的编码是48~57 小写字母a~z的编码是97~122 大写字母A~Z的编码是65~90
+
+
+    // 由Unicode编码转字符
+    console.log(String.fromCharCode(21608,27874));//-->周波 多个编码可以用逗号隔开 String.fromCharCode(numX,numX,...,numX)
+    document.getElementsByTagName('p')[0].innerHTML="&#21608";
+    // document.getElementsByTagName('p')[0].innerHTML="\u5468";
+
+    var str4='';
+    for(var i=20000;i<60000;i++){
+        str4+=i+String.fromCharCode(i)+' ';
+    }
+    document.body.innerHTML=str4;
+    </script>
+    
+</body>
+</html>

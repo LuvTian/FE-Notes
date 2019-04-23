@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+	*{margin: 0;padding: 0;}
+	.tab{
+		width: 330px;
+	}
+	.nav ul{
+		overflow: hidden;
+	}
+	.nav li{
+		float: left;
+		width: 100px;
+		height: 30px;
+		background: blue;
+		text-align: center;
+		color:#fff;
+		line-height: 30px;
+		margin:0 5px;
+		list-style:none;
+	}
+	.con .coni{
+		border:1px solid #ccc;
+		height: 200px;
+		display: none;
+	}
+	li.active{
+		background: orange;
+	}
+</style>
+</head>
+<body>
+    <div class="tab">
+    <div class="nav">
+        <ul>
+            <li class="active">衣服</li>
+            <li>鞋子</li>
+            <li>文具</li>
+        </ul>
+    </div>
+    <div class="con">
+        <div style='display:block'>衣服内容</div>
+        <div>鞋子内容</div>
+        <div>文具内容</div>
+    </div>
+</div>
+
+
+<div class="tab">
+    <div class="nav">
+        <ul>
+            <li class="active">衣服</li>
+            <li>鞋子</li>
+            <li>文具</li>
+        </ul>
+    </div>
+    <div class="con">
+        <div style='display:block'>衣服内容</div>
+        <div>鞋子内容</div>
+        <div>文具内容</div>
+    </div>
+</div>
+
+
+    <!--  -->
+    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+    	var app={};//全局对象
+    	/**
+    	 * @description 切换功能模块
+    	 * @type {Object}
+    	 * 面向对象的四大特征：抽象、封装、继承（遗传）、多态
+    	 * 抽象：把最主要的特征，跟问题相关的特征抽出来；
+    	 * 封装：看不到里面的东西，用好表面的功能就行了；
+    	 * 继承：从父类上继承一些方法和属性，子类又有自己的特性，以便代码重用
+    	 *
+    	 * *************************************************************************
+    	 * 对象是由方法和属性组成的
+    	 * 		方法：函数（过程，动态的）
+    	 * 		属性：变量（状态，静态的）
+    	 * *************************************************************************	
+    	 * this: 当前发生事件的对象，当前的方法属于谁，this就是谁
+    	 * this指向window的情况：
+    	 * function show(){
+    	 * 	alert(this);
+    	 * }
+    	 * show();//结果是window
+    	 * 为什么结果是window呢？因为show函数属于全局函数，属于window上的，相当于下面的写法
+    	 * window.show=function(){
+    	 * 	alert(this);
+    	 * }
+    	 * show();//结果还是window
+    	 * *************************************************************************
+    	 * 不能在系统对象（如Date，Array，RegExp）中随意添加方法和属性，否则会覆盖已有的方法和属性
+    	 * Object是一个空白的对象，可以自己创建并添加方法和属性
+         * *************************************************************************
+         *
+    	 */
+    
+    	app.tab=function(defaults){
+    		this.target=null;
+    		var _this=this;
+    		this.onclick=function(){
+                console.log(this);//当前点击对象
+                console.log(_this);//app.tab
+    			console.log(_this.target);//li
+
+
+    			$(this).addClass('active').siblings().removeClass('active');
+    			$(_this.target.parents()).find('.con div').eq($(this).index()).show().siblings().hide();
+    		};
+
+            this.init=function(){
+
+                // console.log(this)
+                defaults=defaults||{};
+                this.target=defaults.target||$();
+                // console.log(this.target);
+                this.target.on('click',this.onclick)    
+            };
+            this.init();    		
+    		
+    	};
+    	
+    	/*var a=new app.tab({target:$('.tab1 li')});
+        var b=new app.tab({target:$('.tab2 li')});*/
+        // var c=new app.tab({target:$('.tab li')});
+        
+
+        $.fn.Tab=function(){
+            $(this).each(function(){   //这里$(this)=this
+                var aa=new app.tab({
+                    target:$(this).find('li')
+                })
+            })
+        };
+        $('.tab').Tab();
+        $('.smtab').Tab();
+        
+
+    </script>
+</body>
+</html>

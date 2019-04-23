@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<input type="text">
+	<button>按钮</button>
+	<div id="div1"></div>
+    <script>
+    var str1='www.REHACK.cn';
+    console.log(str1.toUpperCase());//WWW.REHACK.CN toUpperCase()方法转换成大写
+
+    console.log(str1.toLowerCase());//www.rehack.cn toLowerCase()方法转换成小写
+
+    /**
+     * split()方法分割字符串
+     */
+    var str2='/www.rehack.cn/';
+    console.log(str2.split());//["/www.rehack.cn/"]
+    console.log(str2.split('.'));//["/www", "rehack", "cn/"] 以字符.为分隔符
+    console.log(str2.split('c'));//["/www.reha", "k.", "n/"]
+    console.log(str2.split('/'));//["", "www.rehack.cn", ""]
+
+    var str3='2015-12-18-13-14';
+    console.log(str3.split('-',3));//["2015", "12", "18"] 第二个参数是限制所返回数组的长度,超出长度的部分被省略，如果省略该参数，则返回分割后的完整数组
+
+
+    // demo
+	var oDiv     =document.getElementById('div1');
+	var oInput   =document.getElementsByTagName('input')[0];
+	var oBtn     =document.getElementsByTagName('button')[0];
+	var arrColor =['red','blue','orange','green'];
+    oBtn.onclick=function(){
+    	var str=oInput.value;
+    	var arr=str.split('');
+    	for(var i=0;i<arr.length;i++){
+    		console.log(i%arrColor.length);
+    		arr[i]='<span style="background:'+arrColor[i%arrColor.length]+'">'+arr[i]+'</span>';
+
+    		// oDiv.innerHTML=oDiv.innerHTML+arr[i]
+
+    	}
+		oDiv.innerHTML+=arr.join('');
+    	console.log(arr.join(''));
+    }
+    </script>
+</body>
+</html>

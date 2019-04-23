@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>拖拽</title>
+<style>
+    *{margin: 0;padding: 0;}
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: green;
+        position: absolute;
+    }
+</style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script>
+        var oDiv=document.getElementById("div1");
+
+        var disX;
+        var disY;
+
+        // 当鼠标在div上按下的时候计算出鼠标点击的位置和div之间的距离
+        oDiv.onmousedown=function (e) {
+            var e=e||window.event;
+            disX=e.clientX-oDiv.offsetLeft;
+            disY=e.clientY-oDiv.offsetTop;
+            // console.log(disX+"--"+disY);
+
+            // 鼠标移动事件发生在鼠标按下事件之后，并且这里鼠标移动事件加到document身上，防止鼠标甩出div
+            document.onmousemove=function(e){
+                var e=e||window.event;
+                doDrag(e);
+            }
+
+            // 这里鼠标抬起事件加到document身上，防止鼠标在div之外抬起后依然能拖拽的bug
+            document.onmouseup=function(){
+                stopDrag();
+            }
+        }
+
+        // 改变div的位置
+        function doDrag(event){
+            oDiv.style.left=event.clientX-disX+'px';
+            oDiv.style.top=event.clientY-disY+'px';
+        }
+
+        // 停止拖拽
+        function stopDrag(){
+            document.onmousemove=null;
+            document.onmouseup=null;//停止拖拽后清除鼠标抬起事件
+        }
+
+
+        function limitArea(){
+
+        }
+    </script>
+</body>
+</html>

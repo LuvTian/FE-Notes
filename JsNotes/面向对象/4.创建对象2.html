@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src=""></script>
+</head>
+<body>
+    <script>
+    	// 最简单常用的创建对象方式之一
+    	var people={	//对象是一组属性集合的容器，对象是由属性和方法构成的，每组属性都有一个名词和一个值
+    		liveing:true,	//living是属性名称，true是值，下面同理
+    		age:23,
+    		sex:'male',
+    		getSex:function(){	//把getSex方法作为people对象的一个属性
+    			return people.sex;
+    		},
+    	};
+    	console.log(people);
+    	// 访问对象的某个属性的值的两种方式
+    	console.log(people.age);
+    	console.log(people.getSex());
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.sort排序</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+		var arr1 = ["c", "d", "e", "a"];
+		arr1.sort();
+		console.log(arr1); //->>["a", "c", "d", "e"] 按照字母编码顺序排
+
+		var arr2 = [34, 2, 3, 6, 1];
+		arr2.sort();
+		console.log(arr2); //-->[1, 2, 3, 34, 6] 并不是按数字大小来排的，而是按照数字的第一位数大小顺序来排
+
+		//数字排序
+		var arr3 = [23, 56, 7, 454, 41, 89];
+		arr3.sort(function(a, b) {
+			return a - b; //从小到大    
+			// return b - a;//从大到小
+			// 根据差值会进行位置交换
+		});
+		console.log(arr3); //-->[7, 23, 41, 56, 89, 454]
+
+		var arr4 = ["23px", "45px", "100px", "16px"];
+		arr4.sort(function(a, b) {
+			return parseInt(a) - parseInt(b); //将字符串转换成数字再比较
+		});
+		console.log(arr4); //->>["16px", "23px", "45px", "100px"]
+
+		// 随机排序
+		var arr5 = [1, 2, 3, 4, 5, 6];
+		arr5.sort(function(a, b) {
+			return Math.random() - 0.5; //随机的数，可能是正数，可能是负数
+		});
+		console.log(arr5);
+
+		// Math.random()随机函数, 返回0.0 ~ 1.0 之间的一个伪随机数。[0,1)包括0，不包括1
+		console.log(Math.random());
+		console.log(Math.round(Math.random())); //将[0,1)之间的数进行四舍五入，得到随机的0和1两个数
+		console.log(Math.round(Math.random() * 10)); //-->[0,10]之间的整数
+
+		// [x,y] x~y之间的随机整数
+		function getRandom(x, y) {
+			return Math.round(Math.random() * (y - x) + x);
+		}
+		console.log(getRandom(3, 8)); //[3,8]之间
+
+		// 随机产生5个从1~10之间的随机不重复的整数
+		var arrN = [];
+		// arrN.length=5;
+		// console.log(arrN.length);
+		for (var i = 0; i < 5; i++) {
+			arrN.push(getRandom(1, 10));
+			for (var j = 0; j < arrN.length; j++) {
+				for (var k = j + 1; k < arrN.length; k++) {
+					if (arrN[j] == arrN[k]) {
+						arrN.splice(j, 1)
+					}
+				}
+			}
+		}
+		console.log(arrN);
+    </script>
+</body>
+</html>

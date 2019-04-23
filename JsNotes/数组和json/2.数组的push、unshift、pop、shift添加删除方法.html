@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>2.数组的push、unshift、pop、shift添加删除方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+        // push方法向数组末尾添加,push方法的返回值是push后的新数组的长度
+        var arr1=[1,2,3];
+        arr1.push('aa');
+        console.log(arr1);//-->[1,2,3,"aa"]
+        console.log(arr1.push("bb"));//-->5 push后的新数组的长度是5，返回值是5
+
+        // unshift方法向数组的开始位置添加,此方法在IE6 7下不支持返回值，在其他浏览器下返回值也是新数组的长度
+        var arr2=['b','c'];
+        arr2.unshift('a');
+        console.log(arr2);//-->["a","b","c"]
+        console.log(arr2.unshift(1));//-->4 返回值为新数组的长度4
+
+        // pop() 方法将删除数组的最后一个元素，把数组长度减 1，并且返回它删除的元素的值即数组的最后一个元素。如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。
+        var arr3=[1,2,"a",4];
+        arr3.pop();
+        console.log(arr3);//-->[1, 2, "a"]
+        console.log(arr3.pop());//-->a 返回被删除的元素
+
+        // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。请注意，该方法不创建新数组，而是直接修改原有的数组。
+        var arr4=[0,1,2,3];
+        console.log(arr4.shift());//-->返回值是第一个被删除的元素0
+        console.log(arr4);//-->[1, 2, 3]
+
+        // 技巧：把数组的最后一个元素提到第一位，其他位置不变
+        var arr5=[1,2,3,4];
+        arr5.unshift(arr5.pop());
+        console.log(arr5);//-->[4, 1, 2, 3]
+
+        //  技巧：把数组的第一个元素提到最后一位
+        var arr6=[1,2,3,4];
+        arr6.push(arr6.shift());
+        console.log(arr6);//-->[2, 3, 4, 1]
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 通过new关键词来创建一个Promise对象实例 Promise构造函数只接收一个参数并且参数是一个函数（executor执行器），回调函数有两个参数 resolve 和 reject，在函数里面进行一些异步操作，然后根据异步操作结果调用resolve()方法或者reject()方法
+         * 当Promise里面调用了resolve或reject方法后Promise的状态就会由pending变成fulfilled或者rejected,当Promise的状态改变之后，就会调用Promise对象的实例的一个方法then()，then方法可以接收两个参数，且通常都是函数(一个成功处理函数，一个失败处理函数)，这两个函数分别处理resolve和reject两种不同的结果，也可以接收resolve和reject传递出来数据
+         * then方法会返回一个新的promise，所以Promise实例的then方法可以进行链式调用
+         * Promise有三种状态
+         *  pending: 初始状态，既不是成功，也不是失败状态。
+            fulfilled: 意味着操作成功完成。
+            rejected: 意味着操作失败。
+         */
+        var p = new Promise((resolve,reject)=>{
+            if(1<0){
+                resolve('success')
+            }else{
+                reject('error');
+            }
+        });
+
+        p.then(succ=>{
+            console.log(succ)
+        },err=>{
+            console.log(err);
+            
+        })
+
+        for( var i in p ){
+            console.log(i+'--'+p[i])
+        }
+    </script>
+</body>
+</html>

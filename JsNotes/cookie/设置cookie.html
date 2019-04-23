@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>设置cookie</title>
+
+</head>
+<body>
+    <script>
+        /**
+         * 同一个网址中所有页面共享一套cookie
+         * 数量、大小有限
+         * 有过期时间
+         *
+         * chrome不能操作本地html的cookie，在线的网站或本地服务器环境或Firefox是可以的
+         */
+        document.cookie='name=aa';
+        document.cookie='pass=123';
+        alert(document.cookie); //name=aa; pass=123 每条cookie以分号空格隔开
+    </script>
+</body>
+</html>

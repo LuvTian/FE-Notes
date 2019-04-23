@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>3.for循环与作用域</title>
+</head>
+
+<body>
+    <input type="button" value="按钮1">
+    <input type="button" value="按钮2">
+    <input type="button" value="按钮3">
+    <script>
+        /** 
+         *  discription 点击任何一个按钮，将三个按钮的文字颜色都改成red
+         */
+
+        window.onload = function() {
+            var aBtn = document.getElementsByTagName('input');
+            for (var i = 0; i < aBtn.length; i++) {
+
+                aBtn[i].onclick = function() {
+                    console.log(i); //始终是3 这里的i是局部变量，在局部并没有声明变量i,所以会返回上一层找，上一层的i经过for循环变成了3，所以这里的i值就是3
+                    aBtn[i].style.color = 'red'; //脚本错误 因为aBtn[3]这个元素不存在
+                };
+            };
+        };
+    </script>
+</body>
+
+</html>

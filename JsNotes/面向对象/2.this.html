@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>this</title>
+</head>
+<body>
+    <script>
+        /**
+         * this
+         *     1. 当函数作为对象的方法调用时，this就是该对象,当前的方法属于谁，this就是谁;
+         *     2. 当函数作为单纯函数调用时，严格模式下，this是undefined，非严格模式下是全局对象，浏览器中就是window;
+         *     3. this不是变量，嵌套函数中的this不会从外层继承this值！
+         */
+        
+
+        function show() {
+        	console.log(this);
+        }
+        show(); //Window 全局函数this指向这个方法是属于Window
+
+        window.show = function() {
+        	console.log(this);
+        }
+        window.show(); //Window show()这个方法是属于Window的
+    </script>
+</body>
+</html>

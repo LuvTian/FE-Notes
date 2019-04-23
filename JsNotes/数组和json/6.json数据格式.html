@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>6.json数据格式</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src=""></script>
+</head>
+<body>
+    <script>
+    /**
+     * JSON：JavaScript 对象表示法（JavaScript Object Notation）。
+     * JSON 是存储和交换文本信息的语法。类似 XML。
+     * JSON 比 XML 更小、更快，更易解析。
+     * 可以跨平台
+     * 特点：
+     * JSON 是纯文本
+     * JSON 具有“自我描述性”（人类可读）
+     * JSON 具有层级结构（值中存在值）
+     * JSON 可通过 JavaScript 进行解析
+     * JSON 数据可使用 AJAX 进行传输
+     *
+     */
+    // json 数据的格式   {"名称":"值","名称":"值" ...} 键值对的形式,以逗号隔开
+    // 名称用双引号引起来（可以是单引号，如果不用引号不够安全，是不合法的json格式，在跨平台数据交互中可能会出错），值的类型可以是：
+    /*      1. 数字（整数或浮点数）
+            2. 字符串（在双引号中）
+            3. 逻辑值（true 或 false）
+            4. 数组（在方括号中）
+            5. 对象（在花括号中）
+            6. null
+    */
+
+    // json对象,可以包括多个键值对
+    var json1 = {
+        "name": "张三",
+        "age": "25",
+        "gender": "male"
+    }
+    console.log(json1); //-->Object {name: "张三", age: "25", gender: "male"}
+    console.log(json1.name); //-->张三 通过名称可以访问其对应的值
+    console.log(json1["age"]); //-->25 如果用[]语法访问，里面要加上引号,否则会报错
+    // json数组 json里面可以包含数组，数组里面也可以包含json（var arr=[{},{},{}...]）
+    var json2 = {
+        "person": [{
+            "name": "张三",
+            "age": "25"
+        }, {
+            "name": "李四",
+            "age": "45"
+        }, {
+            "name": "王五",
+            "age": "17"
+        }]
+    }
+    console.log(json2.person[1].age); //-->45
+
+    // 把数组格式改写成json格式
+    var arrUrl = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"];
+    var arrText = ["美女", "树叶", "小猫", "熊猫"];
+
+    var imgData = {
+        "url": ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"],
+        "text": ["美女", "树叶", "小猫", "熊猫"]
+    }
+    console.log(imgData.url[2] + " 是 " + imgData.text[2]); //-->img/3.jpg 是 小猫
+
+
+
+    // 注意json和js对象的区别，json的key和value都要加引号，js对象的键名可以不需要加引号
+
+    // 把json转化为js对象
+
+
+    // 去除json里面的重复数据
+    for(var k in json){
+        if(isFinite(k)){ //判断key是不是正无穷的数字,
+            delete json[k]; // 如果是，则表示是索引项，然后删除这一项
+        }
+    }
+    console.log(json);//返回没有索引项的json
+
+    /**************2016-04-14纠正**************/
+    /**
+     * 没想到一直犯了一个错误，也是一个无法原谅自己的错误，这上面的那些代码都属于js对象，我没有把两个概念弄清楚。
+     *
+     * 1.var obj={"name":"mue","age":20,"sex":"male"} 这种是属于js对象，key可以不加引号，这是一个对象，对象由方法和属性构成，可以使用对象的方法操作
+     *
+     * 2.var json='{"name":"mue","age":20,"sex":"male"}' 这种才是标准的json格式，属性名和属性值都必须加双引号(单引号也不行)，json实际上是文本，是字符串类型，而非对象。
+     *
+     * 3.如果知道php里的json_encode()这个函数的话，就知道这个函数如果执行成功则返回的就是一个json字符串,如果在前台用jQuery.ajax来接收后台这个json_encode()返回的数据并且dataType为json，那么前台所接收到的这个数据的类型是object，如果不规定dataType为json的话，这个数据的类型就是字符串。
+     *
+     * 4.json和js对象相互转化的js原生方法有： JSON.stringify()、JSON.parse()
+     * JSON.stringify()方法是把一个对象解析成字符串
+     * JSON.parse()是把一个json格式的字符串解析成对象。（另外eval()方法也可以把json字符串解析成对象，但不安全，不建议使用）
+     *
+     * 5.jQuery可以用$.parseJSON()方法把格式完好的JSON字符串转为与之对应的JavaScript对象，所谓"格式完好"，就是要求指定的字符串必须符合严格的JSON格式，例如：属性名称必须加双引号、字符串值也必须用双引号，字符串里不允许出现控制字符，如\t \n ,要使用控制字符必须用\转义。
+     */
+
+
+    </script>
+</body>
+</html>

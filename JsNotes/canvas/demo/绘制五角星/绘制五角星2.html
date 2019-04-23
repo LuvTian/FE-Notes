@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>绘制五角星</title>
+    <style>
+    #canvas {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        // 五角星的坐标公式见图drawStar.jpg
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+
+            ctx.lineWidth=5;
+            ctx.strokeStyle="red";
+
+            drawStar(ctx,150,300,400,400);
+        }
+
+        /**
+         * [drawStar 绘制五角星函数]
+         * @param  {[type]} context [绘图环境]
+         * @param  {[type]} r       [五角星内部小圆半径]
+         * @param  {[type]} R       [五角星外部大圆半径]
+         * @param  {[type]} x       [x方向偏移量，即五角星中心点x坐标]
+         * @param  {[type]} y       [y方向偏移量，即五角星中心点y坐标]
+         * @return {[type]}         [无]
+         */
+        function drawStar (context,r,R,x,y){
+            context.beginPath();
+            for (var i = 0; i < 5; i++) {
+                // 外角坐标点
+                context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * R + x,
+                          -Math.sin((18 + i * 72) / 180 * Math.PI) * R + y);
+                // 内角坐标点
+                context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * r + x,
+                          -Math.sin((54 + i * 72) / 180 * Math.PI) * r + y);
+            }
+            context.closePath();
+            context.stroke();
+            // ctx.fill();
+        }
+    </script>
+</body>
+
+</html>

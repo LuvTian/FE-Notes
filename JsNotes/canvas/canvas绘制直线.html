@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 绘制直线</title>
+	<style>
+	#canvas{
+		display: block;
+		margin: 0 auto;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="600"></canvas>
+
+	<script>
+		/**
+		 * canvas 是基于状态进行绘制
+		 *
+		 */
+		window.onload = function() {
+			var canvas = document.getElementById("canvas");
+			if (canvas.getContext("2d")) {
+				var ctx = canvas.getContext("2d");
+				ctx.moveTo(100, 100); //设置绘制的起点坐标
+				ctx.lineTo(500, 500); //设置绘制的终点坐标
+				ctx.lineTo(100, 500); //从上一结束点继续绘制
+				ctx.lineTo(100, 100); //从上一结束点继续绘制，回到起始点
+				ctx.lineWidth = 5; //设置绘制线条的宽度，默认是1px
+				ctx.strokeStyle = "#f00"; //设置线条的样式
+
+				ctx.stroke(); //开始绘制线条 stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色。
+			} else {
+				alert("您的浏览器不支持canvas！")
+			}
+		}
+	</script>
+</body>
+</html>

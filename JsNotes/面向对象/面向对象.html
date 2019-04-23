@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>面向对象</title>">
+</head>
+<body>
+    <script>
+        function Person(defaults) { //构造函数名,首字母大写
+            this.sex = defaults.sex || 'male';
+            this.age = defaults.age || 12;
+            this.hei = defaults.hei || 166;
+            this.name = defaults.name || 'aa';
+
+
+            this.say = function() {
+                console.log('我的名字是：' + this.name + ',我的年龄是' + this.age);
+            };
+            this.run = function() {};
+        }
+        var persons = [{
+            names: '张三',
+            age: 13
+
+
+        }, {
+            name: '李四',
+            age: 30
+        }]
+        for (var i = 0; i < persons.length; i++) {
+            var cc = new Person({
+                name: persons[i].name,
+                age: persons[i].age
+            });
+            cc.say();
+        }
+    </script>
+</body>
+</html>

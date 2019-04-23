@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制矩形函数fillRect和strokeRect</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.strokeStyle='red';
+            ctx.fillRect(20,20,200,200);
+            ctx.strokeRect(250,250,200,200)
+
+            // fillRect(x,y,width,height)集成了rect(x,y,width,height)方法和fill()方法；
+            // strokeRect(x,y,width,height)方法集成了rect(x,y,width,height)方法和stroke()方法
+            // 四个参数依次为矩形左上角x坐标、左上角y坐标、宽度、高度
+        }
+    </script>
+
+</body>
+</html>

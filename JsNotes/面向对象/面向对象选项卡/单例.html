@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+	*{margin: 0;padding: 0;}
+	.tab{
+		width: 330px;
+	}
+	.nav ul{
+		overflow: hidden;
+	}
+	.nav li{
+		float: left;
+		width: 100px;
+		height: 30px;
+		background: blue;
+		text-align: center;
+		color:#fff;
+		line-height: 30px;
+		margin:0 5px;
+		list-style:none;
+	}
+	.con div{
+		border:1px solid #ccc;
+		height: 200px;
+		display: none;
+	}
+	li.active{
+		background: orange;
+	}
+</style>
+</head>
+<body>
+    <div class="tab">
+    	<div class="nav">
+    		<ul>
+    			<li class="active">衣服</li>
+    			<li>鞋子</li>
+    			<li>文具</li>
+    		</ul>
+    	</div>
+    	<div class="con">
+    		<div style='display:block'>衣服内容</div>
+    		<div>鞋子内容</div>
+    		<div>文具内容</div>
+    	</div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+    	var app={};//全局对象
+    	/**
+    	 * @description 切换功能模块
+    	 * @type {Object}
+    	 */
+    	app.tab={
+    		onclick:function(){
+    			$(this).addClass('active').siblings().removeClass('active');
+    			console.log($(this).index());
+    			$('.con div').eq($(this).index()).show().siblings().hide();
+    		},
+    	};
+    	/**
+    	 * @description 获取当前点击对象的索引值
+    	 * @type {Object}
+    	 */
+    	// app.index={
+    	// 	getIndex:function(){
+    	// 		var index=$('.nav li').index(this);
+    	// 		return index;
+    	// 	}
+    	// };
+    	/**
+    	 * @description 绑定事件功能
+    	 * @type {Object}
+    	 */
+    	app.event={
+    		initclick:function(){
+    			$('li').on('click',app.tab.onclick);
+    		}
+    	};
+    	app.event.initclick();
+        
+    </script>
+</body>
+</html>

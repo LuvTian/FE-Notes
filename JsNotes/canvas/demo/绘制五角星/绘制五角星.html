@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>绘制五角星</title>
+    <style>
+    #canvas {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        // 五角星的坐标公式见图drawStar.jpg
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            ctx.beginPath();
+            for (var i = 0; i < 5; i++) {
+                // 外角坐标点
+                ctx.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 300 + 400,
+                          -Math.sin((18 + i * 72) / 180 * Math.PI) * 300 + 400);
+                // 内角坐标点
+                ctx.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 150 + 400,
+                          -Math.sin((54 + i * 72) / 180 * Math.PI) * 150 + 400)
+            }
+            ctx.closePath();
+
+            ctx.lineWidth=5;
+            ctx.strokeStyle="red";
+            ctx.stroke();
+            // ctx.fill();
+        }
+    </script>
+</body>
+
+</html>

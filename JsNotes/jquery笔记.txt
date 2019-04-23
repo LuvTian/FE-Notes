@@ -1,0 +1,25 @@
+1.什么时候使用attr()，什么时候使用prop()？
+(1).添加属性名称该属性就会生效应该使用prop();
+(2).是有true,false两个属性使用prop();
+(3).其他则使用attr();
+
+2.jquery/zepto表单序列化方法
+$('form').on('submit',function(e){
+    e.preventDefault();
+    var oForm = $(this);//当前表单
+    var datas = oForm.serialize();//当前表单序列化 注释：只会将”成功的控件“序列化为字符串。如果不使用按钮来提交表单，则不对提交按钮的值序列化。如果要表单元素的值包含到序列字符串中，元素必须使用 name 属性
+    $.ajax({
+        url: 'http://xxx.com/api',
+        type: 'POST',
+        dataType: 'html',
+        data: datas,
+        success: function (data) { 
+            oForm[0].reset();//当前表单重置
+        },
+        error: function () {
+        }
+    });
+    
+    return false;
+}
+这种方法很方便，同时也适用于一个页面有多个表单提交的逻辑

@@ -1,0 +1,68 @@
+一、apply，call和bind的区别
+1.三者都是改变this的指向的
+2.call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以
+3.call与apply区别:call后面的参数与say方法中是一一对应的，而apply的第二个参数是一个数组，数组中的元素是和say方法中一一对应的
+
+var name = 'global';
+var person = {
+    name: 'zero'
+};
+// 输出姓名、年龄和职业
+function printInfo(age, job) {
+    console.log(this.name, age, job);
+}
+// 直接调用
+printInfo(20, '前端工程师');
+// 打印：global 20 前端工程师
+// 因为默认的上下文是window，所以this.name是全局定义的global，如果我们想打印出来zero的话，就需要改变函数执行的上下文
+printInfo.call(person, 20, '前端工程师');
+printInfo.apply(person, [20, '前端工程师']);
+// 这两种方式是一样的，第一个参数都是传进去的上下文，this.name取的是person.name，所以打印出来的名字就是zero了，后面的为age和job，只是参数传递的方式不一样，apply比较特殊，把要传的参数放在数组里面
+// 而bind和以上两种有区别，bind是es5定义的新方法，用来返回一个有自己上下文的函数，用法也比较类似：
+printInfo.bind(person)(20, '前端工程师');
+// printInfo.bind(person)这一块是返回的以peron为上下文的函数，后面的(20, '前端工程师')是函数调用
+-----------------------------------------------------------------------------------------------------------------------
+二、所有用点的地方都可以用方括号代替，反之用方括号的地方不一定能用点代替，因为方括号里面可以放字符串显示，而点后面不能跟字符串.
+
+2. 凡是jquery的事件管理函数，下的this 都是指向dom 元素
+-----------------------------------------------------------------------------------------------------------------------
+三、
+$(function(){
+    // do something
+});
+等价于
+$(document).ready(function(){
+//do something
+})
+})
+也等价于
+$().ready(function(){
+    //do something
+})
+也相当于,但他的执行优先级没有前面三个高
+document.ready = function (){
+    //do something
+};
+-----------------------------------------------------------------------------------------------------------------------
+四、 document.documentElement.clientWidth 浏览器可见区域宽度，如果浏览器缩放这个值也会随之改变。
+在浏览器全屏且浏览器右侧没有滚动条的情况下，这个值就等于电脑桌面分辨率的宽度（注意这个规律仅在PC下适用，iPone的分辨率为1136*640，iPhone的视口为980px(为了让小尺寸屏幕也能显示大尺寸网页,也就是说一个980px宽度的div盒子在这样的手机中可以撑满整个屏幕而不会出现横向滚动条，超出一个像素就会撑出，但是980px的视口不适合做响应式，所以需要设置约束viewport)，所以分辨率和视口没有关系）。
+demo:
+getWidth();//初始化
+window.onresize=getWidth;//绑定到onresize事件上
+function getWidth (){document.body.innerHTML=document.documentElement.clientWidth}
+可以用来判断不同屏幕大小然后做响应式（大多数是用css3的媒体查询来做的）,注意在移动端下需要设置viewport才能生效，否则视口宽度为980
+
+五、关于document.write()
+如果在js文件中嵌套引用其他的js文件，可以使用document.write("<script src=''></script>")来引用，页面加载完成后，浏览器输出流自动关闭。在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流，它将清除当前页面内容(包括源文档的任何变量或值)。因此，假如希望用脚本生成的HTML替换当前页面，就必须把HTML内容连接起来赋给一个变量，使用一个document.write()方法完成写操作。不必清除文档并打开一个新数据流，一个document.write()调用就可完成所有的操作。如果在document.write()里申明了与document.write()之外相同的变量或函数，那么document.write()里面的代码优先级更高，会覆盖原有的相同代码。
+参考http://www.cnblogs.com/dh616854836/articles/2140349.html
+
+-----------------------------------------------------------------------------------------------------------------------
+六：调试js代码运行的时间
+console.time('时间');//标记开始时间
+...js代码
+console.timeEnd('时间');//标记结束时间
+-----------------------------------------------------------------------------------------------------------------------
+7.setInterval和setTimeout
+一般不用setInterval，而用setTimeout的延时递归来代替interval。
+setInterval会产生回调堆积，特别是时间很短的时候。
+为了每次请求的数据都是最新的，可以在url请求地址后面加上一个随机参数，保证每次请求的URL地址不同

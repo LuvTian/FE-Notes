@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>数组格式、定义数组</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+        // 两种格式创建一个新的空数组
+        var arr1 = [];
+        var arr2 = new Array(); //数组属于js内置对象，可以使用new来创建
+
+        // 定义数组内容,数组可以是数字、字符串、函数、json、数组
+        var arr3 = ['a', '小草', 12];
+        console.log(arr3);
+        var arr4 = new Array('a', '张三', [23, 56, 'a']);
+        console.log(arr4);
+
+        // 定义数组的容量、长度
+        var arr5 = new Array(4);
+        console.log(arr5.length); // ——>4
+
+        // 数组的length属性，可以读取数组的长度，也可以设置数组的长度，字符串也有length属性，但字符串的length属性只能读不能写。
+        var arr6 = ['a', 12, 'one'];
+        console.log(arr6.length); // ——>3
+        var str = 'aaaaa';
+        str.length = 0;
+        console.log(str.length); //-->5 str的length没有发生变化
+
+        // 清空数组的两种方式
+        arr6.length = 0; //1.把数组的length设置为0
+        console.log(arr6);
+
+        var arr7 = [12, 453, 654];
+        arr7 = []; //2.直接将数组赋值一个空数组，这种在理论上效率要高一点
+        console.log(arr7);
+        
+    </script>
+</body>
+</html>

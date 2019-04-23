@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas基于状态绘制问题</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">您的浏览器不支持canvas！</canvas>
+    <script>
+        window.onload=function(){
+            var canvas=document.getElementById('canvas');
+            var ctx=canvas.getContext('2d');
+            canvas.width=800;
+            canvas.height=600;
+
+            /*ctx.beginPath();
+            ctx.moveTo(100,100);
+            ctx.lineTo(300,400);
+            ctx.lineTo(100,500);
+            ctx.lineWidth=5;
+            ctx.strokeStyle='red';
+            ctx.stroke();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(300,100);
+            ctx.lineTo(500,400);
+            ctx.lineTo(300,500);
+            ctx.lineWidth=5;
+            ctx.strokeStyle='green';
+            ctx.stroke();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(500,100);
+            ctx.lineTo(700,400);
+            ctx.lineTo(500,500);
+            ctx.lineWidth=5;
+            ctx.strokeStyle='blue';
+            ctx.stroke();
+            ctx.closePath();*/
+
+            // 结果为3条5px不同颜色的折线段
+
+            // 如果在stroke之前使用closePath()，会自动将未闭合的路径闭合
+            // 如果不想要自动闭合，把closePath()放到stroke()后面
+
+            // 上面的代码和以下代码效果等同：
+
+            /*ctx.lineWidth=5;
+
+            ctx.beginPath();
+            ctx.moveTo(100,100);
+            ctx.lineTo(300,400);
+            ctx.lineTo(100,500);
+            ctx.strokeStyle='red';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(300,100);
+            ctx.lineTo(500,400);
+            ctx.lineTo(300,500);
+            ctx.strokeStyle='green';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(500,100);
+            ctx.lineTo(700,400);
+            ctx.lineTo(500,500);
+            ctx.strokeStyle='blue';
+            ctx.stroke();*/
+
+            // 也可以这样写：
+            ctx.lineWidth=5;
+
+            ctx.beginPath();
+            ctx.lineTo(100,100);//使用了beginPath() moveTo可以写成lineTo,方便了js函数循环
+            ctx.lineTo(300,400);
+            ctx.lineTo(100,500);
+            ctx.strokeStyle='red';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.lineTo(300,100);
+            ctx.lineTo(500,400);
+            ctx.lineTo(300,500);
+            ctx.strokeStyle='green';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.lineTo(500,100);
+            ctx.lineTo(700,400);
+            ctx.lineTo(500,500);
+            ctx.strokeStyle='blue';
+            ctx.stroke();
+        }
+    </script>
+
+</body>
+</html>

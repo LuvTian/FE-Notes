@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>工厂方式</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	/**
+    	 * 这种工厂方式存在的问题：
+    	 * 1、没有new, 解决方案：添加this
+    	 * 2、性能也很低（函数重复，浪费资源） 解决方案：改写成原型
+    	 * 
+    	 */
+
+        function createPerson(name,age){	//构造函数
+            //原料
+            var obj=new Object();
+            //加工
+            obj.name=name;
+            obj.age=age;
+            obj.showName=function(){
+                console.log('我的名字叫 '+this.name);
+            };
+            obj.showAge=function(){
+                console.log('我的年龄是 '+this.age);
+            };
+            //出厂
+            return obj;
+        }
+        var obj1=createPerson('zhou','12');
+        obj1.showName();//==>我的名字叫 zhou
+        obj1.showAge();//==>我的年龄是 12
+        var obj2=createPerson('li',30);
+        obj2.showName();//我的名字叫 li
+        obj2.showAge();//我的年龄是 30
+        console.log(obj1.showName==obj2.showName);//结果为false,因为在工厂方式里这两个函数不一样，所以就会产生大量的重复函数
+    </script>
+</body>
+</html>

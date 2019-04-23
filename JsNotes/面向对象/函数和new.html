@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>函数和new</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<script>
+	function show(){
+		alert(this);
+	}
+	show();			//window
+	new show();		//Object 新new出来的对象
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘制弧和圆</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">您的浏览器不支持canvas！</canvas>
+    <script>
+        /**
+         * 绘制弧和圆的方法：context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+         * x,y表示圆心的x,y坐标值
+         * r表示圆的半径
+         * sAngle表示起始角
+         * eAngle表示结束角
+         * counterclockwise 可选参数，规定绘制方向，False = 顺时针，true = 逆时针。
+         * 始角设置为 0，结束角设置为 2*Math.PI。则可以绘制一个圆形
+         */
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 800;
+            var ctx = canvas.getContext("2d");
+
+            //绘制一个圆形
+            ctx.beginPath();
+            ctx.arc(400, 400, 200, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+            // ctx.fill()
+
+
+            // 绘制一个弧
+            ctx.beginPath();
+            ctx.arc(300, 300, 100, 0, 0.5 * Math.PI, true);
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+        }
+    </script>
+
+</body>
+</html>

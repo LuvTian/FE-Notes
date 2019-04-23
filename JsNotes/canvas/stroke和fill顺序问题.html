@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制多个线条或形状</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx=canvas.getContext("2d");
+
+            ctx.beginPath();
+            ctx.moveTo(50, 250);
+            ctx.lineTo(450,250);
+            ctx.lineTo(450,100);
+            ctx.lineTo(650,300);
+            ctx.lineTo(450,500);
+            ctx.lineTo(450,350);
+            ctx.lineTo(50,350);
+            ctx.closePath();
+
+            ctx.lineWidth=10;
+            ctx.strokeStyle="red";
+            ctx.fillStyle="yellow";
+
+            /*ctx.stroke();
+            ctx.fill();*/
+            //如果stroke在fill前面，lineWidth会被fill填充覆盖一部分
+
+            // 先填充再绘制边框
+            ctx.fill();
+            ctx.stroke();
+
+        }
+    </script>
+</body>
+</html>

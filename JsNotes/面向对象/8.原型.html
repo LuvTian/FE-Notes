@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>原型</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	/**
+    	 * 总结
+    	 * CSS 										JS 
+    	 * class		一次给一组元素加样式		原型
+    	 * 行间样式		一次给一个元素加样式		给对象加东西
+    	 */
+    	
+    	// demo1:不使用原型
+    	var arr1=new Array(50,20,45,567,7);
+    	var arr2=new Array(23,54,3);
+    	arr1.sum=function(){	//为arr1对象添加一个求和方法，类似css里的行间样式，只对当前的有效
+    		var result=0;
+    		for (var i = 0; i < this.length; i++) {
+    			result+=this[i];
+    		};
+    		return result;
+    	}
+    	console.log(arr1.sum());//输出结果689
+    	//console.log(arr2.sum());//结果报错：Uncaught TypeError: arr2.sum is not a function	arr2没有sum这个方法
+
+    	// demo2：使用原型
+    	var arr3=new Array(23,45,67);
+    	var arr4=new Array(3,98,67);
+    	Array.prototype.sum=function(){	//这里通过原型给Array（内置）这个类添加一个sum方法，类似css里的class,可以影响让一组元素
+    		var result=0;
+    		for (var i = 0; i < this.length; i++) {
+    			result+=this[i];
+    		};
+    		return result;
+    	}
+    	console.log(arr3.sum());//输出结果为135
+    	console.log(arr4.sum());//输出结果为168
+    	//arr3和arr4都有了sum这个方法,没有报错
+    </script>
+</body>
+</html>

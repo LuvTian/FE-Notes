@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file" name="" id="file">
+	<input type="button" value="上传" id="upload">
+
+</body>
+</html>
+<script type="text/javascript">
+	var file=document.getElementById('file');
+
+	file.onchange=function(){
+		//获取文件。
+		var files=this.files[0];
+		//判断文件类型是否是图片。
+		if(files&&files.type.indexOf('image')==-1){
+			alert("只能预览image类型文件。")
+			return;
+		}
+		//HTML5提供的对象，可以将指的文件写入内存，从而使js可以访问文件系统。
+
+		var fr=new FileReader();
+
+		//在文件读入内存后触发。
+		fr.onload=function(ev){
+			//alert('文件写入内存成功');
+			//创建一个image对象，和HTML中的img类似。
+			var img=new Image();
+			img.style.width='400px';
+			img.style.height='400px';
+			img.src=ev.target.result;
+			document.body.appendChild(img);
+
+		}
+		//将文件读取为DataURL
+		fr.readAsDataURL(files);
+
+
+
+	}
+</script>

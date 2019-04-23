@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>用数组创建元素</title>
+
+</head>
+<body>
+    <script>
+        var o = document.createElement('div');
+        o.innerHTML = [
+            '<div>',
+            '   <p>',
+            '       hello world!',
+            '   </p>',
+            '</div>'
+        ].join('\r\n');//用换行符将数组的每一项分割成一个字符串
+        o.id="warp";
+        console.log(o);
+
+        document.body.appendChild(o);
+
+    </script>
+</body>
+</html>

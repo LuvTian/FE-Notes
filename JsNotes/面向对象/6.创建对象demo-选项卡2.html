@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="jquery-2.1.1.js"></script>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<style>
+	.box{
+		width: 300px;
+		height: 300px;
+		border:1px solid #ccc;
+		position:absolute;
+		left:0;
+	}
+</style>
+</head>
+<body>
+    <div class="box">
+    	
+    </div>
+    <div class="box" style="top:300px">
+    	
+    </div>
+	<script>
+		/***
+			@description:
+		*/
+		var app={};//这一般是个项目名称，全局	单例模式，
+		app.changeColor={	//一个功能模块
+			onclick:function(){
+				$(this).css('background',app.changeColor.getColor())
+			},
+			getColor:function(){
+				var r=this.getGandom(255);
+				var g=this.getGandom(255);
+				var b=this.getGandom(232);
+				return 'rgb('+r+','+g+','+b+')';
+			},
+			getGandom:function(num){
+				return Math.floor(Math.random()*num);
+			}	//最后一组不要加逗号
+		};
+		app.Transform=function(){
+			/****
+			@description:自定义Transform构造函数
+			*/
+			
+			this.initclick=function(defaults){
+				if(typeof(defaults)==='number'||typeof(defaults)==='string'||typeof(defaults)==='boolean'||typeof(defaults)==='undefined'){
+					defaults={};
+				};//类型检测
+				// defaults=defaults||{};	//判断所传入的对象类型
+				this.len=defaults.len||100;
+				this.speed=defaults.speed||10;
+				this.target=defaults.target||$();
+				$($(this).target).on('click',this.startimer)	
+				console.log($(this));
+			};
+			this.stop=function(){
+				if($(this.target).position().left>=this.len){
+					clearInterval(this.timerId);
+				}
+			};
+			this.move=function(){
+
+				// console.log(1)
+				$($(this).target).css({
+					left:'+='+this.speed+'px'
+				});
+				this.stop();
+			};
+			this.startimer=function(){
+
+				this.timerId=setInterval(this.move,20);
+			};
+			this.timerId=0;//属性
+			this.speed=5;
+			this.len=300;
+			this.target=null;
+
+		};
+		app.event=function(){	//一个事件模块
+			this.initclick=function(){
+				$($(this).target).on('click',app.changeColor.onclick);
+			}
+		};
+		// app.event.initclick();//初始化
+		var aa=new app.Transform();
+		aa.initclick({speed:20});
+	</script>
+</body>
+</html>

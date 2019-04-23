@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="jquery-2.1.1.js"></script>
+<style>
+	.box{
+		width: 300px;
+		height: 300px;
+		border:1px solid #ccc;
+		position:absolute;
+		left:0;
+	}
+</style>
+</head>
+<body>
+    <div class="box">
+    	
+    </div>
+    <div class="box" style="top:300px">
+    	
+    </div>
+	<script>
+		/***
+			@description:
+		*/
+		var app={};//这一般是个项目名称，全局	单例模式，
+		app.changeColor={	//一个功能模块
+			onclick:function(){
+				$(this).css('background',app.changeColor.getColor())
+			},
+			getColor:function(){
+				var r=this.getGandom(255);
+				var g=this.getGandom(255);
+				var b=this.getGandom(232);
+				return 'rgb('+r+','+g+','+b+')';
+			},
+			getGandom:function(num){
+				return Math.floor(Math.random()*num);
+			}	//最后一组不要加逗号
+		};
+		app.transform={
+			/****
+			@description:这个是初始化事件
+			@param:defaults 	必须是key value的键值对对象
+			@example：app.transform.initclick({speed:10})
+				
+
+			*/
+			
+			initclick:function(defaults){
+				if(typeof(defaults)==='number'||typeof(defaults)==='string'||typeof(defaults)==='boolean'){
+					defaults={};
+				};//类型检测
+				// defaults=defaults||{};	//判断所传入的对象类型
+				app.transform.len=defaults.len||100;
+				app.transform.speed=defaults.speed||10;
+				app.transform.target=defaults.target||$();
+				$(app.transform.target).on('click',app.transform.startimer)	
+			},
+			timer:function(){},
+			stop:function(){
+				if($(app.transform.target).position().left>=app.transform.len){
+					clearInterval(app.transform.timerId);
+				}
+			},
+			move:function(){
+
+				// console.log(1)
+				$(app.transform.target).css({
+					left:'+='+app.transform.speed+'px'
+				});
+				app.transform.stop();
+			},
+			startimer:function(){
+
+				app.transform.timerId=setInterval(app.transform.move,20);
+			},
+			timerId:0,//属性
+			speed:5,
+			len:300,
+			target:null
+
+		};	//另一个功能模块
+		app.event={	//一个事件模块
+			initclick:function(){
+				$(app.transform.target).on('click',app.changeColor.onclick);
+			}
+		};
+		app.event.initclick();//初始化
+		app.transform.initclick({target:'.box'});//初始化参数
+	</script>
+</body>
+</html>

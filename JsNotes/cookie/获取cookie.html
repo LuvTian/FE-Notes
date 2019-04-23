@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>获取cookie值和删除cookie</title>
+
+</head>
+<body>
+    <script>
+        /**
+         * [myCookie 封装cookie函数]
+         * @param  {[string]} name  [cookie名称]
+         * @param  {[string]} value [cookie值]
+         * @param  {[number]} day   [cookie的保存天数]
+         * @return {[type]}       [description]
+         */
+        function setCookie (name,value,day) {
+            var oDate=new Date();
+            oDate.setDate(oDate.getDate()+day);
+            document.cookie=name+"="+value+";expires="+oDate;
+        }
+
+        setCookie("user","abc",14);
+        setCookie("pass","2445",7);
+        console.log(document.cookie); //user=abc; pass=2445
+
+        /**
+         * [getCookie 获取指定的cookie的值]
+         * @param  {[string]} name [需要获取的cookie名称]
+         */
+        function getCookie(name){
+            var arr=document.cookie.split("; ");//将cookie字符串拆分成数组
+            for(var i=0;i<arr.length;i++){
+                var arr2=arr[i].split("=");//再对arr数组的每一项用等号进行拆分
+                if(arr2[0]==name){
+                    return arr2[1];
+                }
+            }
+            return "";//如果没有获取到指定的cookie就返回空
+
+        }
+
+        console.log(getCookie("user"));//abc
+
+        // 删除cookie，也就是设置cookie的过期时间为-1天
+        function removeCookie (name) {
+             setCookie(name,1,-1);//cookie的值可以任意，过期时间为-1
+        }
+
+        removeCookie("user");
+        console.log(document.cookie);//只剩下pass=2445
+    </script>
+</body>
+</html>

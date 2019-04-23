@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图形变换之-translate</title>
+    <style>
+    #canvas {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        /**
+         * translate() 方法重新映射画布上的 (0,0)原点位置
+         * 注意：当您在 translate() 之后调用诸如 fillRect() 之类的方法时，值会添加到 x 和 y 坐标值上。
+         */
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            ctx.fillStyle="red";
+            ctx.translate(100,100);//改变绘制图形的原点位置
+            ctx.fillRect(0,0,400,400);
+        }
+    </script>
+</body>
+
+</html>

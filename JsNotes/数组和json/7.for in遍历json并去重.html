@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for in 遍历json 并去重</title>
+</head>
+<body>
+    <script>
+        // 有如下格式的json，大部分从后台传过来的数据没有经过处理的话，都类似这种格式，索引项和关联项重复：
+
+        var json={
+            "0":"42",
+            "id":"42",
+            "1":"张依",
+            "username":"张依",
+            "2":"man",
+            "sex":"man",
+            "3":"0",
+            "lastlogin":"0",
+            "4":"0",
+            "is_manager":"0",
+            "5":"1fe749ea70c13c58637d4c5772a930bd",
+            "session_id":"1fe749ea70c13c58637d4c5772a930bd",
+            "6":"0",
+            "status":"0"
+        };
+
+        // 第一种遍历方式：
+        for(var key in json){
+            // console.log(key+": "+json[key]);
+            document.write(json['username']+"<br>");
+        }
+        // 这样遍历出来的结果会有很多，并不是理想的结果
+
+
+        // 第二种遍历方式：
+        for(var k in json){
+            if(isFinite(k)){ //判断key是不是正无穷的数字,
+                delete json[k]; // 如果是，则表示是索引项，然后删除这一项
+            }
+        }
+        console.log(json);//返回没有索引项的json
+
+        // 说明：这里所谓的for in 遍历的是js对象，而不是真正的json，这个错误我在前面已经纠正（https://github.com/codesboy/JsNotes/blob/master/数组和json/6.json数据格式.html）。
+    </script>
+</body>
+</html>

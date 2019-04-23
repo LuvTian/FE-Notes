@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>鼠标坐标</title>
+<style>
+    *{margin: 0;padding: 0;}
+    li{list-style:none;}
+    #menu{
+        height: 100px;
+        width: 100px;
+        background: #999;
+        position:absolute;
+        color: #fff;
+        text-align: center;
+        display: none;
+    }
+    li{
+        border-bottom: 1px dashed #ccc;
+        height: 20px;
+        padding: 2px 0;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li>选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+        </ul>
+    </div>
+
+    <script>
+    document.oncontextmenu=function(e){
+
+        var e=e||window.event;
+        var menu=document.getElementById("menu");
+        console.log(e.button);
+        console.log(e);
+
+        // 显示自定义的菜单
+        menu.style.display="block";
+        menu.style.left=e.clientX+'px';
+        menu.style.top=e.clientY+'px';
+
+
+        return false;//阻止默认事件，屏蔽浏览器默认的右键菜单
+
+    }
+
+    document.onclick=function(){
+        var menu=document.getElementById("menu");
+        // 点击空白区域隐藏菜单
+        menu.style.display="none";
+    }
+
+
+
+
+    // 另外一种判断右键的方法
+    /*document.onmousedown=function(e){
+        var e=e||window.event;
+        var menu=document.getElementById("menu");
+        console.log(e.button);
+        console.log(e);
+        if(e.button==2){
+            menu.style.display="block";
+            menu.style.left=e.clientX+'px';
+            menu.style.top=e.clientY+'px';
+
+        }
+    }*/
+    </script>
+</body>
+</html>

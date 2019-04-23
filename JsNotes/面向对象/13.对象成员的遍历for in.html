@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>对象成员的遍历 for in</title>
+</head>
+<body>
+    <script>
+    	/**
+         * 1.对象的访问可以用点语法和方括号语法object.key object['key'] 方括号最大的好处是里面可以放变量
+         * 2.用for in遍历对象 for(var key in object){...}
+         * 3.用for in 遍历出的结果是无序的
+         * 4.Object.keys(object)方法把返回一个由对象的所有(可枚举的)键名所组成的数组
+         * 5.用in方法判断对象是否存在某属性
+         * 6.用object.hasOwnProperty("key")方法也可以判断对象是否存在某属性
+         * 7.用delete方法可以删除成员
+         */
+
+        var person={
+            name:"mue",
+            age:23,
+            gender:"male",
+            address:{
+                city:"ShangHai",
+                street:"GuangHua Road"
+            }
+        }
+
+        for(var key in person){
+            console.log(key+":"+person[key]);
+        }
+        /*
+        name:mue
+        age:23
+        gender:male
+        address:[object Object]*/
+
+
+        // keys方法
+        var arr=Object.keys(person);
+        console.log(arr);//["name", "age", "gender", "address"]
+
+
+        // in方法
+        console.log("height" in person);//false
+        console.log("city" in person);//false
+        console.log("gender" in person);//true
+
+
+        // hasOwmProperty方法
+        console.log(person.hasOwnProperty("age")); //true
+
+
+        // delete方法
+        delete person.age;
+        console.log(person); //{name: "mue", gender: "male", address: Object}
+    </script>
+</body>
+</html>

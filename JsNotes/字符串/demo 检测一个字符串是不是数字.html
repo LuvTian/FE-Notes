@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>demo:检测一个字符串是不是数字</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <input type="text">
+    <button>检测</button>
+    <script>
+    /**
+     * 检测文本框中输入的字符串是不是数字（不能含有字母，空格，小数点和其他符号）
+     */
+    function checkNumber(str) {
+        for (var i = 0; i < str.length; i++) { //遍历字符串的每一位
+            var n = 0;
+            n = str.charCodeAt(i); //charCodeAt()的返回值在48~57之间就是数字，否则不是
+
+            if (n < 48 || n > 57) {
+                return false;
+            }
+            // if (n < 48 || n > 57) return false;
+        }
+        return true;
+    };
+
+    var oInput = document.getElementsByTagName('input')[0];
+    var oBtn = document.getElementsByTagName('button')[0];
+    oBtn.onclick = function() {
+
+        var val = oInput.value;
+
+        if (checkNumber(val)) {
+            alert("您输入的 " + val + " 是数字")
+        } else {
+            alert('您输入的 ' + val + ' 不是数字');
+        }
+    };
+    </script>
+</body>
+
+</html>

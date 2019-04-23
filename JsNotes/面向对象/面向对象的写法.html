@@ -1,0 +1,77 @@
+面向对象有6种常见的写法：
+1.单例模式(json模式)
+2.工厂模式
+3.构造函数模式
+4.原型模式（prototype）
+5.混合使用构造函数和原型模式(prototype)
+6.动态原型模式
+
+
+1的写法：
+var Person = {
+    name : '',
+    age : 0,
+    init : function(){},
+    show : function(){}
+}
+
+5的写法：
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+Cat.prototype.color = "yellow";
+Cat.prototype.say = function(){alert("说话")};
+
+一般常用第五种方式或者使用ES6的类(babel转ES5)，或者用typescript编译
+
+
+ES6的写法：
+<script>
+    class Person{
+        constructor(name='default',age=0){
+            this.name=name,
+            this.age=age
+        }
+
+        sayName(){
+            alert(this.name);
+        }
+
+        sayAge(){
+            alert(this.age);
+        }
+    }
+    // 注意方法之间不能有逗号
+
+    var p1=new Person('张三',20);
+    var p2=new Person('李四',30);
+    var p3=new Person();
+
+    p1.sayName();
+    p2.sayAge();
+    p3.sayName();//default
+    p3.sayAge();//0
+
+    alert(p1.sayName==p2.sayName);//true
+    alert(p1.constructor==Person);//true
+
+
+
+    // 类的继承
+    class Man extends Person{
+        constructor(name,age,sex){
+            super(name,age);
+            this.sex='男';
+        }
+
+        saySex(){
+            alert(this.sex);
+        }
+    }
+
+    var p4=new Man();
+    p4.saySex();
+
+
+</script>

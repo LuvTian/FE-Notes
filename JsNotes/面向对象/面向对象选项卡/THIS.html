@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>this</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	function Person(_name) {
+    		this.name = _name; //自定义属性
+    		this.say = function() {
+    			return 'my name is ' + this.name;
+    		}
+    	}
+    	var p = new Person('zhangsan');
+    	console.log(p.name); //zhangsan
+    	console.log(p.say()); //my name is zhangsan
+
+
+
+    	//不new
+    	var p = Person('lisi'); //
+    	console.log(p); //undefined 当然是undefined 因为没用new关键字开辟一个新对象，
+    	// 只是普通的运行了Person这个方法，因此p没有在内存中指向任何对象的实例
+    	// 但是 运行了 ，那么name 和 say 去了哪
+    	console.log(window.name); //lisi
+    	console.log(window.say()); //my name is lisi
+    	/**
+    	 * 总结
+    	 * 当使用new 关键字时候,this 指向的是当前开辟的这个对象实例，因此外部用一个变量引用它，就可以使用这个新对象实例
+    	 * 当不使用new,this就是指向window 。但是对于dom事件中，需要另外理解了。
+    	 * 关于call 和 apply 区别在于传参数的方式，call必须一个个传，apply是穿数组，因此可以直接使用arguments 
+    	 * 就利用上面的Person,我们建立一个Child
+    	 */
+
+    	function Child(name, age) {
+    		this.age = age;
+    		Person.call(this, name);//继承
+    		//或者 Person.apply(this,[name]);
+    	}
+    	//使用
+    	var c = new Child('chiid', 23);
+    	console.log(c.name); //child
+    	console.log(c.age); //23
+    	console.log(c.say()); //my name is chiid
+    	/**
+    	 * 此时Child中的this,当然是new的时候那个Child的实例，也就是被var c 引用的，
+    	 * 然后利用 Person.call/apply 将当前this 对象传递给Person，使得Person中的this指向了本次Child的实例==>c ,因此 Child 利用这样的方式继承了Person的name和say方法
+    	 * 不懂很正常的，这个要从内部实现-->内存上去理解。
+    	 */
+
+
+    	function A(name) {
+    		this.name = name;
+    	}
+
+    	function B() {
+    		this.say = function(something) {
+    			return "my name is " + this.name + " and " + something;
+    		}
+    	}
+
+    	function C() {
+    		//nothing
+    	}
+    	C.prototype.say = function(something) {
+			return "my name is " + this.name + " and " + something;
+		}
+		//用法
+    	var a = new A("AAA");
+    	var b = new B();
+    	console.log(b.say("BBB")); // "my name is undefined and BBB"  ,B中name属性都没有所以就是undefined
+    	//现在A没有say方法，但是我想执行say
+    	console.log(b.say.call(a, "HAHA I am A")); // my name is AAA and HAHA I am A 	call和apply的第一个参数是一个对象
+    	//C也有say方法  但是是prototype中的
+    	console.log(C.prototype.say.call(a, "HAHA I use C")); //my name is AAA and HAHA I use C
+    </script>
+</body>
+</html>

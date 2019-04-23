@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制多个线条或形状</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx=canvas.getContext("2d");
+
+            ctx.beginPath();//开始路径
+            ctx.moveTo(100, 100);
+            ctx.lineTo(500,500);
+            ctx.lineTo(100,500);
+            ctx.lineTo(100,100);
+            ctx.closePath();//闭合路径
+
+            ctx.lineWidth=5;
+            ctx.strokeStyle="red";
+            ctx.stroke();
+
+
+            ctx.beginPath();//开始新的路径
+            ctx.moveTo(200,100);
+            ctx.lineTo(500,400);
+            ctx.closePath();
+
+            ctx.strokeStyle="blue";
+            ctx.stroke();
+
+        }
+    </script>
+</body>
+</html>

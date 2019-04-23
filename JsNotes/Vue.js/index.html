@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="js/vue.js"></script>
+</head>
+<body>
+    <!-- 这是我们的 View -->
+    <div id="example-1">
+      Hello {{ name }}!
+    </div>
+    <div id="example-2">
+      <p v-if="greeting">Hello!</p>
+    </div>
+    <script>
+        // 这是我们的 Model
+        var exampleData = {
+          name: 'Vue.js'
+        }
+
+        // 创建一个 Vue 实例或 "ViewModel"
+        // 它连接 View 与 Model
+        var exampleVM = new Vue({
+          el: '#example-1',
+          data: exampleData
+        });
+        var exampleVM2 = new Vue({
+          el: '#example-2',
+          data: {
+            greeting: true
+          }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>事件对象</title>
+</head>
+<body>
+    <script>
+        window.onload=function(){
+            document.onclick=function(e){
+                var e=e||window.event;//事件对象的兼容性写法
+                alert(e.clientX+","+e.clientY);
+                console.log(e); // -->MouseEvent{target,pageX,...} 可以看出e是就这里的事件对象
+            }
+        }
+    </script>
+</body>
+</html>

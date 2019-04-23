@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+	    /**
+	     * js解析器
+	     * 1.编译阶段（js预解析）：找东西（var声明的变量、function、参数），将找出的这些东西存到活动对象里（仓库）供执行阶段使用
+	     * 		把变量和参数赋值为undefined
+	     * 		把function赋值为function本身整个函数块
+	     * 		如果遇到重名的，只会保留一个：
+	     * 			如果变量与函数重名，保留函数
+	     * 			如果函数与函数重名，保留后面一个，前面的函数被覆盖
+	     *
+	     * 2.执行阶段：从上到下逐行执行
+	     * 		表达式： = + - * / % ++ -- ! 参数
+	     * 		表达式和函数调用可以修改预解析里面存的值
+	     * 		函数的调用过程中，函数内部也会有js预解析和执行阶段。
+	     */
+
+	    // demo1
+	    alert(a); //	function a(alert(4)); 预解析阶段a的值是这个函数体本身
+
+	    var a = 1; //改变预解析中的值 a=1
+
+	    alert(a); // 1 执行阶段预解析中的a的值被改变
+
+	    function a() {
+	        alert(2)
+	    }; //函数没有被调用，所以执行这一步的时候没有对预解析中的值造成影响
+
+	    alert(a); // 1
+
+	    var a = 3; // 改变预解析中的值 a=3
+
+	    alert(a); // 3
+
+	    function a() {
+	        alert(4)
+	    };
+
+	    alert(a); // 3
+
+	    // a();//报错 a is not a function 此时预解析中的值是a=3
+
+
+	    // dome2
+	    var foo = 1; //预解析阶段foo=undefined
+	    function bar() {
+	        if (!foo) { //!foo=ture
+	            var foo = 10; //改变预解析 foo=10
+	        };
+	        alert(foo);
+	    };
+	    bar(); //10
+
+
+	    /**
+	     * 注意：
+	     * 1. js预解析会按照script标签分块进行预解析，一个script标签快解析完执行完，才进入下一个script，所以经常需要将外部js库在script代码之前引用，比如jQuery库
+	     *
+	     */
+
+	     // demo3
+		z = 10;
+
+		function test() {
+			console.log(z);
+			z = 100;
+			console.log(z);
+			console.log(this.z);
+			var z;
+			console.log(z);
+		}
+
+		test();
+    </script>
+</body>
+
+</html>

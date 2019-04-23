@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>鼠标坐标</title>
+<style>
+    *{margin: 0;padding: 0;}
+    div{
+        height: 100px;
+        width: 100px;
+        background: green;
+        position:absolute;
+    }
+</style>
+</head>
+<body>
+    <div id="div"></div>
+
+    <script>
+        var oDiv=document.getElementById("div");
+        document.onkeydown=function  (e) {
+            var e=e||window.event;
+            var keycode=e.keyCode;
+            console.log(keycode);
+            var n=10;
+            if(keycode==37){
+                oDiv.style.left=oDiv.offsetLeft-10+'px';
+            }
+            if(keycode==39){
+                oDiv.style.left=oDiv.offsetLeft+10+'px';
+            }
+        }
+    </script>
+</body>
+</html>

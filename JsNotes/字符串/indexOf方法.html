@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>indexOf和lastIndexOf方法</title>
+</head>
+
+<body>
+    <script>
+    /**
+     * indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+     * 第一个参数是需要查找的字符串,值可以是一个或多个；
+     * 第二个参数是指定开始查找字符串的位置，如果省略或者为负数，则默认为0
+     */
+    var str1 = 'bs62767魅力';
+    console.log(str1.indexOf('6')); //3 字符串6第一次出现的位置是2
+
+    var str2 = 'RehackJS';
+    console.log(str2.indexOf('js')); // -1 字符串区分大小写，如果没有查找到该字符串，则返回-1
+
+    var str3 = 'wwabcwb';
+    console.log(str3.indexOf('w', 2)); //5 从第二位开始检索字符串w
+
+    // 判断字符串中包不包含特定的字符串
+    var str4 = 'http://wwww.rehack.cn/';
+    var mystr = 'rehack';
+    if (str4.indexOf(mystr) != -1) {
+        console.log('字符串：' + mystr + ' 存在');
+    } else {
+        console.log('字符串：' + mystr + ' 不存在');
+    };
+
+    // demo 查找某个特定字符串在原字符串中每次出现的位置（如果在字符串中多次出现的话）
+    var str5 = '睿客网是一个关于web前端开发的技术性博客，欢迎来睿客网学习，www.rehack.cn 睿客网';
+    var istr = '睿客网';
+    var i = 0;
+    for (; str5.indexOf(istr, i) != -1;) {
+        console.log(str5.indexOf(istr, i));
+        i = str5.indexOf(istr, i) + istr.length;
+    }
+
+    /*while(str5.indexOf(istr,i)!=-1){
+        console.log(str5.indexOf(istr,i));
+        i=str5.indexOf(istr,i)+istr.length;
+    }*/
+
+    /**
+     * lastIndexOf()方法和indexOf()方法类似，只是lastIndexOf()是从后向前检索
+     */
+    var str6 = 'bs62767魅力';
+    console.log(str6.lastIndexOf('6')); //5
+    </script>
+</body>
+
+</html>

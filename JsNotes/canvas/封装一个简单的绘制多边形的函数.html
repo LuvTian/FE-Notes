@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制多个线条或形状</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            drawRect(ctx, 100, 100, 400, 400, 10, "#058", "green");
+
+        }
+
+        function drawRect(context, x, y, width, height, borderWidth, borderColor, fillColor) {
+            context.beginPath();
+            context.lineTo(x, y);
+            context.lineTo(x + width, y);
+            context.lineTo(x + width, y + height);
+            context.lineTo(x, y + height);
+            context.closePath();
+
+            context.lineWidth = borderWidth;
+            context.strokeStyle = borderColor;
+            context.fillStyle = fillColor;
+
+            context.fill();
+            context.stroke();
+        }
+    </script>
+</body>
+</html>

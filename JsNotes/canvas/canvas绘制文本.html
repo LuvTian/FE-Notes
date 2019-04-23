@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘制文本</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="600">您的浏览器不支持canvas</canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d"); //获取canvas绘制的上下文环境
+
+
+            ctx.font = "bold 24px/20px 微软雅黑,Arial"; //设置绘制文字所使用的字体样式 和css设置font一样
+
+            // fillText()+fillStyle来绘制填充(实心)的文字
+            ctx.fillStyle = "blue";
+            ctx.fillText("canvas绘制出来的实心文本", 50, 50); //从坐标点（50,50）位置开始绘制
+
+            // strokeText()+strokeStyle绘制非填充(空心)的文字
+            ctx.strokeStyle = "red";
+            ctx.strokeText("canvas绘制空心文字", 50, 100);
+        }
+    </script>
+</body>
+</html>

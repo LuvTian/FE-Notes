@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>把原型用到面向对象-混合方式构造对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	/**
+    	 * 混合方式构造对象（混合的构造函数/原型方式）
+    	 *   原则：
+         *      1、构造函数：加属性   
+    	 *      2、原型：加方法
+    	 *   对象命名规范：类名首字母大写
+    	 */
+
+        function CreatePerson(name,age){	//构造函数
+            
+            this.name=name;     //****在构造函数里加属性****
+            this.age=age;
+       
+        }
+        /****在原型上加方法****/
+        CreatePerson.prototype.showName=function(){ //通过原型（prototype）为CreatePerson这个自定义类添加showName方法，下面同样的道理
+            console.log('我的名字叫 '+this.name);
+        }
+        CreatePerson.prototype.showAge=function(){
+            console.log('我的年龄是 '+this.age);
+        }
+        var obj1= new CreatePerson('zhou','12');
+        obj1.showName();//==>我的名字叫 zhou
+        obj1.showAge();//==>我的年龄是 12
+
+        var obj2= new CreatePerson('li',30);
+        obj2.showName();//我的名字叫 li
+        obj2.showAge();//我的年龄是 30
+
+        console.log(obj1.showName==obj2.showName);//结果为true,因为showName这个方法都来自于原型上
+    </script>
+</body>
+</html>

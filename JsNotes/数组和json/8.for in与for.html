@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>8.for in与for</title>
+</head>
+<body>
+    <script>
+    // for in遍历json对象
+    var json1 = {
+        "name": "Bob",
+        "age": 19,
+        "gender": "male"
+    }
+    for (var attr in json1) {
+        console.log(json1[attr]); //-->Bob 19 male
+        // console.log(json1["attr"]);//-->undefined undefined undefined 访问的是json1里面attr这个名称的值，不存在attr这个名称，所以为undefined
+        // console.log(json1["age"]);//-->19 19 19 存在age这个名称
+        // console.log(json1.attr);//-->undefined undefined undefined
+    }
+    var json2 = {
+        "url": ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"],
+        "text": ["美女", "树叶", "小猫", "熊猫"]
+    }
+    for (var attr in json2) { //外层遍历json中的每一项
+        for (var i = 0; i < json2[attr].length; i++) { //因为json每一项对应的值是数组，所以需要再次对数组进行遍历
+            console.log(json2[attr][i]); //- >img / 1. jpg img / 2. jpg img / 3. jpg img / 4. jpg 美女 树叶 小猫 熊猫
+        }
+    }
+    // for in 里面可以嵌套for循环，for循环里面也可以嵌套for in
+    var arr = [{
+        "name": "Li",
+        "age": 22
+    }, {
+        "name": "Mue",
+        "age": 30
+    }];
+    for (var i = 0; i < arr.length; i++) {
+        for (var attr in arr[i]) {
+            console.log(arr[i][attr]); //-->Li 22 Mue 30
+        }
+    }
+    // for in遍历window对象的属性(其他对象也可以遍历，比如document)
+    var str = "";
+    var index = 0;
+    for (var attr in window) {
+        // console.log(window[attr]);;
+        str += index + ". " + attr + " : " + window[attr] + "<br>";
+        index++;
+    }
+    document.body.innerHTML = str; //不同的浏览器遍历出来的结果会有所差异
+    // json对象只能用for in遍历，不能使用for循环遍历(如果需要用for循环，则前提先通过自定义函数得到json对象的长度)，没有length属性，而数组能用for in遍历，也能用for循环
+    var arr2 = [1, 2, "a"];
+    for (var i in arr2) {
+        console.log(arr2[i]); //-->1 2 a
+    }
+
+
+    // 结论：for in可以遍历对象(object)和数组(array),而for循环只能遍历数组
+    </script>
+</body>
+</html>
