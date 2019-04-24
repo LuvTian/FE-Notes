@@ -76,3 +76,6 @@ computed可以监听多个变量，这个变量是在vue实例里面，用于数
 在vue里不能直接使用console.log要加上window.console.log()
 
 当要动态更新data里面的对象数据时候要用this.$set(Object,'object的键','修改的值'),给对象新增属性也是可以的
+
+后端配置histosy模式
+https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90
