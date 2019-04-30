@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="model">
+    <div id="view"></div>
+
+    <script>
+        let data = {
+            "name": "aaa"
+        }
+        document.querySelector("#model").value = data.name
+        document.querySelector("#view").textContent = data.name
+
+        Object.defineProperty(data, 'name', {
+            get(){
+                console.log('get')
+            },
+            set(newValue){
+                console.log('属性值修改了')
+                this.name  = newValue
+            }
+        })
+        data.name = '22'
+
+        // setTimeout(function(){
+        //     data.name = 'rehack'
+        // },2000)
+    </script>
+</body>
+</html>
