@@ -4,3 +4,25 @@
 onLoad只会触发一次
 onReady只会触发一次
 onShow会触发多次
+
+
+
+###获取用户信息：
+<button open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Click me </button>和wx.getUserInfo这两种获取用户信息的方式的不同：
+组件 由于是用户主动触发，不受弹框次数限制，只要用户没有授权，都会再次弹框
+API wx.getUserInfo 只会弹一次框，用户拒绝授权之后，再次调用将不会弹框
+
+
+推荐使用方法
+1.调用wx.login 获取code，然后从微信后端换取到sessionKey，用于解密getUserInfo返回的敏感数据。
+
+2.使用wx.getSetting 获取用户的授权情况
+
+    如果用户已经授权，直接调用 API wx.getUserInfo 获取用户最新的信息
+
+    用户未授权，在界面中显示一个按钮提示用户登入，当用户点击并授权后就获取到用户的最新信息。
+
+3.获取到用户数据后可以进行展示或者发送给自己的后端。
+4.不要初次打开小程序就弹框授权用户信息，在用户必须登录时才引导用户登录（如：购买前需要获取会员信息，用于同步积分数据），而不是用户一进入小程序就弹窗要求用户授权。如只需要在前端展示用户头像、昵称，无需要求用户授权，可直接展示      <open-data type="userAvatarUrl"></open-data> <open-data type="userNickName"></open-data>
+
+wx.login是静默登录，返回code，让后台通过code可以换取openid（加密后的微信号，每个用户对每个公众号的OpenID是唯一的。对于不同公众号，同一用户的openid不同））
