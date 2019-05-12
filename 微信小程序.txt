@@ -6,11 +6,14 @@ onReady只会触发一次
 onShow会触发多次
 
 
+###微信小程序授权只能通过点击按钮的方式
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view wx:else>请升级微信版本</view>
+组件 由于是用户主动触发，不受弹框次数限制，只要用户没有授权，都会再次弹框
 
 ###获取用户信息：
-<button open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Click me </button>和wx.getUserInfo这两种获取用户信息的方式的不同：
-组件 由于是用户主动触发，不受弹框次数限制，只要用户没有授权，都会再次弹框
-API wx.getUserInfo 只会弹一次框，用户拒绝授权之后，再次调用将不会弹框
+wx.getUserInfo调用前需要用户授权，在用户未授权过的情况下调用此接口，将不再出现授权弹窗，会直接进入 fail 回调。在用户已授权的情况下调用此接口，可成功获取用户信息。
+可以用wx.getSetting 获取用户当前的授权状态，判断是否已经授权if (res.authSetting['scope.userInfo']) {}
 
 
 推荐使用方法
