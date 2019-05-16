@@ -29,3 +29,10 @@ wx.getUserInfo调用前需要用户授权，在用户未授权过的情况下调
 4.不要初次打开小程序就弹框授权用户信息，在用户必须登录时才引导用户登录（如：购买前需要获取会员信息，用于同步积分数据），而不是用户一进入小程序就弹窗要求用户授权。如只需要在前端展示用户头像、昵称，无需要求用户授权，可直接展示      <open-data type="userAvatarUrl"></open-data> <open-data type="userNickName"></open-data>
 
 wx.login是静默登录，返回code，让后台通过code可以换取openid（加密后的微信号，每个用户对每个公众号的OpenID是唯一的。对于不同公众号，同一用户的openid不同））
+
+###尺寸
+750的设计稿 1px=1rpx        n px = n rpx
+640的设计稿 1px=750/640rpx      n px=n*(750/640) rpx
+
+750的设计稿 1rem = （750/20）rpx = 37.5px
+640的设计稿 1rem = （640/20）rpx = 32px
