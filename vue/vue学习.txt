@@ -79,3 +79,5 @@ computed可以监听多个变量，这个变量是在vue实例里面，用于数
 
 后端配置histosy模式
 https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90
+
+修改了环境配置后要重新npm run serve 才能生效
