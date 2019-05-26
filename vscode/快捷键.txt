@@ -13,3 +13,6 @@ Option(Mac)/Alt(Windows) 按键，然后每点击一次，光标就在当前位�
 可以设置成Ctrl键"editor.multiCursorModifier": "ctrlCmd",
 
 11.选中当前行 ctrl + L
+
+12.commadn + 1 从终端切换到工作区(编辑区) 后面的数字可以代表第几个编辑器tab
+13.配置command + t（focus terminal） 从编辑器切换到终端
