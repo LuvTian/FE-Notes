@@ -78,3 +78,13 @@ var sumScore= result.reduce((total,curr,index)=>{
 },0)
 
 console.log(sumScore)
+
+
+
+// 对象转数组的两种方法：
+// Array.from(obj)
+// [...obj]
+
+// 数组转对象 用set对象转之后会去重，set对象判断重复只能是字符串或者数字 如果是其他数据类型的值就不行
+new Set(arr) 
+// reduce一般计算用  filter是比较  set去重
