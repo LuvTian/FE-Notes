@@ -112,8 +112,18 @@ export GIT_SSH="/path/to/soks5proxyssh"
 如果出现报错：ssh_exchange_identification: Connection closed by remote host. fatal: Could not read from remote repository.
 检查代理是否开启且连接正常
 
-==============
+=================================================================================
 清理git缓存解决.gitignore不生效问题
 git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
+
+=================================================================================
+git clone指定分支
+git clone -b 分支名 远程仓库地址
+=================================================================================
+git回退到某个commit 比如某个开源项目感觉最新的一次改动有bug，可以用这个命令回到更早点的版本来排查问题
+git reset --hard commit_id 
+commit_id可以通过git log 查到或者到github commits列表下查，注意所在的分支
+git log是查的所有的commit记录 包括时间也包括commit_id
+如果只想查看最后一条commit的ID git rev-parse HEAD
