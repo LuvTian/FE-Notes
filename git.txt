@@ -45,6 +45,8 @@ git log
 git merge --no-ff -m "这里是merge日志" 要合并到当前分支下的分支名称   合并
 vim index.html 创建一个index.html的文件 可以在里面编辑内容 ESC键保存 shift+: 然后输入x就可以退出vim模式
 
+关联远程仓库
+git remote add origin git@github.com:codesboy/xxx.git
 
 
 在执行git add之前执行git status可以查看哪些文件被修改了
