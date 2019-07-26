@@ -1,0 +1,15 @@
+calc() 函数 用于动态计算
+eg:
+一个div下有两个子元素，第一个子元素的高度是100px,这个时候要让第二个子元素的高度撑满剩下的部分：
+.child2{
+    height: calc(100% - 100px);
+}
+
+还有种方法是用flex也可以实现：
+.parent{
+    display: flex;
+    flex-direction: column;
+}
+.parent .child2{
+    flex: 1;
+}
