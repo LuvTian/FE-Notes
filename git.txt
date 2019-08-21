@@ -169,3 +169,11 @@ git branch --delete xxx
 git checkout --orphan xxx 
 然后删除里面的内容 git rm -rf .
 这个时候你用git branch命令是看不见当前分支的名字的，除非你进行了第一次commit。
+
+=================================
+出现下面的这个报错可能是因为被墙，需要开代理
+ssh_exchange_identification: Connection closed by remote host
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
