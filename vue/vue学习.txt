@@ -1,4 +1,4 @@
-建议全局安装vue3命令行工具 npm install -g @vue/cli
+建议全局安装vue3命令行工具 sudo npm install -g @vue/cli 注意sudo权限，否则会报错npm ERR! code EACCES npm ERR! syscall access
 升级vue cli 先卸载 sudo npm uninstall -g @vue/cli 再安装sudo npm install -g @vue/cli
 手动删除vue cli: sudo rm -rf /usr/local/devenv/nodejs/lib/node_modules/@vue
 查看vue-cli版本 vue -V
