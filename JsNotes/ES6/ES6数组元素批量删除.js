@@ -39,3 +39,15 @@ ids.map(i => {
     arr2.splice(arr2.findIndex(item => item.id === i), 1)
 })
 console.log(arr2) // [ { id: 3, name: 'jo' } ]
+
+
+/**
+ * 从数组中删除自定元素
+ */
+
+let arr3 = ['a','c','d']
+//  要删除'c'
+// 最好是先深拷贝一份
+let arr3Copy = arr3.slice()
+arr3Copy.splice(arr3Copy.indexOf('c'), 1)
+console.log(arr3,arr3Copy) // [ 'a', 'c', 'd' ] [ 'a', 'd' ]
