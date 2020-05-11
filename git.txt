@@ -11,6 +11,9 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 
+
+使用https协议进行git操作的时候需要输密码的解决方案：
+git config credential.helper store 或者git config --global credential.helper store
 =================================================================================
 安装notepad++或者其他代码编辑器，然后打开E:\Program Files\cmder\config目录下的aliases文件，在最后面添加以下代码：
 l=ls --show-control-chars
