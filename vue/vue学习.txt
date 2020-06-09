@@ -84,6 +84,7 @@ computed可以监听多个变量，这个变量是在vue实例里面，用于数
 https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90
 
 vue cli环境变量问题：
-自定义添加的环境变量名称必须以VUE_APP_开头，否则不生效
+自定义添加的环境变量名称必须以VUE_APP_开头，否则不生效。变量值要加单引号
+BASE_URL变量 会和 vue.config.js 中的 publicPath 选项相符，即你的应用会部署到的基础路径,这个变量不要VUE_APP_开头
 修改了环境配置后要重启服务npm run serve才能生效
 在客户端使用环境变量：console.log(process.env.xxx)
