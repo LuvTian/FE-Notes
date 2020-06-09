@@ -86,3 +86,4 @@ https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%A
 vue cli环境变量问题：
 自定义添加的环境变量名称必须以VUE_APP_开头，否则不生效
 修改了环境配置后要重启服务npm run serve才能生效
+在客户端使用环境变量：console.log(process.env.xxx)
