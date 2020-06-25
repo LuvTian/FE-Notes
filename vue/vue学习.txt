@@ -88,3 +88,9 @@ vue cli环境变量问题：
 BASE_URL变量 会和 vue.config.js 中的 publicPath 选项相符，即你的应用会部署到的基础路径,这个变量不要VUE_APP_开头
 修改了环境配置后要重启服务npm run serve才能生效
 在客户端使用环境变量：console.log(process.env.xxx)
+
+vue前端项目部署到二级目录方法：
+1.在vue.config.js里配置publicPath: process.env.VUE_APP_PUBLIC_PATH ? process.env.VUE_APP_PUBLIC_PATH : '/'
+2.在路由route/index.js里配置base: process.env.VUE_APP_PUBLIC_PATH ? process.env.VUE_APP_PUBLIC_PATH : '/'
+3.nginx配置
+这三个配置缺一不可，否则会导致刷新页面出现404或者其他报错
