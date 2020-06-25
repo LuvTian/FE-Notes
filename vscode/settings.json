@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Monokai",
-    "editor.fontFamily": "Monaco,Consolas",
+    "editor.fontFamily": "'Source Code Variable','fCascadia Code',Menlo,Monaco,'Courier New',monospace",
     // 使用ctrl多光标同时编辑，默认是alt，同时“转到定义”和“打开链接”将由ctrl变成alt
     "editor.multiCursorModifier": "ctrlCmd",
     // 打开vscode的时候不要显示欢迎界面
@@ -30,27 +30,15 @@
     // ###以下是格式化和Vue、eslint相关的设置（vscode需要安装插件eslint和vetur、项目的.eslintrc.js需要配置rules：{'indent': [2, 4]}）
     // 关闭根据文件类型自动检测Editor: Tab Size和Editor: Insert Spaces
     "editor.detectIndentation": false,
-    // 保存文件时自动格式化
-    "editor.formatOnSave": true,
-    // 保存时eslint自动修复错误
-    "eslint.autoFixOnSave": true,
-    // eslint检查的文件类型
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "html",
-        "vue",
+    "eslint.format.enable": true, //eslint文件的格式化程序
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true // 自动修复
+    },
+    "eslint.workingDirectories": [
         {
-            "language": "html",
-            "autoFix": true
-        },
-        {
-            "language": "vue",
-            "autoFix": true
+            "mode": "auto"
         }
-    ],
-    "vetur.format.options.tabSize": 4,
-    "vetur.format.defaultFormatter.js": "vscode-typescript", //默认的prettier在格式化的时候回给js代码加上分号，会把单引号变成双引号
+    ], //ESLint使用的工作目录,不配置这个自动修复不生效
     // 以下为stylus格式化配置
     "stylusSupremacy.insertColons": false, // 是否插入冒号
     "stylusSupremacy.insertSemicolons": false, // 是否插入分号
