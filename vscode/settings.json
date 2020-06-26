@@ -28,7 +28,7 @@
     // 使用TAB键补全emmet
     "emmet.triggerExpansionOnTab": true,
     // ###以下是格式化和Vue、eslint相关的设置（vscode需要安装插件eslint和vetur、项目的.eslintrc.js需要配置rules：{'indent': [2, 4]}）
-    // 关闭根据文件类型自动检测Editor: Tab Size和Editor: Insert Spaces
+    // 关闭根据文件类型自动检测Editor: Tab Size和Editor: Insert Spaces,不关闭这个vue的tabsize设置4空格可能不生效
     "editor.detectIndentation": false,
     "eslint.format.enable": true, //eslint文件的格式化程序
     "editor.codeActionsOnSave": {
