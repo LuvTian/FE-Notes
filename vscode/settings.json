@@ -39,9 +39,7 @@
             "mode": "auto"
         }
     ], //ESLint使用的工作目录,不配置这个自动修复不生效
-    // 以下为stylus格式化配置
-    "stylusSupremacy.insertColons": false, // 是否插入冒号
-    "stylusSupremacy.insertSemicolons": false, // 是否插入分号
-    "stylusSupremacy.insertBraces": false, // 是否插入大括号
-    "stylusSupremacy.insertNewLineAroundBlocks": false // 两个选择器中是否换行
+    "vetur.format.options.tabSize": 4,
+    "vetur.validation.template": false, //禁用vetur格式化template（有eslint的情况下）
+    "vetur.validation.script": false //禁用vetur格式化script（有eslint的情况下）
 }
