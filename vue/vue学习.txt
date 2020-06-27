@@ -8,7 +8,7 @@ vue create demo 创建一个项目(也可以通过vue ui 命令以图形化界�
 运行项目 npm run serve 或者npx vue-cli-service serve
 
 不想全局安装也可以本地安装vue cli : npm install @vue/cli
-使用方法：node_modules/.bin/vue -V
+使用方法：node_modules/.bin/vue -V //非全局安装的其他命令行工具也可以在node_modules/.bin/下找并使用
 node_modules/.bin/vue create xxx 创建vue项目
 
 #js里面的图片地址需要import或者require进来的才能使用
