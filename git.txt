@@ -86,6 +86,10 @@ git config --global --unset https.proxy
 git config --global --get http.proxy
 git config --global --get https.proxy
 或者cat ~/.gitconfig
+如果Git代理不失效的时候：
+1.尝试撤销代理重新设置,http和https都要设置才行。2.尝试设置终端代理。3.尝试使用http协议代理'http://127.0.0.1:1087' 4.排查代理是否故障，端口号是否正确
+
+
 
 #SSH协议
 为个别域名设置代理
