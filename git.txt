@@ -185,3 +185,9 @@ fatal: Could not read from remote repository.
 
 Please make sure you have the correct access rights
 and the repository exists.
+
+=================================
+git config --global --list --show-origin  #查看所有的配置以及它们所在的文件
+
+=================================
+新版git 要加一个配置git config --global pull.ff only 才能git pull
