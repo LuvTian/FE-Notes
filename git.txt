@@ -123,7 +123,16 @@ export GIT_SSH="/path/to/soks5proxyssh"
 检查代理是否开启且连接正常
 
 =================================================================================
-清理git缓存解决.gitignore不生效问题
+gitignore不生效问题:
+匹配规则不正确
+**表示匹配多级目录 如**/.DS_Store
+a/**/b: 忽略a/b, a/x/b, a/x/y/b等
+!表示不忽略
+bin/: 忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件
+/bin: 忽略根目录下的bin文件
+/*.c: 忽略 cat.c，不忽略 build/cat.c
+
+清理git缓存解决.
 git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
