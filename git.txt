@@ -200,3 +200,9 @@ git config --global --list --show-origin  #查看所有的配置以及它们所�
 
 =================================
 新版git 要加一个配置git config --global pull.ff only 才能git pull
+
+=================================
+fatal: Unable to find remote helper for 'https'
+出现这种错误可能是因为Mac上有多个git版本，当脚本调用git的时候是使用的/Library/Developer/CommandLineTools/usr/bin/git的git，而此版本缺少libexec/git-core文件
+还有一种原因可能是在编译构建git时缺少curl/openssl,验证是否缺少的方法
+ls $(/Library/Developer/CommandLineTools/usr/bin/git --exec-path) | grep https
