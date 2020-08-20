@@ -94,3 +94,10 @@ vue前端项目部署到二级目录方法：
 2.在路由route/index.js里配置base: process.env.VUE_APP_PUBLIC_PATH ? process.env.VUE_APP_PUBLIC_PATH : '/'
 3.nginx配置
 这三个配置缺一不可，否则会导致刷新页面出现404或者其他报错
+
+
+vue插值表达式闪烁问题
+给闪烁的元素加上v-cloak属性（不需要表达式）
+css里加上[v-cloak]{display:none;}
+产生这个问题原因是{{message}}文本内容先于Vue加载，Mustache标签还未经vue编译，尤其是用引入vue.js方式安装js会出现这种情况，用vue-cli很少出现
+当vue编译后，会移除v-cloak属性，此时元素就会正常显示出来
