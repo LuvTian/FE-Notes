@@ -1,0 +1,23 @@
+{
+    "Print to console": {
+        "prefix": "vue",
+        "body": [
+            "<template>",
+            "    <div>hello$1</div>",
+            "</template>\n",
+            "<script>",
+            "export default {",
+            "    data () {",
+            "        return {\n$2",
+            "        }",
+            "    },",
+            "    methods: {\n$3",
+            "    }",
+            "}",
+            "</script>",
+            "<style lang=\"scss\" scoped>\n",
+            "</style>\n"
+        ],
+        "description": "Log output to console"
+    }
+}

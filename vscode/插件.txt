@@ -1,2 +1,3 @@
 ﻿插件在用户目录下的.vscode
-vetur,python,coderunner,beautify,autofilename,sftp,docblocker,view-in-browser
+vetur,python,code Runner,beautify,autofilename,sftp,docblocker,view-in-browser
+ESLint,Live Server
