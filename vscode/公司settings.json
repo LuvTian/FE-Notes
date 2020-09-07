@@ -1,0 +1,23 @@
+{
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Monokai",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontFamily": "'Source Code Variable','Cascadia Code',Menlo,Monaco,'Courier New',monospace",
+    // "editor.fontLigatures": true, //连字符箭头会连起来
+    "editor.fontSize": 14,
+    "editor.detectIndentation": false,
+    "eslint.format.enable": true, //eslint的文件格式化程序
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true // 自动修复
+    },
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],//ESLint使用的工作目录,不配置这个自动修复不生效
+    "vetur.format.options.tabSize": 4,
+    "vetur.validation.template": false, //禁用vetur格式化template（有eslint的情况下）
+    "vetur.validation.script": false, //禁用vetur格式化script（有eslint的情况下）
+    "emmet.triggerExpansionOnTab": true    
+}
